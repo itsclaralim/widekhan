@@ -31,7 +31,14 @@
   opacity: 0;
   animation: fadeInZoom 2s ease-out 0.3s forwards;
 }
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
 
+  .hero-logo:hover {
+    filter: brightness(1.4) drop-shadow(0 0 12px white);
+    transform: scale(1.03);
+  }
 @keyframes fadeInZoom {
   0% {
     opacity: 0;
