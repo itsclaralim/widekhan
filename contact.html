@@ -5,66 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | WIDEKHAN</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: #000;
       color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
+      scroll-behavior: smooth;
+      line-height: 1.6;
     }
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px 40px;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #222;
-  flex-wrap: wrap; /* 👉 줄바꿈 가능하게 */
-}
 
-.logo-hover {
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.logo-hover:hover {
-  filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-  transform: scale(1.05);
-}
-
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-nav a {
-  color: white;
-  margin-left: 20px; /* 👉 넓이를 기존보다 줄였음 */
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #aaa;
-}
-
-    section {
-      padding: 120px 40px 60px;
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
     }
-    section h2 {
+
+    .logo-hover {
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo-hover:hover {
+      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
+      transform: scale(1.05);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    section.contact {
+      padding: 160px 40px 100px;
+    }
+
+    section.contact h2 {
       text-align: center;
       font-size: 36px;
+      margin-bottom: 30px;
     }
+
     form {
       max-width: 600px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
     }
+
     input, textarea {
       padding: 15px;
       margin-bottom: 20px;
@@ -74,6 +86,7 @@ nav a:hover {
       color: #fff;
       font-size: 16px;
     }
+
     button {
       padding: 14px;
       background: white;
@@ -84,9 +97,11 @@ nav a:hover {
       border-radius: 5px;
       transition: background 0.3s;
     }
+
     button:hover {
       background: #ccc;
     }
+
     footer {
       padding: 40px;
       background: #111;
@@ -97,24 +112,26 @@ nav a:hover {
   </style>
 </head>
 <body>
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
-      alt="Widekhan Logo"
-      class="logo-hover"
-      style="height: 32px;"
-    />
-  </a>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
 
+  <!-- Header -->
+  <header>
+    <a href="index.html">
+      <img 
+        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
+        alt="Widekhan Logo"
+        class="logo-hover"
+        style="height: 40px;"
+      />
+    </a>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="services.html">What We Do</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
+  <!-- Contact Section -->
   <section class="contact">
     <h2>Contact Us</h2>
     <form action="https://formspree.io/f/mvgqvoaz" method="POST">
@@ -128,5 +145,6 @@ nav a:hover {
   <footer>
     © 2025 WIDEKHAN. All rights reserved.
   </footer>
+
 </body>
 </html>
