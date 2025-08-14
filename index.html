@@ -11,10 +11,6 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-    }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #000;
@@ -37,6 +33,7 @@
     }
 
     .logo-hover {
+      height: 40px;
       transition: filter 0.3s ease, transform 0.3s ease;
     }
 
@@ -45,9 +42,14 @@
       transform: scale(1.05);
     }
 
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
     nav a {
       color: white;
-      margin-left: 30px;
       text-decoration: none;
       font-size: 14px;
       transition: color 0.3s;
@@ -55,6 +57,39 @@
 
     nav a:hover {
       color: #aaa;
+    }
+
+    /* 햄버거 아이콘 기본 숨김 */
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* 모바일 반응형 */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        border: 1px solid #333;
+        border-radius: 8px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
     }
 
     .hero {
@@ -138,10 +173,14 @@
       src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
       alt="Widekhan Logo"
       class="logo-hover"
-      style="height: 40px;"
     />
   </a>
-  <nav>
+  
+  <!-- 햄버거 버튼 -->
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  
+  <!-- 네비게이션 메뉴 -->
+  <nav id="nav-menu">
     <a href="about.html">About</a>
     <a href="services.html">What We Do</a>
     <a href="gallery.html">Gallery</a>
@@ -169,6 +208,14 @@
   <a href="#">LinkedIn</a> |
   <a href="mailto:info@widekhan.com">Email</a>
 </footer>
+
+<!-- JavaScript -->
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('show');
+  }
+</script>
 
 </body>
 </html>
