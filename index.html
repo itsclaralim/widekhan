@@ -37,11 +37,21 @@
     opacity: 0;
     transform: scale(0.8);
   }
+  
   100% {
     opacity: 1;
     transform: scale(1);
   }
 }
+    .logo-hover {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo-hover:hover {
+  filter: brightness(1.6) drop-shadow(0 0 6px #fff);
+  transform: scale(1.05);
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -224,6 +234,10 @@
 <body>
   <header>
     <img src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" alt="Widekhan Logo" style="height: 40px;" />
+     alt="Widekhan Logo"
+  class="logo-hover"
+  style="height: 40px;"
+/>
     <nav>
       <a href="#about">About</a>
       <a href="#services">What We Do</a>
