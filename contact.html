@@ -5,138 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | WIDEKHAN</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      background: #000;
+      color: #fff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
+      margin: 0;
     }
-
     header {
       position: fixed;
       top: 0;
       width: 100%;
       padding: 20px 40px;
       background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
+      z-index: 1000;
     }
-
     .logo-hover {
-      transition: filter 0.3s ease, transform 0.3s ease;
+      height: 40px;
+      transition: 0.3s;
     }
-
     .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
+      filter: brightness(1.5) drop-shadow(0 0 6px white);
       transform: scale(1.05);
     }
-
     nav a {
       color: white;
-      margin-left: 30px;
       text-decoration: none;
+      margin-left: 30px;
       font-size: 14px;
-      transition: color 0.3s;
     }
-
     nav a:hover {
       color: #aaa;
     }
-
     section {
-      padding: 120px 40px 100px;
-      background-color: #000;
+      padding: 120px 40px 60px;
     }
-
     section h2 {
+      text-align: center;
       font-size: 36px;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #f5f5f5;
     }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      text-align: center;
-      font-size: 18px;
-      color: #ccc;
-    }
-
-    .contact form {
+    form {
       max-width: 600px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
     }
-
-    .contact input,
-    .contact textarea {
-      margin-bottom: 20px;
+    input, textarea {
       padding: 15px;
-      border: none;
-      font-size: 16px;
+      margin-bottom: 20px;
       background: #1a1a1a;
-      color: #fff;
+      border: none;
       border-radius: 5px;
+      color: #fff;
+      font-size: 16px;
     }
-
-    .contact button {
+    button {
+      padding: 14px;
       background: white;
       color: black;
-      padding: 14px;
+      border: none;
       font-weight: bold;
       cursor: pointer;
-      border: none;
-      transition: 0.3s;
       border-radius: 5px;
+      transition: background 0.3s;
     }
-
-    .contact button:hover {
+    button:hover {
       background: #ccc;
     }
-
     footer {
       padding: 40px;
       background: #111;
       text-align: center;
       font-size: 14px;
       color: #888;
-      margin-top: 60px;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <a href="index.html">
-      <img 
-        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
-        alt="Widekhan Logo"
-        class="logo-hover"
-        style="height: 40px;"
-      />
+      <img src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" class="logo-hover" alt="Widekhan Logo" />
     </a>
     <nav>
       <a href="about.html">About</a>
@@ -146,24 +96,18 @@
     </nav>
   </header>
 
-  <!-- Contact Section -->
   <section class="contact">
     <h2>Contact Us</h2>
     <form action="https://formspree.io/f/mvgqvoaz" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer>
-    © 2025 WIDEKHAN. All rights reserved. |
-    <a href="#">Instagram</a> |
-    <a href="#">LinkedIn</a> |
-    <a href="mailto:info@widekhan.com">Email</a>
+    © 2025 WIDEKHAN. All rights reserved.
   </footer>
-
 </body>
 </html>
