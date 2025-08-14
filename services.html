@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | WIDEKHAN</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: white;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo-hover {
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .logo-hover:hover {
+      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
+      transform: scale(1.05);
+    }
+
+    nav a {
+      color: white;
+      margin-left: 30px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #aaa;
+    }
+
+    section {
+      padding: 120px 40px 100px;
+      background-color: #000;
+    }
+
+    section h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #f5f5f5;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      text-align: center;
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.8;
+    }
+
+    .pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .pillars div {
+      flex: 1;
+      min-width: 200px;
+      max-width: 280px;
+      background-color: #111;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #222;
+      border-radius: 8px;
+    }
+
+    footer {
+      padding: 40px;
+      background: #111;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #aaa;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <img 
+      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
+      alt="Widekhan Logo"
+      class="logo-hover"
+      style="height: 40px;"
+    />
+  </a>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="services.html">What We Do</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section id="services">
+  <h2>What We Do</h2>
+  <p>We are creators, visionaries, and global connectors.  
+     WIDEKHAN offers bold services for ambitious athletes, brands, and projects that dare to move differently.</p>
+
+  <div class="pillars">
+    <div>
+      🏅<br><strong>Athlete & Talent Management</strong><br>
+      Guiding elite talent with vision and care.  
+      We go beyond contracts to build careers and character.
+    </div>
+    <div>
+      🧢<br><strong>Brand Studio</strong><br>
+      Building labels, visuals, and media identities.  
+      We blend creative instinct with strategic insight.
+    </div>
+    <div>
+      🌐<br><strong>Global Activation</strong><br>
+      Connecting Korea to the world stage.  
+      From Seoul to the world — we activate brand energy globally.
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 WIDEKHAN. All rights reserved. |
+  <a href="#">Instagram</a> |
+  <a href="#">LinkedIn</a> |
+  <a href="mailto:info@widekhan.com">Email</a>
+</footer>
+
+</body>
+</html>
