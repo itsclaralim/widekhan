@@ -4,7 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | WIDEKHAN</title>
+
   <style>
+    /* Neue Haas Font 설정 */
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
+      font-weight: 100;
+    }
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
+      font-weight: 300;
+    }
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
+      font-weight: 400;
+    }
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
+      font-weight: 500;
+    }
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
+      font-weight: 700;
+    }
+    @font-face {
+      font-family: 'NeueHaas';
+      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
+      font-weight: 900;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,11 +45,12 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'NeueHaas', sans-serif;
       background-color: #000;
       color: white;
       scroll-behavior: smooth;
       line-height: 1.6;
+      font-weight: 400;
     }
 
     header {
@@ -34,6 +68,7 @@
 
     .logo-hover {
       transition: filter 0.3s ease, transform 0.3s ease;
+      height: 40px;
     }
 
     .logo-hover:hover {
@@ -47,6 +82,7 @@
       text-decoration: none;
       font-size: 14px;
       transition: color 0.3s;
+      font-weight: 500;
     }
 
     nav a:hover {
@@ -63,6 +99,7 @@
       margin-bottom: 30px;
       text-align: center;
       color: #f5f5f5;
+      font-weight: 700;
     }
 
     section p {
@@ -72,6 +109,7 @@
       font-size: 18px;
       color: #ccc;
       line-height: 1.8;
+      font-weight: 300;
     }
 
     .pillars {
@@ -91,6 +129,17 @@
       text-align: center;
       border: 1px solid #222;
       border-radius: 8px;
+      font-weight: 300;
+      font-size: 15px;
+      color: #ddd;
+    }
+
+    .pillars strong {
+      display: block;
+      margin: 12px 0 8px;
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
     }
 
     footer {
@@ -100,6 +149,7 @@
       font-size: 14px;
       color: #888;
       margin-top: 60px;
+      font-weight: 300;
     }
 
     footer a {
@@ -121,7 +171,6 @@
       src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
       alt="Widekhan Logo"
       class="logo-hover"
-      style="height: 40px;"
     />
   </a>
   <nav>
@@ -134,23 +183,25 @@
 
 <section id="services">
   <h2>What We Do</h2>
-  <p>We are creators, visionaries, and global connectors.  
-     WIDEKHAN offers bold services for ambitious athletes, brands, and projects that dare to move differently.</p>
+  <p>
+    We are creators, visionaries, and global connectors.  
+    WIDEKHAN offers bold services for ambitious athletes, brands, and projects that dare to move differently.
+  </p>
 
   <div class="pillars">
     <div>
-      🏅<br><strong>Athlete & Talent Management</strong><br>
-      Guiding elite talent with vision and care.  
+      🏅<br><strong>Athlete & Talent Management</strong>
+      Guiding elite talent with vision and care.<br />
       We go beyond contracts to build careers and character.
     </div>
     <div>
-      🧢<br><strong>Brand Studio</strong><br>
-      Building labels, visuals, and media identities.  
+      🧢<br><strong>Brand Studio</strong>
+      Building labels, visuals, and media identities.<br />
       We blend creative instinct with strategic insight.
     </div>
     <div>
-      🌐<br><strong>Global Activation</strong><br>
-      Connecting Korea to the world stage.  
+      🌐<br><strong>Global Activation</strong>
+      Connecting Korea to the world stage.<br />
       From Seoul to the world — we activate brand energy globally.
     </div>
   </div>
