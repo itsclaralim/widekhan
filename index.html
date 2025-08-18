@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WIDEKHAN</title>
-
   <style>
-    /* Neue Haas Font Family */
     @font-face {
       font-family: 'NeueHaas';
       src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
@@ -94,7 +92,6 @@
       color: #aaa;
     }
 
-    /* Hamburger Menu */
     .hamburger {
       display: none;
       font-size: 28px;
@@ -181,6 +178,28 @@
       }
     }
 
+    .content-section {
+      padding: 100px 20px;
+      text-align: center;
+      background-color: black;
+    }
+
+    .content-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .content-section p {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
     footer {
       padding: 40px;
       background: #111;
@@ -206,14 +225,12 @@
 <header>
   <a href="index.html">
     <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
+      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
       alt="Widekhan Logo"
       class="logo-hover"
     />
   </a>
-
   <button class="hamburger" onclick="toggleMenu()">☰</button>
-
   <nav id="nav-menu">
     <a href="about.html">About</a>
     <a href="services.html">What We Do</a>
@@ -224,16 +241,46 @@
 
 <section class="hero">
   <video autoplay muted loop playsinline class="background-video" id="bg-video">
-    <source src="https://raw.githubusercontent.com/itsclaralim/widekhan/main/baseball.mp4" type="video/mp4" />
+    <source src="baseball.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
   <div class="hero-content">
     <img 
       src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-      alt="Widekhan Logo" 
-      class="hero-logo" 
+      alt="Widekhan Logo"
+      class="hero-logo"
     />
   </div>
+</section>
+
+<!-- ✅ 여기 추가된 텍스트 섹션 -->
+<section class="content-section">
+  <h2>“One Win Is Easy. Staying on Top Is Hard.”</h2>
+  <p>– Genghis Khan</p>
+
+  <p>
+    Everyone wins once. Few stay on top.  
+    <br />
+    <strong>Win wide, like a Khan.</strong>
+  </p>
+
+  <p>
+    We’re not just another sports marketing and talent agency.  
+    <br />
+    We’re <strong>Widekhan</strong>—where elite athletes and creators forge their legacy.
+  </p>
+
+  <p>
+    As your strategic partner, we turn victories on and off the field, court, or track  
+    into enduring influence that transcends the game.
+  </p>
+
+  <p>
+    Through bold brand collaborations and a voice that commands attention,  
+    we don’t just grow careers—we amplify them.  
+    <br />
+    <strong>We help you win wide, like a Khan.</strong>
+  </p>
 </section>
 
 <footer>
@@ -244,15 +291,12 @@
 </footer>
 
 <script>
-  // 햄버거 메뉴 toggle
   function toggleMenu() {
     const nav = document.getElementById('nav-menu');
     nav.classList.toggle('show');
   }
 
-  // 비디오 자동 재생 보장
   const video = document.getElementById('bg-video');
-
   window.addEventListener('load', () => {
     video.play().catch(err => {
       console.warn('Autoplay blocked:', err);
