@@ -7,33 +7,8 @@
   <style>
     @font-face {
       font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
       src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
       font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
     }
 
     * {
@@ -47,8 +22,6 @@
       background-color: #000;
       color: white;
       scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
     }
 
     header {
@@ -56,71 +29,36 @@
       top: 0;
       width: 100%;
       padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.85);
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
     }
 
     .logo-hover {
       height: 40px;
-      transition: filter 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     nav {
       display: flex;
       gap: 30px;
-      align-items: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #aaa;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 8px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
+      color: #ccc;
     }
 
     .hero {
@@ -129,84 +67,82 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
       position: relative;
       overflow: hidden;
     }
 
     .background-video {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: opacity 0.8s ease-out;
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
-    .hero-logo {
-      max-width: 600px;
-      width: 90%;
-      opacity: 0;
-      animation: fadeInZoom 2s ease-out 0.3s forwards;
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-      transition: filter 0.3s ease, transform 0.3s ease;
+    .hero-content h1 {
+      font-size: 48px;
       font-weight: 900;
+      margin-bottom: 12px;
     }
 
-    .hero-logo:hover {
-      filter: brightness(1.4) drop-shadow(0 0 16px white);
-      transform: scale(1.05);
+    .hero-content p {
+      font-size: 20px;
+      color: #ccc;
     }
 
-    @keyframes fadeInZoom {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .fade {
+      opacity: 0.2 !important;
     }
 
     .content-section {
       padding: 100px 20px;
       text-align: center;
-      background-color: black;
+      background-color: #000;
     }
 
     .content-section h2 {
       font-size: 36px;
       font-weight: 700;
       margin-bottom: 20px;
-      text-transform: uppercase;
-      color: white;
     }
 
     .content-section p {
       max-width: 800px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto 40px auto;
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.6;
       color: #ccc;
     }
 
+    .cta-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background: white;
+      color: black;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #ddd;
+    }
+
     footer {
-      padding: 40px;
+      padding: 40px 20px;
       background: #111;
       text-align: center;
       font-size: 14px;
-      color: #888;
-      font-weight: 300;
+      color: #777;
     }
 
     footer a {
@@ -230,12 +166,11 @@
       class="logo-hover"
     />
   </a>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav id="nav-menu">
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+  <nav>
+    <a href="#">About</a>
+    <a href="#">What We Do</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
   </nav>
 </header>
 
@@ -245,15 +180,11 @@
     Your browser does not support the video tag.
   </video>
   <div class="hero-content">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-      alt="Widekhan Logo"
-      class="hero-logo"
-    />
+    <h1>Win Wide, Like a Khan</h1>
+    <p>From Athlete to Creator—and Beyond</p>
   </div>
 </section>
 
-<!-- ✅ 여기 추가된 텍스트 섹션 -->
 <section class="content-section">
   <h2>“One Win Is Easy. Staying on Top Is Hard.”</h2>
   <p>– Genghis Khan</p>
@@ -281,33 +212,25 @@
     <br />
     <strong>We help you win wide, like a Khan.</strong>
   </p>
+
+  <a href="contact.html" class="cta-button">Get in Touch</a>
 </section>
 
 <footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+  <p>As a division of Widekhan International</p>
+  <p><a href="mailto:info@widekhan.com">info@widekhan.com</a> | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
+  <p>© 2025 WIDEKHAN. All rights reserved.</p>
 </footer>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById('nav-menu');
-    nav.classList.toggle('show');
-  }
-
+  // 비디오 스크롤 fade 처리
   const video = document.getElementById('bg-video');
-  window.addEventListener('load', () => {
-    video.play().catch(err => {
-      console.warn('Autoplay blocked:', err);
-    });
-  });
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && video.paused) {
-      video.play().catch(err => {
-        console.warn('Video resume blocked:', err);
-      });
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    if (scrollY > window.innerHeight / 2) {
+      video.classList.add('fade');
+    } else {
+      video.classList.remove('fade');
     }
   });
 </script>
