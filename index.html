@@ -4,36 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WIDEKHAN</title>
+
   <style>
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
+    /* Font 설정 (기본 sans-serif로 대체 가능) */
     @font-face {
       font-family: 'NeueHaas';
       src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
       font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
     }
 
     * {
@@ -47,8 +24,6 @@
       background-color: #000;
       color: white;
       scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
     }
 
     header {
@@ -61,66 +36,31 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
     }
 
     .logo-hover {
       height: 40px;
-      transition: filter 0.3s ease, transform 0.3s ease;
+      transition: transform 0.3s ease;
     }
 
     .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
     nav {
       display: flex;
       gap: 30px;
-      align-items: center;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
       font-weight: 500;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #aaa;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 8px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
+      color: #ccc;
     }
 
     .hero {
@@ -129,42 +69,26 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 0 20px;
       position: relative;
       overflow: hidden;
     }
 
     .background-video {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: 0;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: opacity 0.5s ease;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-logo {
+    .hero-content img {
+      width: 60%;
       max-width: 600px;
-      width: 90%;
+      animation: fadeInZoom 2s ease-out forwards;
       opacity: 0;
-      animation: fadeInZoom 2s ease-out 0.3s forwards;
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-      transition: filter 0.3s ease, transform 0.3s ease;
-      font-weight: 900;
-    }
-
-    .hero-logo:hover {
-      filter: brightness(1.4) drop-shadow(0 0 16px white);
-      transform: scale(1.05);
     }
 
     @keyframes fadeInZoom {
@@ -178,35 +102,45 @@
       }
     }
 
-    .content-section {
+    .divider {
+      height: 80px;
+      background: linear-gradient(to bottom, transparent, #111);
+    }
+
+    .manifesto {
+      background-color: #111;
       padding: 100px 20px;
       text-align: center;
-      background-color: black;
     }
 
-    .content-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: white;
-    }
-
-    .content-section p {
+    .manifesto-box {
       max-width: 800px;
-      margin: 0 auto 30px auto;
+      margin: 0 auto;
+      padding: 40px;
+      border: 1px solid #333;
+      background-color: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+    }
+
+    .manifesto-box h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .manifesto-box p {
       font-size: 18px;
-      line-height: 1.8;
+      margin: 20px 0;
       color: #ccc;
     }
 
     footer {
-      padding: 40px;
+      padding: 40px 20px;
       background: #111;
       text-align: center;
       font-size: 14px;
-      color: #888;
-      font-weight: 300;
+      color: #777;
     }
 
     footer a {
@@ -222,95 +156,86 @@
 </head>
 <body>
 
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
-      alt="Widekhan Logo"
-      class="logo-hover"
-    />
-  </a>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav id="nav-menu">
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img 
+        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
+        alt="Widekhan Logo"
+        class="logo-hover"
+      />
+    </a>
+    <nav>
+      <a href="#">About</a>
+      <a href="#">What We Do</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <video autoplay muted loop playsinline class="background-video" id="bg-video">
-    <source src="baseball.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-content">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-      alt="Widekhan Logo"
-      class="hero-logo"
-    />
-  </div>
-</section>
+  <!-- HERO VIDEO SECTION -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="background-video" id="bg-video">
+      <source src="baseball.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+      <img 
+        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
+        alt="Widekhan Logo"
+      />
+    </div>
+  </section>
 
-<!-- ✅ 여기 추가된 텍스트 섹션 -->
-<section class="content-section">
-  <h2>“One Win Is Easy. Staying on Top Is Hard.”</h2>
-  <p>– Genghis Khan</p>
+  <!-- DIVIDER (비디오와 텍스트 사이 부드러운 연결) -->
+  <div class="divider"></div>
 
-  <p>
-    Everyone wins once. Few stay on top.  
-    <br />
-    <strong>Win wide, like a Khan.</strong>
-  </p>
+  <!-- MANIFESTO SECTION -->
+  <section class="manifesto">
+    <div class="manifesto-box">
+      <h2>“One Win Is Easy. Staying on Top Is Hard.”</h2>
+      <p>– Genghis Khan</p>
 
-  <p>
-    We’re not just another sports marketing and talent agency.  
-    <br />
-    We’re <strong>Widekhan</strong>—where elite athletes and creators forge their legacy.
-  </p>
+      <p>Everyone wins once. Few stay on top.<br /><strong>Win wide, like a Khan.</strong></p>
 
-  <p>
-    As your strategic partner, we turn victories on and off the field, court, or track  
-    into enduring influence that transcends the game.
-  </p>
+      <p>We’re not just another sports marketing and talent agency.<br />
+      We’re <strong>Widekhan</strong>—where elite athletes and creators forge their legacy.</p>
 
-  <p>
-    Through bold brand collaborations and a voice that commands attention,  
-    we don’t just grow careers—we amplify them.  
-    <br />
-    <strong>We help you win wide, like a Khan.</strong>
-  </p>
-</section>
+      <p>As your strategic partner, we turn victories on and off the field, court, or track<br />
+      into enduring influence that transcends the game.</p>
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
-</footer>
+      <p>Through bold brand collaborations and a voice that commands attention,<br />
+      we don’t just grow careers—we amplify them.<br />
+      <strong>We help you win wide, like a Khan.</strong></p>
+    </div>
+  </section>
 
-<script>
-  function toggleMenu() {
-    const nav = document.getElementById('nav-menu');
-    nav.classList.toggle('show');
-  }
+  <!-- FOOTER -->
+  <footer>
+    © 2025 WIDEKHAN. All rights reserved. |
+    <a href="#">Instagram</a> |
+    <a href="#">LinkedIn</a> |
+    <a href="mailto:info@widekhan.com">Email</a>
+  </footer>
 
-  const video = document.getElementById('bg-video');
-  window.addEventListener('load', () => {
-    video.play().catch(err => {
-      console.warn('Autoplay blocked:', err);
+  <!-- JAVASCRIPT for video fade on scroll -->
+  <script>
+    const video = document.getElementById('bg-video');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const fadeStart = 0;
+      const fadeEnd = 400;
+
+      if (scrollTop < fadeStart) {
+        video.style.opacity = 1;
+      } else if (scrollTop > fadeEnd) {
+        video.style.opacity = 0;
+      } else {
+        video.style.opacity = 1 - (scrollTop - fadeStart) / (fadeEnd - fadeStart);
+      }
     });
-  });
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && video.paused) {
-      video.play().catch(err => {
-        console.warn('Video resume blocked:', err);
-      });
-    }
-  });
-</script>
+  </script>
 
 </body>
 </html>
