@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WIDEKHAN</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
   <style>
     @font-face {
       font-family: 'NeueHaas';
@@ -36,130 +38,66 @@
       font-weight: 900;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
       font-family: 'NeueHaas', sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
     }
 
-    header {
+    .loading-screen {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-hover {
-      height: 40px;
-      transition: filter 0.3s ease, transform 0.3s ease;
-    }
-
-    .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 8px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .hero {
-      height: 100vh;
+      height: 100%;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      position: relative;
-      overflow: hidden;
+      z-index: 9999;
+      transition: opacity 0.8s ease-out;
     }
 
-    .background-video {
+    .loading-screen.hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loading-logo {
+      max-width: 300px;
+      width: 80%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .video-container {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      overflow: hidden;
+    }
+
+    .background-video {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      z-index: 0;
+      object-position: center;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      z-index: 2;
     }
 
     .hero-logo {
       max-width: 600px;
       width: 90%;
-      opacity: 0;
-      animation: fadeInZoom 2s ease-out 0.3s forwards;
       filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-      transition: filter 0.3s ease, transform 0.3s ease;
-      font-weight: 900;
+      transition: all 0.3s ease;
     }
 
     .hero-logo:hover {
@@ -167,149 +105,315 @@
       transform: scale(1.05);
     }
 
-    @keyframes fadeInZoom {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
+    .quote-mark {
+      font-size: 120px;
+      line-height: 1;
+      color: #333;
+      font-weight: 900;
+    }
+
+    .section-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #333, transparent);
+      margin: 80px 0;
+    }
+
+    .decorative-strip {
+      height: 20px;
+      background: repeating-linear-gradient(
+        90deg,
+        #222 0px,
+        #222 40px,
+        #333 40px,
+        #333 60px
+      );
+      opacity: 0.3;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .cta-section {
+      background: linear-gradient(135deg, #111, #222);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .mobile-nav {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-nav.show {
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      .quote-mark {
+        font-size: 80px;
       }
-      100% {
-        opacity: 1;
-        transform: scale(1);
+    }
+
+    @media print {
+      .loading-screen {
+        display: none !important;
       }
-    }
-
-    .content-section {
-      padding: 100px 20px;
-      text-align: center;
-      background-color: black;
-    }
-
-    .content-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: white;
-    }
-
-    .content-section p {
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #ccc;
-    }
-
-    footer {
-      padding: 40px;
-      background: #111;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      font-weight: 300;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
+      
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      
+      .video-container {
+        display: none !important;
+      }
     }
   </style>
 </head>
-<body>
+<body class="bg-black text-white overflow-x-hidden">
 
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
-      alt="Widekhan Logo"
-      class="logo-hover"
-    />
-  </a>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav id="nav-menu">
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+<!-- Loading Screen -->
+<div id="loadingScreen" class="loading-screen">
+  <img src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" alt="Widekhan Loading" class="loading-logo" />
+</div>
+
+<!-- Header -->
+<header class="fixed top-0 w-full bg-black bg-opacity-90 backdrop-blur-sm z-50 border-b border-gray-800">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="transition-all duration-300 hover:scale-105 hover:brightness-150">
+      <img src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" alt="Widekhan Logo" class="h-10" />
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#" class="text-sm font-medium transition-colors hover:text-gray-300">Home</a>
+      <a href="#" class="text-sm font-medium transition-colors hover:text-gray-300">Our Story</a>
+      <a href="#" class="text-sm font-medium transition-colors hover:text-gray-300">Our Lineup</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="md:hidden text-white text-xl">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav id="mobileNav" class="mobile-nav fixed top-0 right-0 h-full w-64 bg-black bg-opacity-95 backdrop-blur-lg md:hidden">
+    <div class="p-6">
+      <button id="closeMobileNav" class="absolute top-6 right-6 text-white text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="mt-16 space-y-6">
+        <a href="#" class="block text-lg font-medium transition-colors hover:text-gray-300">Home</a>
+        <a href="#" class="block text-lg font-medium transition-colors hover:text-gray-300">Our Story</a>
+        <a href="#" class="block text-lg font-medium transition-colors hover:text-gray-300">Our Lineup</a>
+      </div>
+    </div>
   </nav>
 </header>
 
-<section class="hero">
-  <video autoplay muted loop playsinline class="background-video" id="bg-video">
-    <source src="baseball.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-content">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-      alt="Widekhan Logo"
-      class="hero-logo"
-    />
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center">
+  <div class="video-container">
+    <video id="bgVideo" autoplay muted loop playsinline webkit-playsinline class="background-video">
+      <source src="baseball.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+  <div class="hero-content text-center">
+    <img src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" alt="Widekhan Logo" class="hero-logo mx-auto" />
   </div>
 </section>
 
-<!-- ✅ 여기 추가된 텍스트 섹션 -->
-<section class="content-section">
-  <h2>“One Win Is Easy. Staying on Top Is Hard.”</h2>
-  <p>– Genghis Khan</p>
-
-  <p>
-    Everyone wins once. Few stay on top.  
-    <br />
-    <strong>Win wide, like a Khan.</strong>
-  </p>
-
-  <p>
-    We’re not just another sports marketing and talent agency.  
-    <br />
-    We’re <strong>Widekhan</strong>—where elite athletes and creators forge their legacy.
-  </p>
-
-  <p>
-    As your strategic partner, we turn victories on and off the field, court, or track  
-    into enduring influence that transcends the game.
-  </p>
-
-  <p>
-    Through bold brand collaborations and a voice that commands attention,  
-    we don’t just grow careers—we amplify them.  
-    <br />
-    <strong>We help you win wide, like a Khan.</strong>
-  </p>
+<!-- Quote Section -->
+<section class="py-20 px-6 bg-black relative">
+  <div class="decorative-strip mb-16"></div>
+  <div class="container mx-auto max-w-4xl text-center">
+    <div class="quote-mark mb-8">"</div>
+    <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight glow-text">
+      One Win Is Easy.<br />
+      <span class="text-gray-300">Staying on Top Is Hard.</span>
+    </h2>
+    <p class="text-xl md:text-2xl text-gray-400 mb-8 italic">– Genghis Khan</p>
+    
+    <div class="mt-16 space-y-6 text-lg md:text-xl">
+      <p class="text-gray-300">Everyone wins once. Few stay on top.</p>
+      <p class="text-2xl md:text-3xl font-bold glow-text">Win wide, like a Khan.</p>
+    </div>
+  </div>
+  <div class="decorative-strip mt-16"></div>
 </section>
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+<div class="section-divider"></div>
+
+<!-- Main Content Section -->
+<section class="py-20 px-6 bg-black">
+  <div class="decorative-strip mb-16"></div>
+  <div class="container mx-auto max-w-5xl">
+    <div class="space-y-8 text-lg md:text-xl leading-relaxed">
+      <p class="text-center text-gray-300">
+        We're not just another sports marketing and talent agency.<br />
+        We're <span class="font-bold text-white glow-text">Widekhan</span> - where elite athletes and creators forge their legacy, and companies augment their impact.
+      </p>
+      
+      <p class="text-center text-gray-300">
+        As your strategic partner, we turn victories on and off the field, court, or track into enduring influence that transcends the game.
+      </p>
+      
+      <p class="text-center text-gray-300">
+        Through bold brand collaborations and a voice that commands attention, we don't just grow stories - we amplify them.<br />
+        <span class="font-bold text-white glow-text">We help the world play beyond the game.</span>
+      </p>
+    </div>
+  </div>
+  <div class="decorative-strip mt-16"></div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section py-32 px-6 relative">
+  <div class="container mx-auto max-w-4xl text-center relative z-10">
+    <h2 class="text-3xl md:text-5xl font-light mb-4 leading-tight">
+      Play beyond the game with
+    </h2>
+    <h1 class="text-6xl md:text-8xl font-black mb-12 glow-text tracking-wider">
+      Widekhan
+    </h1>
+    <a href="mailto:info@widekhan.com" class="inline-block bg-white text-black px-12 py-4 text-xl font-bold transition-all duration-300 hover:bg-gray-200 hover:scale-105 hover:shadow-2xl">
+      Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-6 bg-gray-900 text-center">
+  <div class="container mx-auto">
+    <p class="text-gray-400 mb-4">© 2025 WIDEKHAN. All rights reserved.</p>
+    <div class="space-x-6">
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="mailto:info@widekhan.com" class="text-gray-400 hover:text-white transition-colors">
+        <i class="fas fa-envelope"></i> Email
+      </a>
+    </div>
+  </div>
 </footer>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById('nav-menu');
-    nav.classList.toggle('show');
+// Loading Screen
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    document.getElementById('loadingScreen').classList.add('hide');
+    setTimeout(function() {
+      document.getElementById('loadingScreen').style.display = 'none';
+    }, 800);
+  }, 1500);
+});
+
+// Mobile Navigation
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+const closeMobileNav = document.getElementById('closeMobileNav');
+
+mobileMenuBtn.addEventListener('click', () => {
+  mobileNav.classList.add('show');
+});
+
+closeMobileNav.addEventListener('click', () => {
+  mobileNav.classList.remove('show');
+});
+
+// Close mobile nav when clicking outside
+document.addEventListener('click', (e) => {
+  if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+    mobileNav.classList.remove('show');
   }
+});
 
-  const video = document.getElementById('bg-video');
-  window.addEventListener('load', () => {
-    video.play().catch(err => {
-      console.warn('Autoplay blocked:', err);
-    });
+// Video Performance Optimization
+const video = document.getElementById('bgVideo');
+
+// Ensure video loads and plays properly
+video.addEventListener('loadstart', () => {
+  console.log('Video loading started');
+});
+
+video.addEventListener('canplaythrough', () => {
+  console.log('Video can play through');
+  video.play().catch(err => {
+    console.warn('Video autoplay blocked:', err);
   });
+});
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && video.paused) {
-      video.play().catch(err => {
-        console.warn('Video resume blocked:', err);
+video.addEventListener('error', (e) => {
+  console.error('Video error:', e);
+});
+
+// Retry video play on visibility change
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible' && video.paused) {
+    video.play().catch(err => {
+      console.warn('Video resume blocked:', err);
+    });
+  }
+});
+
+// Pause video when not in view to improve performance
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.target === video.parentElement) {
+      if (entry.isIntersecting) {
+        video.play().catch(err => console.warn('Video play blocked:', err));
+      } else {
+        video.pause();
+      }
+    }
+  });
+});
+
+observer.observe(video.parentElement);
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
   });
+});
+
+// Video quality adjustment based on connection
+if ('connection' in navigator) {
+  const connection = navigator.connection;
+  if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+    video.style.display = 'none';
+  }
+}
 </script>
 
 </body>
