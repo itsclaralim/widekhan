@@ -51,13 +51,14 @@
       font-weight: 400;
     }
 
+    /* Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #000;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,20 +76,19 @@
       max-width: 300px;
       width: 80%;
       opacity: 0;
-      animation: fadeInOut 2s ease-in-out forwards;
+      animation: loadingPulse 2s ease-in-out infinite;
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: scale(0.8); }
-      50% { opacity: 1; transform: scale(1); }
-      100% { opacity: 1; transform: scale(1); }
+    @keyframes loadingPulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 0;
+      padding: 20px 0px;
       background: rgba(0, 0, 0, 0.9);
       z-index: 1000;
       display: flex;
@@ -97,19 +97,8 @@
       border-bottom: 1px solid #222;
     }
 
-    .header-content {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-    }
-
     .logo-container {
-      display: flex;
-      align-items: center;
+      margin-left: 0px;
     }
 
     .logo-hover {
@@ -124,8 +113,9 @@
 
     nav {
       display: flex;
-      gap: 0;
+      gap: 30px;
       align-items: center;
+      margin-right: 0px;
     }
 
     nav a {
@@ -135,17 +125,18 @@
       transition: all 0.3s;
       font-weight: 500;
       padding: 8px 16px;
+      border-radius: 4px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    nav a.active {
-      background-color: white;
-      color: black;
+    nav a:hover {
+      color: #aaa;
     }
 
-    nav a:hover:not(.active) {
-      color: #aaa;
+    nav a.active {
+      background: white;
+      color: black;
     }
 
     .hamburger {
@@ -155,13 +146,10 @@
       background: none;
       border: none;
       cursor: pointer;
+      margin-right: 20px;
     }
 
     @media (max-width: 768px) {
-      .header-content {
-        padding: 0 20px;
-      }
-
       nav {
         display: none;
         flex-direction: column;
@@ -172,7 +160,6 @@
         padding: 20px;
         border: 1px solid #333;
         border-radius: 8px;
-        gap: 10px;
       }
 
       nav.show {
@@ -181,6 +168,10 @@
 
       .hamburger {
         display: block;
+      }
+
+      .logo-container {
+        margin-left: 20px;
       }
     }
 
@@ -247,44 +238,51 @@
     }
 
     .quote-section {
-      padding: 100px 20px;
+      position: relative;
+      padding: 120px 20px;
       text-align: center;
       background-color: black;
-      position: relative;
     }
 
-    .quote-marks {
+    .quote-mark {
+      font-family: 'Times New Roman', serif;
       font-size: 120px;
       color: #333;
-      font-family: 'Times New Roman', serif;
-      line-height: 0.5;
-      margin-bottom: 30px;
-      font-weight: normal;
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 1;
     }
 
-    .quote-section h2 {
+    .quote-text {
       font-size: 48px;
       font-weight: 300;
+      line-height: 1.3;
       margin-bottom: 30px;
       color: white;
-      line-height: 1.2;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .quote-section .author {
+    .quote-author {
       font-size: 20px;
-      font-weight: 300;
-      color: #ccc;
-      margin-bottom: 50px;
+      color: #888;
+      margin-bottom: 40px;
       font-style: italic;
     }
 
-    .quote-section .tagline {
+    .quote-tagline {
+      font-size: 24px;
+      font-weight: 500;
+      color: white;
       max-width: 600px;
       margin: 0 auto;
-      font-size: 24px;
-      line-height: 1.6;
-      color: white;
-      font-weight: 400;
+    }
+
+    .quote-tagline strong {
+      font-weight: 700;
     }
 
     .content-section h2 {
@@ -304,83 +302,83 @@
     }
 
     .section-divider {
-      height: 60px;
-      width: 100%;
-      margin: 80px 0;
+      height: 80px;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
+      margin: 60px 0;
+      overflow: hidden;
     }
 
     .divider-line {
-      width: 70%;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
       height: 2px;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.3) 80%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 10%, rgba(255,255,255,0.3) 90%, transparent 100%);
+      transform: translateY(-50%);
+    }
+
+    .home-plates {
       position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      max-width: 800px;
     }
 
     .home-plate {
-      width: 20px;
-      height: 20px;
-      background: rgba(255,255,255,0.6);
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      clip-path: polygon(0% 0%, 70% 0%, 100% 38%, 70% 100%, 0% 100%);
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.3);
+      clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%);
+      opacity: 0.6;
     }
-
-    .home-plate:nth-child(1) { left: 5%; }
-    .home-plate:nth-child(2) { left: 15%; }
-    .home-plate:nth-child(3) { left: 25%; }
-    .home-plate:nth-child(4) { left: 35%; }
-    .home-plate:nth-child(5) { left: 45%; }
-    .home-plate:nth-child(6) { left: 55%; }
-    .home-plate:nth-child(7) { left: 65%; }
-    .home-plate:nth-child(8) { left: 75%; }
-    .home-plate:nth-child(9) { left: 85%; }
-    .home-plate:nth-child(10) { left: 95%; }
 
     .cta-section {
-      padding: 150px 20px;
+      padding: 120px 20px;
       text-align: center;
-      background-color: black;
+      background: black;
     }
 
-    .cta-content h2 {
+    .cta-text {
       font-size: 48px;
       font-weight: 300;
-      margin-bottom: 20px;
+      line-height: 1.4;
+      margin-bottom: 40px;
       color: white;
-      line-height: 1.2;
     }
 
-    .cta-content .brand-name {
+    .cta-brand {
       font-family: 'NeueHaas', sans-serif;
       font-weight: 900;
-      font-size: 72px;
+      font-size: 64px;
       display: block;
       margin: 20px 0;
-      letter-spacing: 2px;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 15px 40px;
+      padding: 16px 32px;
       background: white;
       color: black;
       text-decoration: none;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: all 0.3s ease;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .cta-button:hover {
       background: #f0f0f0;
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
     }
 
     footer {
@@ -403,20 +401,26 @@
     }
 
     @media (max-width: 768px) {
-      .quote-section h2 {
-        font-size: 36px;
+      .quote-text {
+        font-size: 32px;
       }
       
-      .cta-content h2 {
-        font-size: 36px;
+      .quote-mark {
+        font-size: 80px;
+        top: 20px;
       }
       
-      .cta-content .brand-name {
+      .cta-text {
+        font-size: 32px;
+      }
+      
+      .cta-brand {
         font-size: 48px;
       }
       
-      .section-divider {
-        margin: 60px 0;
+      .home-plate {
+        width: 18px;
+        height: 18px;
       }
     }
   </style>
@@ -426,29 +430,27 @@
 <div class="loading-screen" id="loading-screen">
   <img 
     src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-    alt="Widekhan Logo"
+    alt="WIDEKHAN Loading"
     class="loading-logo"
   />
 </div>
 
 <header>
-  <div class="header-content">
-    <div class="logo-container">
-      <a href="index.html">
-        <img 
-          src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
-          alt="Widekhan Logo"
-          class="logo-hover"
-        />
-      </a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <nav id="nav-menu">
-      <a href="#" class="active">HOME</a>
-      <a href="our-story.html">OUR STORY</a>
-      <a href="our-lineup.html">OUR LINEUP</a>
-    </nav>
+  <div class="logo-container">
+    <a href="index.html">
+      <img 
+        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
+        alt="Widekhan Logo"
+        class="logo-hover"
+      />
+    </a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <nav id="nav-menu">
+    <a href="index.html" class="active">HOME</a>
+    <a href="story.html">OUR STORY</a>
+    <a href="lineup.html">OUR LINEUP</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -466,18 +468,19 @@
 </section>
 
 <section class="quote-section">
-  <div class="quote-marks">"</div>
-  <h2>"One Win Is Easy. Staying on Top Is Hard."</h2>
-  <p class="author">– Genghis Khan</p>
+  <div class="quote-mark">"</div>
+  <div class="quote-text">One Win Is Easy. Staying on Top Is Hard.</div>
+  <div class="quote-author">– Genghis Khan</div>
   
-  <div class="tagline">
-    <p>Everyone wins once. Few stay on top.</p>
-    <p><strong>Win wide, like a Khan.</strong></p>
+  <div class="quote-tagline">
+    Everyone wins once. Few stay on top.<br />
+    <strong>Win wide, like a Khan.</strong>
   </div>
 </section>
 
 <div class="section-divider">
-  <div class="divider-line">
+  <div class="divider-line"></div>
+  <div class="home-plates">
     <div class="home-plate"></div>
     <div class="home-plate"></div>
     <div class="home-plate"></div>
@@ -493,45 +496,26 @@
 
 <section class="content-section">
   <p>
-    We're not just another sports marketing and talent agency.
-    <br />
+    We're not just another sports marketing and talent agency.<br />
     We're <strong>WIDEKHAN</strong> - where elite athletes and creators forge their legacy, and companies augment their impact.
   </p>
 
   <p>
-    As your strategic partner, we turn victories on and off the field, court, or track
-    into enduring influence that transcends the game.
+    As your strategic partner, we turn victories on and off the field, court, or track into enduring influence that transcends the game.
   </p>
 
   <p>
-    Through bold brand collaborations and a voice that commands attention,
-    we don't just grow stories - we amplify them.
-    <br />
-    <strong>We help the world play beyond the game.</strong>
+    Through bold brand collaborations and a voice that commands attention, we don't just grow stories - we amplify them.<br />
+    We help the world play beyond the game.
   </p>
 </section>
 
-<div class="section-divider">
-  <div class="divider-line">
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-  </div>
-</div>
-
 <section class="cta-section">
-  <div class="cta-content">
-    <h2>Play beyond the game with</h2>
-    <span class="brand-name">WIDEKHAN</span>
-    <a href="contact.html" class="cta-button">GET IN TOUCH</a>
+  <div class="cta-text">
+    Play beyond the game with<br />
+    <span class="cta-brand">WIDEKHAN</span>
   </div>
+  <a href="mailto:info@widekhan.com" class="cta-button">GET IN TOUCH</a>
 </section>
 
 <footer>
@@ -542,11 +526,6 @@
 </footer>
 
 <script>
-  function toggleMenu() {
-    const nav = document.getElementById('nav-menu');
-    nav.classList.toggle('show');
-  }
-
   // Loading screen
   window.addEventListener('load', () => {
     setTimeout(() => {
@@ -556,10 +535,14 @@
       setTimeout(() => {
         loadingScreen.style.display = 'none';
       }, 500);
-    }, 2500);
+    }, 1500);
   });
 
-  // Video handling
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('show');
+  }
+
   const video = document.getElementById('bg-video');
   window.addEventListener('load', () => {
     video.play().catch(err => {
