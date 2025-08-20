@@ -43,13 +43,12 @@
     }
 
     body {
-      font-family: 'NeueHaas', Arial, sans-serif;
+      font-family: 'NeueHaas', sans-serif;
       background-color: #000;
       color: white;
       scroll-behavior: smooth;
       line-height: 1.6;
       font-weight: 400;
-      overflow-x: hidden;
     }
 
     .loading-screen {
@@ -57,30 +56,35 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-color: #000;
+      height: 100vh;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 10000;
+      z-index: 9999;
       transition: opacity 0.5s ease-out;
     }
 
-    .loading-screen.fade-out {
+    .loading-screen.hidden {
       opacity: 0;
       pointer-events: none;
     }
 
     .loading-logo {
-      max-width: 400px;
-      width: 80%;
+      width: 300px;
       opacity: 0;
       animation: loadingPulse 2s ease-in-out infinite;
     }
 
     @keyframes loadingPulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.95);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     header {
@@ -96,19 +100,8 @@
       border-bottom: 1px solid #222;
     }
 
-    .header-content {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 40px;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
+    .header-logo {
+      margin-left: 40px;
     }
 
     .logo-hover {
@@ -123,8 +116,9 @@
 
     nav {
       display: flex;
-      gap: 0;
+      gap: 30px;
       align-items: center;
+      margin-right: 40px;
     }
 
     nav a {
@@ -134,19 +128,16 @@
       transition: all 0.3s;
       font-weight: 500;
       padding: 8px 16px;
-      border: 1px solid transparent;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      border-radius: 4px;
+    }
+
+    nav a:hover {
+      color: #aaa;
     }
 
     nav a.active {
-      background-color: white;
+      background: white;
       color: black;
-      border: 1px solid white;
-    }
-
-    nav a:hover:not(.active) {
-      color: #aaa;
     }
 
     .hamburger {
@@ -156,13 +147,10 @@
       background: none;
       border: none;
       cursor: pointer;
+      margin-right: 40px;
     }
 
     @media (max-width: 768px) {
-      .header-content {
-        padding: 0 20px;
-      }
-
       nav {
         display: none;
         flex-direction: column;
@@ -173,7 +161,7 @@
         padding: 20px;
         border: 1px solid #333;
         border-radius: 8px;
-        gap: 10px;
+        margin-right: 0;
       }
 
       nav.show {
@@ -182,6 +170,14 @@
 
       .hamburger {
         display: block;
+      }
+
+      .header-logo {
+        margin-left: 20px;
+      }
+
+      .hamburger {
+        margin-right: 20px;
       }
     }
 
@@ -221,6 +217,7 @@
       animation: fadeInZoom 2s ease-out 0.3s forwards;
       filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
       transition: filter 0.3s ease, transform 0.3s ease;
+      font-weight: 900;
     }
 
     .hero-logo:hover {
@@ -240,39 +237,33 @@
     }
 
     .content-section {
-      padding: 100px 40px;
+      padding: 100px 20px;
       text-align: center;
       background-color: black;
       position: relative;
     }
 
-    .quote-section {
-      position: relative;
-      margin-bottom: 60px;
+    .content-section.quote-section {
+      padding: 120px 20px;
     }
 
     .quote-mark {
-      font-family: Georgia, serif;
       font-size: 120px;
       color: #333;
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      line-height: 1;
-      z-index: 1;
+      font-family: Georgia, serif;
+      line-height: 0.6;
+      margin-bottom: 30px;
     }
 
     .content-section h2 {
       font-size: 48px;
-      font-weight: 300;
-      margin: 40px 0 20px 0;
+      font-weight: 700;
+      margin-bottom: 20px;
       color: white;
-      position: relative;
-      z-index: 2;
+      line-height: 1.2;
     }
 
-    .author {
+    .quote-attribution {
       font-size: 18px;
       color: #888;
       font-style: italic;
@@ -280,7 +271,7 @@
     }
 
     .content-section p {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto 30px auto;
       font-size: 18px;
       line-height: 1.8;
@@ -293,94 +284,83 @@
     }
 
     .section-divider {
+      height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 80px 0;
+      margin: 60px 0;
       position: relative;
-      height: 40px;
     }
 
     .divider-line {
-      position: absolute;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #333 20%, #666 50%, #333 80%, transparent 100%);
-      z-index: 1;
-    }
-
-    .home-plates-container {
+      background: linear-gradient(90deg, transparent 10%, #333 50%, transparent 90%);
       position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
     }
 
     .home-plate {
+      position: absolute;
       width: 24px;
       height: 24px;
-      background-color: #444;
-      margin: 0 30px;
-      position: relative;
-      clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-      transition: all 0.3s ease;
+      background: #444;
+      clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%);
+      border: 1px solid #666;
     }
 
-    .home-plate:hover {
-      background-color: #666;
-      transform: scale(1.1);
-    }
-
-    .main-content {
-      margin-top: 60px;
-    }
+    .home-plate:nth-child(1) { left: 5%; }
+    .home-plate:nth-child(2) { left: 15%; }
+    .home-plate:nth-child(3) { left: 25%; }
+    .home-plate:nth-child(4) { left: 35%; }
+    .home-plate:nth-child(5) { left: 45%; }
+    .home-plate:nth-child(6) { left: 55%; }
+    .home-plate:nth-child(7) { left: 65%; }
+    .home-plate:nth-child(8) { left: 75%; }
+    .home-plate:nth-child(9) { left: 85%; }
+    .home-plate:nth-child(10) { left: 95%; }
 
     .cta-section {
-      padding: 120px 40px;
+      padding: 150px 20px;
       text-align: center;
       background: linear-gradient(135deg, #111 0%, #000 100%);
     }
 
     .cta-text {
-      font-size: 36px;
+      font-size: 32px;
       font-weight: 300;
       color: #ccc;
       margin-bottom: 20px;
-      line-height: 1.4;
     }
 
     .cta-brand {
-      font-family: 'NeueHaas', Arial, sans-serif;
       font-size: 72px;
       font-weight: 900;
+      font-family: 'NeueHaas', sans-serif;
       color: white;
-      margin: 20px 0;
+      margin: 30px 0;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
     .cta-button {
       display: inline-block;
-      background-color: white;
+      padding: 18px 40px;
+      background: white;
       color: black;
-      padding: 16px 40px;
-      font-size: 18px;
-      font-weight: 700;
       text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: all 0.3s ease;
-      border: 2px solid white;
       margin-top: 30px;
     }
 
     .cta-button:hover {
-      background-color: transparent;
-      color: white;
+      background: #f0f0f0;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
     }
 
     footer {
@@ -396,7 +376,6 @@
       color: #aaa;
       margin: 0 10px;
       text-decoration: none;
-      transition: color 0.3s;
     }
 
     footer a:hover {
@@ -404,17 +383,12 @@
     }
 
     @media (max-width: 768px) {
-      .content-section {
-        padding: 80px 20px;
-      }
-
       .content-section h2 {
         font-size: 32px;
       }
 
       .quote-mark {
         font-size: 80px;
-        top: -20px;
       }
 
       .cta-text {
@@ -426,51 +400,38 @@
       }
 
       .home-plate {
-        width: 20px;
-        height: 20px;
-        margin: 0 20px;
-      }
-
-      .section-divider {
-        margin: 60px 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .home-plate {
-        margin: 0 15px;
+        width: 18px;
+        height: 18px;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="loading-screen" id="loadingScreen">
+<div class="loading-screen" id="loading-screen">
   <img 
     src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-    alt="Widekhan Logo"
+    alt="Widekhan Loading"
     class="loading-logo"
   />
 </div>
 
 <header>
-  <div class="header-content">
-    <div class="logo-container">
-      <a href="index.html">
-        <img 
-          src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
-          alt="Widekhan Logo"
-          class="logo-hover"
-        />
-      </a>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()">☰</button>
-    <nav id="nav-menu">
-      <a href="index.html" class="active">HOME</a>
-      <a href="our-story.html">OUR STORY</a>
-      <a href="our-lineup.html">OUR LINEUP</a>
-    </nav>
+  <div class="header-logo">
+    <a href="index.html">
+      <img 
+        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
+        alt="Widekhan Logo"
+        class="logo-hover"
+      />
+    </a>
   </div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <nav id="nav-menu">
+    <a href="index.html" class="active">HOME</a>
+    <a href="our-story.html">OUR STORY</a>
+    <a href="our-lineup.html">OUR LINEUP</a>
+  </nav>
 </header>
 
 <section class="hero">
@@ -487,55 +448,55 @@
   </div>
 </section>
 
+<section class="content-section quote-section">
+  <div class="quote-mark">"</div>
+  <h2>"One Win Is Easy. Staying on Top Is Hard."</h2>
+  <p class="quote-attribution">– Genghis Khan</p>
+
+  <p>
+    Everyone wins once. Few stay on top.  
+    <br />
+    <strong>Win wide, like a Khan.</strong>
+  </p>
+</section>
+
+<div class="section-divider">
+  <div class="divider-line">
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+    <div class="home-plate"></div>
+  </div>
+</div>
+
 <section class="content-section">
-  <div class="quote-section">
-    <div class="quote-mark">"</div>
-    <h2>"One Win Is Easy. Staying on Top Is Hard."</h2>
-    <div class="author">– Genghis Khan</div>
-    
-    <p>
-      Everyone wins once. Few stay on top.  
-      <br />
-      <strong>Win wide, like a Khan.</strong>
-    </p>
-  </div>
+  <p>
+    We're not just another sports marketing and talent agency.
+    <br />
+    We're <strong>WIDEKHAN</strong> - where elite athletes and creators forge their legacy, and companies augment their impact.
+  </p>
 
-  <div class="section-divider">
-    <div class="divider-line"></div>
-    <div class="home-plates-container">
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-    </div>
-  </div>
+  <p>
+    As your strategic partner, we turn victories on and off the field, court, or track  
+    into enduring influence that transcends the game.
+  </p>
 
-  <div class="main-content">
-    <p>
-      We're not just another sports marketing and talent agency.  
-      <br />
-      We're <strong>WIDEKHAN</strong> - where elite athletes and creators forge their legacy, and companies augment their impact.
-    </p>
-
-    <p>
-      As your strategic partner, we turn victories on and off the field, court, or track  
-      into enduring influence that transcends the game.
-    </p>
-
-    <p>
-      Through bold brand collaborations and a voice that commands attention,  
-      we don't just grow stories - we amplify them.
-      <br />
-      <strong>We help the world play beyond the game.</strong>
-    </p>
-  </div>
+  <p>
+    Through bold brand collaborations and a voice that commands attention,  
+    we don't just grow stories - we amplify them.
+    <br />
+    We help the world play beyond the game.
+  </p>
 </section>
 
 <section class="cta-section">
-  <div class="cta-text">
-    Play beyond the game with
-  </div>
+  <div class="cta-text">Play beyond the game with</div>
   <div class="cta-brand">WIDEKHAN</div>
   <a href="contact.html" class="cta-button">GET IN TOUCH</a>
 </section>
@@ -553,50 +514,25 @@
     nav.classList.toggle('show');
   }
 
+  const video = document.getElementById('bg-video');
+  const loadingScreen = document.getElementById('loading-screen');
+
   window.addEventListener('load', () => {
     setTimeout(() => {
-      const loadingScreen = document.getElementById('loadingScreen');
-      loadingScreen.classList.add('fade-out');
-      
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 500);
-    }, 2000);
-
-    const video = document.getElementById('bg-video');
-    if (video) {
+      loadingScreen.classList.add('hidden');
       video.play().catch(err => {
         console.warn('Autoplay blocked:', err);
       });
-    }
+    }, 2000);
   });
 
   document.addEventListener('visibilitychange', () => {
-    const video = document.getElementById('bg-video');
-    if (video && document.visibilityState === 'visible' && video.paused) {
+    if (document.visibilityState === 'visible' && video.paused) {
       video.play().catch(err => {
         console.warn('Video resume blocked:', err);
       });
     }
   });
-
-  const video = document.getElementById('bg-video');
-  if (video) {
-    video.addEventListener('loadstart', () => {
-      console.log('Video loading started');
-    });
-    
-    video.addEventListener('canplay', () => {
-      console.log('Video can start playing');
-      video.play().catch(err => {
-        console.warn('Video play failed:', err);
-      });
-    });
-    
-    video.addEventListener('error', (e) => {
-      console.error('Video error:', e);
-    });
-  }
 </script>
 
 </body>
