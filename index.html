@@ -58,13 +58,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #000;
+      background-color: #000;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 0.5s ease-out;
+      transition: opacity 0.5s ease;
     }
 
     .loading-screen.fade-out {
@@ -76,19 +76,25 @@
       max-width: 300px;
       width: 80%;
       opacity: 0;
-      animation: loadingPulse 2s ease-in-out infinite;
+      animation: fadeInLogo 2s ease-out forwards;
     }
 
-    @keyframes loadingPulse {
-      0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
+    @keyframes fadeInLogo {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      padding: 20px 0px;
+      padding: 20px 0;
       background: rgba(0, 0, 0, 0.9);
       z-index: 1000;
       display: flex;
@@ -98,12 +104,14 @@
     }
 
     .logo-container {
-      margin-left: 0px;
+      margin-left: 0;
+      padding-left: 0;
     }
 
     .logo-hover {
       height: 40px;
       transition: filter 0.3s ease, transform 0.3s ease;
+      margin-left: 0;
     }
 
     .logo-hover:hover {
@@ -115,7 +123,8 @@
       display: flex;
       gap: 30px;
       align-items: center;
-      margin-right: 0px;
+      margin-right: 0;
+      padding-right: 0;
     }
 
     nav a {
@@ -126,8 +135,6 @@
       font-weight: 500;
       padding: 8px 16px;
       border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     nav a:hover {
@@ -135,7 +142,7 @@
     }
 
     nav a.active {
-      background: white;
+      background-color: white;
       color: black;
     }
 
@@ -146,10 +153,14 @@
       background: none;
       border: none;
       cursor: pointer;
-      margin-right: 20px;
+      margin-right: 0;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 20px 20px;
+      }
+
       nav {
         display: none;
         flex-direction: column;
@@ -168,10 +179,6 @@
 
       .hamburger {
         display: block;
-      }
-
-      .logo-container {
-        margin-left: 20px;
       }
     }
 
@@ -230,59 +237,102 @@
       }
     }
 
-    .content-section {
+    /* Quote Section */
+    .quote-section {
       padding: 100px 20px;
       text-align: center;
       background-color: black;
       position: relative;
     }
 
-    .quote-section {
-      position: relative;
-      padding: 120px 20px;
-      text-align: center;
-      background-color: black;
-    }
-
-    .quote-mark {
-      font-family: 'Times New Roman', serif;
-      font-size: 120px;
-      color: #333;
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      line-height: 1;
+    .quote-marks {
+      font-size: 60px;
+      color: #666;
+      font-family: Georgia, serif;
+      line-height: 0.5;
+      margin-bottom: 30px;
     }
 
     .quote-text {
-      font-size: 48px;
-      font-weight: 300;
-      line-height: 1.3;
-      margin-bottom: 30px;
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 20px;
       color: white;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.2;
     }
 
     .quote-author {
-      font-size: 20px;
-      color: #888;
-      margin-bottom: 40px;
+      font-size: 18px;
+      color: #ccc;
       font-style: italic;
+      margin-bottom: 40px;
     }
 
     .quote-tagline {
       font-size: 24px;
-      font-weight: 500;
       color: white;
-      max-width: 600px;
-      margin: 0 auto;
+      margin-bottom: 10px;
     }
 
-    .quote-tagline strong {
+    .quote-emphasis {
+      font-size: 28px;
       font-weight: 700;
+      color: white;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+      background-color: black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .divider-container {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      height: 60px;
+    }
+
+    .divider-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, #666 20%, #666 80%, transparent 100%);
+      transform: translateY(-50%);
+    }
+
+    .home-plates {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 100%;
+      transform: translateY(-50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .home-plate {
+      width: 24px;
+      height: 24px;
+      background-color: #666;
+      opacity: 0.8;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
+      transform: rotate(90deg);
+    }
+
+    .content-section {
+      padding: 100px 20px;
+      text-align: center;
+      background-color: black;
     }
 
     .content-section h2 {
@@ -301,84 +351,46 @@
       color: #ccc;
     }
 
-    .section-divider {
-      height: 80px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 60px 0;
-      overflow: hidden;
-    }
-
-    .divider-line {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 10%, rgba(255,255,255,0.3) 90%, transparent 100%);
-      transform: translateY(-50%);
-    }
-
-    .home-plates {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      width: 100%;
-      max-width: 800px;
-    }
-
-    .home-plate {
-      width: 24px;
-      height: 24px;
-      background: rgba(255,255,255,0.3);
-      clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%);
-      opacity: 0.6;
-    }
-
+    /* CTA Section with different background */
     .cta-section {
-      padding: 120px 20px;
+      padding: 100px 20px;
       text-align: center;
-      background: black;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      border-top: 1px solid #333;
     }
 
     .cta-text {
-      font-size: 48px;
+      font-size: 36px;
       font-weight: 300;
-      line-height: 1.4;
-      margin-bottom: 40px;
-      color: white;
+      margin-bottom: 20px;
+      color: #ccc;
     }
 
     .cta-brand {
-      font-family: 'NeueHaas', sans-serif;
+      font-size: 72px;
       font-weight: 900;
-      font-size: 64px;
-      display: block;
-      margin: 20px 0;
+      font-family: 'NeueHaas', sans-serif;
+      margin-bottom: 40px;
+      color: white;
+      letter-spacing: 2px;
     }
 
     .cta-button {
       display: inline-block;
-      padding: 16px 32px;
-      background: white;
+      padding: 15px 40px;
+      background-color: white;
       color: black;
       text-decoration: none;
-      font-weight: 700;
       font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-weight: 700;
+      border-radius: 5px;
       transition: all 0.3s ease;
-      margin-top: 20px;
+      letter-spacing: 1px;
     }
 
     .cta-button:hover {
-      background: #f0f0f0;
+      background-color: #f0f0f0;
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
     }
 
     footer {
@@ -402,35 +414,31 @@
 
     @media (max-width: 768px) {
       .quote-text {
-        font-size: 32px;
+        font-size: 28px;
       }
-      
-      .quote-mark {
-        font-size: 80px;
-        top: 20px;
-      }
-      
-      .cta-text {
-        font-size: 32px;
-      }
-      
+
       .cta-brand {
         font-size: 48px;
       }
-      
+
+      .cta-text {
+        font-size: 24px;
+      }
+
       .home-plate {
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
       }
     }
   </style>
 </head>
 <body>
 
+<!-- Loading Screen -->
 <div class="loading-screen" id="loading-screen">
   <img 
     src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-    alt="WIDEKHAN Loading"
+    alt="Widekhan Logo Loading"
     class="loading-logo"
   />
 </div>
@@ -447,9 +455,9 @@
   </div>
   <button class="hamburger" onclick="toggleMenu()">☰</button>
   <nav id="nav-menu">
-    <a href="index.html" class="active">HOME</a>
-    <a href="story.html">OUR STORY</a>
-    <a href="lineup.html">OUR LINEUP</a>
+    <a href="#" class="active">HOME</a>
+    <a href="our-story.html">OUR STORY</a>
+    <a href="our-lineup.html">OUR LINEUP</a>
   </nav>
 </header>
 
@@ -467,33 +475,38 @@
   </div>
 </section>
 
+<!-- Quote Section -->
 <section class="quote-section">
-  <div class="quote-mark">"</div>
-  <div class="quote-text">One Win Is Easy. Staying on Top Is Hard.</div>
-  <div class="quote-author">– Genghis Khan</div>
+  <div class="quote-marks">"</div>
+  <h1 class="quote-text">One Win Is Easy. Staying on Top Is Hard.</h1>
+  <p class="quote-author">– Genghis Khan</p>
   
-  <div class="quote-tagline">
-    Everyone wins once. Few stay on top.<br />
-    <strong>Win wide, like a Khan.</strong>
-  </div>
+  <p class="quote-tagline">Everyone wins once. Few stay on top.</p>
+  <p class="quote-emphasis"><strong>Win wide, like a Khan.</strong></p>
 </section>
 
+<!-- Section Divider -->
 <div class="section-divider">
-  <div class="divider-line"></div>
-  <div class="home-plates">
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
-    <div class="home-plate"></div>
+  <div class="divider-container">
+    <div class="divider-line"></div>
+    <div class="home-plates">
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+      <div class="home-plate"></div>
+    </div>
   </div>
 </div>
 
+<!-- Content Section -->
 <section class="content-section">
   <p>
     We're not just another sports marketing and talent agency.<br />
@@ -510,11 +523,10 @@
   </p>
 </section>
 
+<!-- CTA Section with different background -->
 <section class="cta-section">
-  <div class="cta-text">
-    Play beyond the game with<br />
-    <span class="cta-brand">WIDEKHAN</span>
-  </div>
+  <p class="cta-text">Play beyond the game with</p>
+  <h2 class="cta-brand">WIDEKHAN</h2>
   <a href="mailto:info@widekhan.com" class="cta-button">GET IN TOUCH</a>
 </section>
 
@@ -529,13 +541,8 @@
   // Loading screen
   window.addEventListener('load', () => {
     setTimeout(() => {
-      const loadingScreen = document.getElementById('loading-screen');
-      loadingScreen.classList.add('fade-out');
-      
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 500);
-    }, 1500);
+      document.getElementById('loading-screen').classList.add('fade-out');
+    }, 2500);
   });
 
   function toggleMenu() {
@@ -543,20 +550,23 @@
     nav.classList.toggle('show');
   }
 
+  // Video handling
   const video = document.getElementById('bg-video');
-  window.addEventListener('load', () => {
-    video.play().catch(err => {
-      console.warn('Autoplay blocked:', err);
-    });
-  });
-
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible' && video.paused) {
+  if (video) {
+    video.addEventListener('loadeddata', () => {
       video.play().catch(err => {
-        console.warn('Video resume blocked:', err);
+        console.warn('Autoplay blocked:', err);
       });
-    }
-  });
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && video.paused) {
+        video.play().catch(err => {
+          console.warn('Video resume blocked:', err);
+        });
+      }
+    });
+  }
 </script>
 
 </body>
