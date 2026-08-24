@@ -806,3 +806,22 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 :root{
   --sans:'NeueHaas','Pretendard Variable','Helvetica Neue',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
 }
+
+/* --- v5.2: dot-matrix world map (About · Reach) ------------------------------ */
+.map{ position:relative; margin-bottom:clamp(2.5rem,5vw,4rem); }
+.map__base{ display:block; width:100%; height:auto; }
+.map__overlay{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.map__arc{ fill:none; stroke:rgba(255,255,255,.32); stroke-width:1.1; stroke-dasharray:2 6; stroke-linecap:round; }
+.hub .core{ fill:var(--accent); }
+.hub--hq .core{ fill:#fff; stroke:var(--accent); stroke-width:2.5; }
+.hub .ring{ fill:none; stroke:var(--accent); stroke-width:1.5; opacity:0; animation:hubPulse 3.2s var(--ease) infinite; }
+.hub:nth-of-type(2) .ring{ animation-delay:.8s; }
+.hub:nth-of-type(3) .ring{ animation-delay:1.6s; }
+.hub:nth-of-type(4) .ring{ animation-delay:2.4s; }
+@keyframes hubPulse{ 0%{ r:5; opacity:.85; } 70%,100%{ r:24; opacity:0; } }
+.map__label{
+  font-family:var(--sans); font-size:12.5px; font-weight:500;
+  letter-spacing:.16em; fill:#C5D2DF;
+}
+@media (max-width:640px){ .map__label{ display:none; } }
+@media (prefers-reduced-motion:reduce){ .hub .ring{ animation:none; } }
