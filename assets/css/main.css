@@ -801,3 +801,8 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 /* --- Breathing room at 1280 -------------------------------------------------------- */
 .section{ padding-block:clamp(4.5rem,9vw,8.5rem); }
 .ftr{ padding-top:5rem; }
+
+/* --- v5.1: the variable font registers as "Pretendard Variable" ------------- */
+:root{
+  --sans:'NeueHaas','Pretendard Variable','Helvetica Neue',-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+}
