@@ -27,6 +27,8 @@ Jekyll 처리 우회에 필요합니다.
   services.html       무역서비스
   contact.html        문의
   404.html
+  industries.html     산업분야 (신설)
+  sustainability.html 지속가능경영 (신설)
 /ko/                  국문 (동일 구조)
 /assets/
   css/main.css        전체 디자인 시스템 (토큰·컴포넌트·반응형)
@@ -47,6 +49,7 @@ Jekyll 처리 우회에 필요합니다.
 
 HTML 안에 `TODO:` 및 `⚠️` 주석으로 표시해 두었습니다.
 
+- [ ] 산업분야 페이지(industries.html) 품목도 실취급 기준으로 정리
 - [ ] 취급 품목 카테고리 — 실제 취급 품목만 남기고 정리 (`chemicals.html`, `agri.html`)
 - [ ] 회사 개요 표 — 법인명, 사업자등록번호, 설립일, 대표자, 주소 (`about.html`)
 - [ ] 대표 전화번호, 정확한 본사 주소 (`contact.html`, 푸터)
