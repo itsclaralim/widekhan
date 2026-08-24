@@ -663,3 +663,8 @@ html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
 @media (max-width:860px){
   .split__photo{ min-height:0; aspect-ratio:16/10; align-self:auto; }
 }
+
+/* --- v3.4: larger wordmark ---------------------------------------------------- */
+.logo__word{ height:26px; }
+.ftr .logo__word{ height:22px; }
+@media (max-width:560px){ .logo__word{ height:18px; } }
