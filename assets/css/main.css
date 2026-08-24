@@ -396,3 +396,77 @@ strong{ font-weight:500; color:var(--ink); }
   .hdr,.ftr,.cta,.burger{ display:none; }
   body{ color:#000; font-size:12pt; }
 }
+
+/* ==========================================================================
+   v2 — Photography components (reference: Brenntag/Azelis/LDC pattern)
+   ========================================================================== */
+
+/* --- Photo hero ----------------------------------------------------------- */
+.hero--photo{
+  background-color:var(--ink);
+  background-size:cover; background-position:center;
+  border-bottom:0;
+}
+.hero--photo::before{
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(100deg, rgba(6,16,30,.86) 0%, rgba(6,16,30,.62) 48%, rgba(6,16,30,.22) 100%);
+}
+.hero--photo .hero__in{ position:relative; z-index:2; }
+.hero--photo h1{ color:#fff; }
+.hero--photo p{ color:#D9E3ED; }
+.hero--photo .eyebrow{ color:#6FD3BF; }
+.hero--photo .crumb,.hero--photo .crumb a{ color:#9FB2C4; }
+.hero--photo .crumb a:hover{ color:#fff; }
+.hero--photo .btn--ghost{ border-color:rgba(255,255,255,.4); color:#fff; }
+.hero--photo .btn--ghost:hover{ border-color:#fff; background:#fff; color:var(--ink); }
+.hero--home .hero__in{ min-height:min(72vh,640px); display:flex; flex-direction:column; justify-content:center; }
+
+/* --- Image cards (industries grid) ---------------------------------------- */
+.imgcard{
+  position:relative; display:flex; align-items:flex-end;
+  border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3;
+  background:var(--ink);
+}
+.imgcard>img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  transition:transform .6s var(--ease), opacity .4s var(--ease);
+}
+.imgcard:hover>img{ transform:scale(1.06); }
+.imgcard::after{
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to top, rgba(6,16,30,.88) 0%, rgba(6,16,30,.34) 52%, rgba(6,16,30,.06) 100%);
+}
+.imgcard__body{ position:relative; z-index:2; padding:1.375rem 1.5rem; width:100%; }
+.imgcard__body h3{ color:#fff; font-size:1.0938rem; letter-spacing:-.01em; }
+.imgcard__body p{
+  color:#C4D1DE; font-size:.8438rem; line-height:1.5; margin-top:.375rem;
+  max-height:0; opacity:0; overflow:hidden; transition:max-height .45s var(--ease), opacity .35s var(--ease);
+}
+.imgcard:hover .imgcard__body p{ max-height:5em; opacity:1; }
+@media (hover:none){ .imgcard .imgcard__body p{ max-height:none; opacity:1; } }
+
+/* --- Sector card with photo top ------------------------------------------- */
+.sector__img{ aspect-ratio:16/7; overflow:hidden; }
+.sector__img img{ width:100%; height:100%; object-fit:cover; transition:transform .6s var(--ease); }
+.sector:hover .sector__img img{ transform:scale(1.045); }
+
+/* --- Split photo ----------------------------------------------------------- */
+.split__photo{ aspect-ratio:4/3; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow); }
+.split__photo img{ width:100%; height:100%; object-fit:cover; }
+
+/* --- Value chain strip ------------------------------------------------------ */
+.chain{ display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:1px solid var(--line); border-radius:var(--radius-lg); overflow:hidden; }
+.chain__step{ padding:1.75rem 1.5rem; background:var(--paper); border-left:1px solid var(--line); position:relative; }
+.chain__step:first-child{ border-left:0; }
+.chain__step .n{ font-size:.6875rem; font-weight:500; letter-spacing:.14em; color:var(--brand); display:block; margin-bottom:.75rem; }
+.chain__step h4{ font-size:.9688rem; margin-bottom:.375rem; }
+.chain__step p{ font-size:.8125rem; color:var(--muted); }
+@media (max-width:1024px){ .chain{ grid-template-columns:1fr 1fr; } .chain__step{ border-top:1px solid var(--line); } .chain__step:nth-child(-n+2){ border-top:0; } .chain__step:nth-child(odd){ border-left:0; } }
+@media (max-width:560px){ .chain{ grid-template-columns:1fr; } .chain__step{ border-left:0 !important; border-top:1px solid var(--line); } .chain__step:first-child{ border-top:0; } }
+
+/* 7-item nav fit on narrow desktop */
+@media (max-width:1160px) and (min-width:861px){
+  .nav{ gap:1.25rem; }
+  .nav a{ font-size:.875rem; }
+  .hdr__in{ gap:1.5rem; }
+}

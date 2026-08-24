@@ -33,7 +33,9 @@
       <a href="about.html">Company</a>
       <a href="chemicals.html">Chemicals</a>
       <a href="agri.html">Food &amp; Agri</a>
+      <a href="industries.html">Industries</a>
       <a href="services.html">Services</a>
+      <a href="sustainability.html">Sustainability</a>
       <a href="contact.html">Contact</a>
     </nav>
 
@@ -51,33 +53,7 @@
 <main>
 
   <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero__art" aria-hidden="true">
-      <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#005B8F" stroke-width="1.1" opacity=".55">
-          <path d="M300 90 L410 155 L410 285 L300 350 L190 285 L190 155 Z" />
-          <path d="M410 155 L520 90 M410 285 L520 350 M190 155 L80 90 M190 285 L80 350 M300 90 L300 20 M300 350 L300 430" />
-          <path d="M80 90 L80 220 L190 285 M520 90 L520 220 L410 285" />
-          <path d="M300 430 L410 480 M300 430 L190 480" />
-        </g>
-        <g fill="#005B8F">
-          <circle cx="300" cy="90" r="7" /><circle cx="410" cy="155" r="7" />
-          <circle cx="410" cy="285" r="7" /><circle cx="190" cy="155" r="7" />
-          <circle cx="190" cy="285" r="7" />
-        </g>
-        <g fill="#00A88E">
-          <circle cx="300" cy="350" r="9" /><circle cx="520" cy="90" r="6" />
-          <circle cx="80" cy="350" r="6" /><circle cx="300" cy="430" r="6" />
-        </g>
-        <g fill="#8FB3CA">
-          <circle cx="520" cy="350" r="5" /><circle cx="80" cy="90" r="5" />
-          <circle cx="300" cy="20" r="5" /><circle cx="80" cy="220" r="4" />
-          <circle cx="520" cy="220" r="4" /><circle cx="410" cy="480" r="4" />
-          <circle cx="190" cy="480" r="4" />
-        </g>
-      </svg>
-    </div>
-
+  <section class="hero hero--home hero--photo" style="background-image:url('assets/img/hero-home.jpg')">
     <div class="wrap hero__in">
       <span class="eyebrow">Global Trade · Chemicals &amp; Agri-Commodities</span>
       <h1 class="hero__title">Sourcing the raw materials <em>industry</em> runs on.</h1>
@@ -121,6 +97,7 @@
       <div class="grid grid-2">
         <article class="sector rv">
           <div class="sector__band"></div>
+          <div class="sector__img"><img src="assets/img/div-chemicals.jpg" alt="Laboratory quality control — a gloved hand holding a beaker" loading="lazy" /></div>
           <div class="sector__body">
             <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <path d="M19 6v13L8 37a4 4 0 003.4 6h25.2A4 4 0 0040 37L29 19V6" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
@@ -148,6 +125,7 @@
 
         <article class="sector sector--agri rv">
           <div class="sector__band"></div>
+          <div class="sector__img"><img src="assets/img/div-agri.jpg" alt="Combine harvester working a wheat field" loading="lazy" /></div>
           <div class="sector__body">
             <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <path d="M24 43V19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
@@ -173,6 +151,34 @@
             </div>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES GRID ================= -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Focus Industries</span>
+        <h2>Industries we serve.</h2>
+        <p class="lede">Every industry buys raw materials differently. We organise our sourcing
+          around the end market, so the grade, documentation and packing arrive ready for your line.</p>
+      </div>
+      <div class="grid grid-4">
+        <a class="imgcard rv" href="industries.html#coatings"><img src="assets/img/ind-coatings.jpg" alt="Colourful paint pigments" loading="lazy" /><div class="imgcard__body"><h3>Coatings &amp; Inks</h3><p>Resins, pigments, solvents and additives.</p></div></a>
+        <a class="imgcard rv" href="industries.html#plastics"><img src="assets/img/ind-plastics.jpg" alt="Polymer granulate close-up" loading="lazy" /><div class="imgcard__body"><h3>Plastics</h3><p>Base polymers and compounding packages.</p></div></a>
+        <a class="imgcard rv" href="industries.html#electronics"><img src="assets/img/ind-electronics.jpg" alt="Macro photo of a circuit board" loading="lazy" /><div class="imgcard__body"><h3>Electronics</h3><p>High-purity solvents and process chemicals.</p></div></a>
+        <a class="imgcard rv" href="industries.html#personal-care"><img src="assets/img/ind-personalcare.jpg" alt="Cosmetic tube with water droplets" loading="lazy" /><div class="imgcard__body"><h3>Personal Care</h3><p>Cosmetic-grade ingredients with full documentation.</p></div></a>
+        <a class="imgcard rv" href="industries.html#food"><img src="assets/img/ind-food.jpg" alt="Fresh bread in a bakery" loading="lazy" /><div class="imgcard__body"><h3>Food &amp; Beverage</h3><p>Ingredients, sweeteners, starches and additives.</p></div></a>
+        <a class="imgcard rv" href="industries.html#water"><img src="assets/img/ind-water.jpg" alt="Aerial view of water treatment tanks" loading="lazy" /><div class="imgcard__body"><h3>Water Treatment</h3><p>Coagulants, flocculants and scale control.</p></div></a>
+        <a class="imgcard rv" href="industries.html#textiles"><img src="assets/img/ind-textiles.jpg" alt="Rows of coloured yarn spools" loading="lazy" /><div class="imgcard__body"><h3>Textiles</h3><p>Dyeing auxiliaries and finishing chemicals.</p></div></a>
+        <a class="imgcard rv" href="industries.html#construction"><img src="assets/img/ind-construction.jpg" alt="Construction site with crane" loading="lazy" /><div class="imgcard__body"><h3>Construction</h3><p>Admixtures, polymers and specialty additives.</p></div></a>
+      </div>
+      <div class="btn-row rv">
+        <a class="btn btn--ghost" href="industries.html">
+          View all industries
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -241,6 +247,23 @@
             <path d="M175 238v34M200 238v34M225 238v34"/>
           </g>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VALUE CHAIN ================= -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Value Chain</span>
+        <h2>One accountable chain, origin to delivery.</h2>
+      </div>
+      <div class="chain rv">
+        <div class="chain__step"><span class="n">01 — ORIGIN</span><h4>Source</h4><p>Qualified producers, audited plants, stated origin and grade.</p></div>
+        <div class="chain__step"><span class="n">02 — QUALITY</span><h4>Verify</h4><p>Batch CoA and third-party inspection before anything loads.</p></div>
+        <div class="chain__step"><span class="n">03 — LOGISTICS</span><h4>Move</h4><p>Bulk, ISO tank, container or bagged — booked as one workflow.</p></div>
+        <div class="chain__step"><span class="n">04 — BORDER</span><h4>Clear</h4><p>Documents prepared to the destination country's actual requirements.</p></div>
+        <div class="chain__step"><span class="n">05 — DELIVERY</span><h4>Land</h4><p>Tracked to discharge, with claims and repeat supply handled by the same desk.</p></div>
       </div>
     </div>
   </section>
@@ -351,6 +374,27 @@
     </div>
   </section>
 
+  <!-- ================= SUSTAINABILITY TEASER ================= -->
+  <section class="section section--surface">
+    <div class="wrap split">
+      <div class="split__photo rv"><img src="assets/img/hero-sustainability.jpg" alt="Wind turbines and solar panels across farmland" loading="lazy" /></div>
+      <div class="rv">
+        <span class="eyebrow eyebrow--accent">Sustainability</span>
+        <h2>Responsible distribution is part of the job.</h2>
+        <p class="lede" style="margin-top:1.25rem">Chemicals and food-chain cargo carry real
+          obligations — to the people who handle them, the water they must not reach, and the
+          markets that regulate them. Read how we approach safety, product stewardship and
+          responsible sourcing.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="sustainability.html">
+            Our approach
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CTA ================= -->
   <section class="cta">
     <div class="wrap cta__in">
@@ -387,6 +431,7 @@
         <ul>
           <li><a href="chemicals.html">Chemicals</a></li>
           <li><a href="agri.html">Food &amp; Agri</a></li>
+          <li><a href="industries.html">Industries</a></li>
           <li><a href="services.html">Trade Services</a></li>
         </ul>
       </div>
@@ -396,7 +441,7 @@
         <ul>
           <li><a href="about.html">About WIDEKHAN</a></li>
           <li><a href="about.html#approach">Our approach</a></li>
-          <li><a href="about.html#compliance">Compliance</a></li>
+          <li><a href="sustainability.html">Sustainability</a></li>
         </ul>
       </div>
 

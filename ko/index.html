@@ -32,7 +32,9 @@
       <a href="about.html">회사소개</a>
       <a href="chemicals.html">화학</a>
       <a href="agri.html">식품·농산물</a>
+      <a href="industries.html">산업분야</a>
       <a href="services.html">무역서비스</a>
+      <a href="sustainability.html">지속가능경영</a>
       <a href="contact.html">문의</a>
     </nav>
 
@@ -50,33 +52,7 @@
 <main>
 
   <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero__art" aria-hidden="true">
-      <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="#005B8F" stroke-width="1.1" opacity=".55">
-          <path d="M300 90 L410 155 L410 285 L300 350 L190 285 L190 155 Z" />
-          <path d="M410 155 L520 90 M410 285 L520 350 M190 155 L80 90 M190 285 L80 350 M300 90 L300 20 M300 350 L300 430" />
-          <path d="M80 90 L80 220 L190 285 M520 90 L520 220 L410 285" />
-          <path d="M300 430 L410 480 M300 430 L190 480" />
-        </g>
-        <g fill="#005B8F">
-          <circle cx="300" cy="90" r="7" /><circle cx="410" cy="155" r="7" />
-          <circle cx="410" cy="285" r="7" /><circle cx="190" cy="155" r="7" />
-          <circle cx="190" cy="285" r="7" />
-        </g>
-        <g fill="#00A88E">
-          <circle cx="300" cy="350" r="9" /><circle cx="520" cy="90" r="6" />
-          <circle cx="80" cy="350" r="6" /><circle cx="300" cy="430" r="6" />
-        </g>
-        <g fill="#8FB3CA">
-          <circle cx="520" cy="350" r="5" /><circle cx="80" cy="90" r="5" />
-          <circle cx="300" cy="20" r="5" /><circle cx="80" cy="220" r="4" />
-          <circle cx="520" cy="220" r="4" /><circle cx="410" cy="480" r="4" />
-          <circle cx="190" cy="480" r="4" />
-        </g>
-      </svg>
-    </div>
-
+  <section class="hero hero--home hero--photo" style="background-image:url('../assets/img/hero-home.jpg')">
     <div class="wrap hero__in">
       <span class="eyebrow">글로벌 무역 · 화학 &amp; 농산물</span>
       <h1 class="hero__title">산업이 쓰는 원료를, <em>전 세계</em>에서 조달합니다.</h1>
@@ -117,6 +93,7 @@
       <div class="grid grid-2">
         <article class="sector rv">
           <div class="sector__band"></div>
+          <div class="sector__img"><img src="../assets/img/div-chemicals.jpg" alt="실험실 품질 관리 — 비커를 든 손" loading="lazy" /></div>
           <div class="sector__body">
             <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <path d="M19 6v13L8 37a4 4 0 003.4 6h25.2A4 4 0 0040 37L29 19V6" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
@@ -143,6 +120,7 @@
 
         <article class="sector sector--agri rv">
           <div class="sector__band"></div>
+          <div class="sector__img"><img src="../assets/img/div-agri.jpg" alt="밀밭에서 작업 중인 콤바인" loading="lazy" /></div>
           <div class="sector__body">
             <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
               <path d="M24 43V19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
@@ -167,6 +145,34 @@
             </div>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 산업 그리드 ================= -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">주력 산업</span>
+        <h2>공급하는 산업 분야.</h2>
+        <p class="lede">산업마다 원료를 구매하는 방식이 다릅니다. 저희는 최종 시장을 기준으로
+          소싱을 조직하여, 등급·서류·포장이 귀사 라인에 바로 투입 가능한 상태로 도착하게 합니다.</p>
+      </div>
+      <div class="grid grid-4">
+        <a class="imgcard rv" href="industries.html#coatings"><img src="../assets/img/ind-coatings.jpg" alt="다채로운 도료 안료" loading="lazy" /><div class="imgcard__body"><h3>도료 · 잉크</h3><p>수지, 안료, 용제, 첨가제.</p></div></a>
+        <a class="imgcard rv" href="industries.html#plastics"><img src="../assets/img/ind-plastics.jpg" alt="폴리머 펠릿 클로즈업" loading="lazy" /><div class="imgcard__body"><h3>플라스틱</h3><p>기초 폴리머와 배합 패키지.</p></div></a>
+        <a class="imgcard rv" href="industries.html#electronics"><img src="../assets/img/ind-electronics.jpg" alt="회로 기판 매크로 사진" loading="lazy" /><div class="imgcard__body"><h3>전자</h3><p>고순도 용제와 공정 약품.</p></div></a>
+        <a class="imgcard rv" href="industries.html#personal-care"><img src="../assets/img/ind-personalcare.jpg" alt="물방울 맺힌 화장품 튜브" loading="lazy" /><div class="imgcard__body"><h3>퍼스널케어</h3><p>서류를 갖춘 화장품 등급 원료.</p></div></a>
+        <a class="imgcard rv" href="industries.html#food"><img src="../assets/img/ind-food.jpg" alt="베이커리의 갓 구운 빵" loading="lazy" /><div class="imgcard__body"><h3>식품 · 음료</h3><p>원료, 감미료, 전분, 첨가물.</p></div></a>
+        <a class="imgcard rv" href="industries.html#water"><img src="../assets/img/ind-water.jpg" alt="수처리 시설 항공 사진" loading="lazy" /><div class="imgcard__body"><h3>수처리</h3><p>응집제, 응결제, 스케일 관리.</p></div></a>
+        <a class="imgcard rv" href="industries.html#textiles"><img src="../assets/img/ind-textiles.jpg" alt="색색의 실 스풀" loading="lazy" /><div class="imgcard__body"><h3>섬유</h3><p>염색 조제와 후가공 약품.</p></div></a>
+        <a class="imgcard rv" href="industries.html#construction"><img src="../assets/img/ind-construction.jpg" alt="크레인이 있는 건설 현장" loading="lazy" /><div class="imgcard__body"><h3>건설</h3><p>혼화제, 폴리머, 특수 첨가제.</p></div></a>
+      </div>
+      <div class="btn-row rv">
+        <a class="btn btn--ghost" href="industries.html">
+          전체 산업 분야 보기
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -233,6 +239,23 @@
             <path d="M175 238v34M200 238v34M225 238v34"/>
           </g>
         </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 밸류체인 ================= -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">밸류체인</span>
+        <h2>산지에서 인도까지, 책임지는 사슬은 하나입니다.</h2>
+      </div>
+      <div class="chain rv">
+        <div class="chain__step"><span class="n">01 — 산지</span><h4>소싱</h4><p>검증된 생산자, 실사된 공장, 명시된 원산지와 등급.</p></div>
+        <div class="chain__step"><span class="n">02 — 품질</span><h4>검증</h4><p>선적 전 배치별 성적서와 제3자 검사.</p></div>
+        <div class="chain__step"><span class="n">03 — 물류</span><h4>운송</h4><p>벌크, ISO 탱크, 컨테이너, 포대 — 하나의 워크플로로 수배.</p></div>
+        <div class="chain__step"><span class="n">04 — 통관</span><h4>클리어</h4><p>도착국이 실제로 요구하는 기준에 맞춘 서류.</p></div>
+        <div class="chain__step"><span class="n">05 — 인도</span><h4>도착</h4><p>하역까지 추적, 클레임과 재공급까지 같은 데스크가 대응.</p></div>
       </div>
     </div>
   </section>
@@ -343,6 +366,26 @@
     </div>
   </section>
 
+  <!-- ================= 지속가능 티저 ================= -->
+  <section class="section section--surface">
+    <div class="wrap split">
+      <div class="split__photo rv"><img src="../assets/img/hero-sustainability.jpg" alt="농지 위 풍력 터빈과 태양광 패널" loading="lazy" /></div>
+      <div class="rv">
+        <span class="eyebrow eyebrow--accent">지속가능경영</span>
+        <h2>책임 있는 유통은 업무의 일부입니다.</h2>
+        <p class="lede" style="margin-top:1.25rem">화학품과 식품 사슬 화물에는 실질적인 의무가
+          따릅니다 — 취급하는 사람, 닿아서는 안 될 수계, 그리고 이를 규제하는 시장에 대한
+          의무입니다. 안전, 제품 스튜어드십, 책임 소싱에 대한 접근을 확인하십시오.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="sustainability.html">
+            우리의 접근
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="wrap cta__in">
       <h2>필요한 품목을 알려주십시오.</h2>
@@ -377,6 +420,7 @@
         <ul>
           <li><a href="chemicals.html">화학</a></li>
           <li><a href="agri.html">식품·농산물</a></li>
+          <li><a href="industries.html">산업분야</a></li>
           <li><a href="services.html">무역서비스</a></li>
         </ul>
       </div>
@@ -385,7 +429,7 @@
         <ul>
           <li><a href="about.html">회사소개</a></li>
           <li><a href="about.html#approach">업무 원칙</a></li>
-          <li><a href="about.html#compliance">컴플라이언스</a></li>
+          <li><a href="sustainability.html">지속가능경영</a></li>
         </ul>
       </div>
       <div>
