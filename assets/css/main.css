@@ -631,3 +631,21 @@ h1{ letter-spacing:-.03em; word-spacing:.04em; }
     background:linear-gradient(180deg, rgba(4,11,22,.88) 0%, rgba(4,11,22,.74) 55%, rgba(4,11,22,.55) 100%);
   }
 }
+
+/* --- v3.2: logo proportions + Korean UI type scale -------------------------- */
+.logo__sym{ height:28px; }
+.logo__word{ height:16px; }
+.ftr .logo__sym{ height:26px; }
+.ftr .logo__word{ height:15px; }
+@media (max-width:560px){ .logo__sym{ height:24px; } .logo__word{ height:13px; } }
+
+/* 대문자 트래킹은 라틴 전용 — 한글은 크기·자간을 별도 스케일로 */
+html[lang="ko"] .nav a{ font-size:.875rem; letter-spacing:.05em; }
+@media (max-width:860px){ html[lang="ko"] .nav a{ font-size:.9375rem; letter-spacing:.03em; } }
+html[lang="ko"] .btn{ font-size:.875rem; letter-spacing:.05em; }
+html[lang="ko"] .eyebrow{ font-size:.8125rem; letter-spacing:.15em; }
+html[lang="ko"] .link-arrow{ font-size:.875rem; letter-spacing:.04em; }
+html[lang="ko"] .card__num{ font-size:.8125rem; letter-spacing:.12em; }
+html[lang="ko"] .chain__step .n{ font-size:.8125rem; letter-spacing:.1em; }
+html[lang="ko"] .cinfo__k{ font-size:.8125rem; letter-spacing:.1em; }
+html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
