@@ -1,187 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About | WIDEKHAN</title>
-
-  <style>
-    /* Neue Haas Font 설정 */
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
-      font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'NeueHaas', sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-hover {
-      transition: filter 0.3s ease, transform 0.3s ease;
-      height: 40px;
-    }
-
-    .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
-    }
-
-    nav a {
-      color: white;
-      margin-left: 30px;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
-    section {
-      padding: 120px 40px 100px;
-      background-color: #000;
-    }
-
-    section h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #f5f5f5;
-      font-weight: 700;
-    }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      text-align: center;
-      font-size: 18px;
-      color: #ccc;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    footer {
-      padding: 40px;
-      background: #111;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      font-weight: 300;
-      margin-top: 60px;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Company — About WIDEKHAN | Global Trading House</title>
+<meta name="description" content="WIDEKHAN is a Korea-based trading house in industrial chemicals and agricultural commodities, built around verified sourcing, disciplined documentation and single-point accountability." />
+<link rel="canonical" href="https://widekhan.com/about.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Company — About WIDEKHAN | Global Trading House" />
+<meta property="og:description" content="A Korea-based trading house in chemicals and agri-commodities, built on verified sourcing and disciplined execution." />
+<link rel="alternate" hreflang="en" href="https://widekhan.com/about.html" />
+<link rel="alternate" hreflang="ko" href="https://widekhan.com/ko/about.html" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
-      alt="Widekhan Logo"
-      class="logo-hover"
-    />
-  </a>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="WIDEKHAN — home">
+      <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="url(#lgH)" stroke-width="9" stroke-linejoin="miter" />
+        <defs><linearGradient id="lgH" x1="7" y1="14" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#005B8F" /><stop offset="1" stop-color="#00A88E" />
+        </linearGradient></defs>
+      </svg>
+      <span class="logo__type">WIDEKHAN</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="about.html" aria-current="page">Company</a>
+      <a href="chemicals.html">Chemicals</a>
+      <a href="agri.html">Food &amp; Agri</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="hdr__side">
+      <div class="lang">
+        <a href="about.html" aria-current="true">EN</a>
+        <span class="lang__sep">/</span>
+        <a href="ko/about.html">KO</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
 </header>
 
-<section id="about">
-  <h2>About WIDEKHAN</h2>
-  <p>WIDEKHAN is a Seoul-born agency empowering athletes, brands, and creators to move beyond limits. Rooted in cosmic energy systems and global ambition, we combine strategy with soul.</p>
-</section>
+<main>
 
-<section id="philosophy">
-  <h2>Our Philosophy</h2>
-  <p>WIDEKHAN is driven by balance — bold vision and structured execution.  
-  Inspired by rhythm, clarity, and inner discipline, we move beyond limits to lead the future of sport and culture.</p>
-</section>
+  <section class="hero hero--sub">
+    <div class="wrap hero__in">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Company</span>
+      </nav>
+      <span class="eyebrow">Company</span>
+      <h1 class="hero__title">A trading house built around execution.</h1>
+      <p>WIDEKHAN connects producers of chemicals and agricultural commodities with the industrial
+         buyers who need them — and takes responsibility for everything in between.</p>
+    </div>
+  </section>
 
-<section id="tempo">
-  <h2>Brand Tempo</h2>
-  <p>Every project begins with timing.  
-  We pay attention to cycles — of seasons, culture, and the unseen rhythms behind great momentum.  
-  Our work flows with timing, not trend.</p>
-</section>
+  <!-- ================= WHO ================= -->
+  <section class="section">
+    <div class="wrap split">
+      <div class="rv">
+        <span class="eyebrow">Who We Are</span>
+        <h2>Trade is a promise about the future.</h2>
+        <p class="lede" style="margin-top:1.25rem">A purchase order is a commitment that a specific
+          material, at a specific quality, will be at a specific place on a specific date. Everything
+          a trading house is worth comes down to whether that holds.</p>
+        <p style="margin-top:1.25rem">WIDEKHAN operates from Korea across two divisions —
+           <a href="chemicals.html" style="color:var(--brand)">Chemicals</a> and
+           <a href="agri.html" style="color:var(--brand)">Food&nbsp;&amp;&nbsp;Agri</a> — sourcing
+           from qualified producers and supplying manufacturers, processors and distributors in
+           Asia, the Middle East, Europe and the Americas.</p>
+        <p style="margin-top:1.25rem">We are deliberately not a marketplace. We take title, we carry
+           the execution risk, and we answer for the shipment. That is a narrower business than
+           listing suppliers, and it is the one worth doing.</p>
+      </div>
 
-<section id="manifesto">
-  <h2>Our Belief</h2>
-  <p>We're not just players.  
-  We set new rules, write new rhythms, and lead new energy.  
-  Built for the long game. Born to go further.</p>
-</section>
+      <div class="split__art rv" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#ffffff" stroke-width="1.6" opacity=".5" stroke-dasharray="6 7">
+            <path d="M60 210C140 90 260 90 340 210"/>
+            <path d="M60 210C150 170 250 170 340 210"/>
+          </g>
+          <g stroke="#ffffff" stroke-width="2" opacity=".9">
+            <circle cx="60" cy="210" r="10"/><circle cx="340" cy="210" r="10"/>
+            <circle cx="200" cy="120" r="14"/>
+          </g>
+          <g fill="#ffffff" opacity=".9"><circle cx="200" cy="120" r="5"/></g>
+          <g stroke="#ffffff" stroke-width="1.4" opacity=".35">
+            <path d="M40 250h320M40 265h240"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+  <!-- ================= APPROACH ================= -->
+  <section class="section section--surface" id="approach">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Our Approach</span>
+        <h2>Four things we do not compromise on.</h2>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card rv">
+          <span class="card__num">01</span>
+          <h3>We qualify the supplier, not just the price</h3>
+          <p>Every producer we place an order with has been assessed on plant capability,
+             specification consistency and prior performance. The cheapest offer in a market is
+             usually cheap for a reason, and it rarely stays cheap once a claim is filed.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">02</span>
+          <h3>We say no to enquiries we cannot serve</h3>
+          <p>If a specification, a volume or a delivery window is not realistic, we say so at the
+             enquiry stage rather than quoting to win and renegotiating later. Buyers plan
+             production around our answers, so the answers have to be reliable.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">03</span>
+          <h3>We treat documents as part of the goods</h3>
+          <p>A correct cargo with an incorrect document set is a detained cargo. Certificates,
+             classification and declarations are prepared to the destination country's requirement,
+             not to a generic template.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">04</span>
+          <h3>We stay reachable when things go wrong</h3>
+          <p>Vessels get delayed, plants have outages, quality disputes happen. The measure of a
+             trading partner is the response in that week — so escalation runs to a named person,
+             not a shared mailbox.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REACH ================= -->
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Reach</span>
+        <h2>Positioned in Korea, trading across four regions.</h2>
+        <p class="lede" style="color:#93A5B6">Korea sits inside the North Asian petrochemical and
+          manufacturing cluster, with short lead times to Chinese, Japanese and Southeast Asian
+          production and direct liner service to every major market.</p>
+      </div>
+
+      <div class="grid grid-4">
+        <div class="card rv" style="background:transparent;border-color:rgba(255,255,255,.14)">
+          <span class="card__num" style="color:var(--accent)">ASIA PACIFIC</span>
+          <h3>Core market</h3>
+          <p style="color:#93A5B6">Korea, China, Japan, Southeast Asia and India — both as origin for
+             chemical production and as destination for agri-commodities.</p>
+        </div>
+        <div class="card rv" style="background:transparent;border-color:rgba(255,255,255,.14)">
+          <span class="card__num" style="color:var(--accent)">MIDDLE EAST</span>
+          <h3>Petrochemical origin</h3>
+          <p style="color:#93A5B6">Gulf producers for base chemicals, polymers and fertilisers, plus
+             growing food-ingredient demand across the region.</p>
+        </div>
+        <div class="card rv" style="background:transparent;border-color:rgba(255,255,255,.14)">
+          <span class="card__num" style="color:var(--accent)">EUROPE</span>
+          <h3>Specialty sourcing</h3>
+          <p style="color:#93A5B6">Specialty chemical and food-additive producers where technical
+             grade and regulatory documentation are the deciding factors.</p>
+        </div>
+        <div class="card rv" style="background:transparent;border-color:rgba(255,255,255,.14)">
+          <span class="card__num" style="color:var(--accent)">AMERICAS</span>
+          <h3>Agri origin</h3>
+          <p style="color:#93A5B6">North and South American grain, oilseed and feed-ingredient
+             origination for Asian and Middle Eastern buyers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMPLIANCE ================= -->
+  <section class="section" id="compliance">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Compliance</span>
+        <h2>Trading responsibly is not optional.</h2>
+        <p class="lede">Chemicals and food-chain goods are among the most heavily regulated cargoes
+          moving internationally. We build compliance into the transaction rather than treating it
+          as paperwork at the end.</p>
+      </div>
+
+      <div class="flist grid grid-2 rv" style="gap:2.25rem 3rem">
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><h4>Sanctions &amp; export control screening</h4><p>Counterparties, end users and destinations screened against applicable sanctions and export-control regimes before contracting.</p></div>
+        </div>
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3.5v4M16 3.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><h4>Chemical registration requirements</h4><p>Support with registration and notification obligations in the destination market, including restricted-substance checks.</p></div>
+        </div>
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l9 16H3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v5M12 16.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><h4>Dangerous goods handling</h4><p>Correct IMDG classification, UN-approved packaging and carrier declarations for every hazardous consignment.</p></div>
+        </div>
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+          <div><h4>Food safety obligations</h4><p>Food-contact and ingredient-grade goods handled against the certification and traceability the destination market requires.</p></div>
+        </div>
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 20v-6h5v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <div><h4>Anti-bribery &amp; fair dealing</h4><p>No facilitation payments, no undisclosed commissions. Where an agent is involved in a trade, the buyer is told.</p></div>
+        </div>
+        <div class="fitem">
+          <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l5 5v13H6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v6h6M9.5 13h6M9.5 17h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><h4>Contract transparency</h4><p>Specification, inspection basis, tolerance and claim procedure written into the contract — so a dispute has an agreed resolution path.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ============================================================================
+  COMPANY FACT SHEET — 확인된 정보로 채운 뒤 주석을 푸세요.
+  법인명 / 사업자등록번호 / 설립연도 / 본사 주소 / 대표자 / 무역업고유번호 등
+  실제 등기 정보와 일치해야 합니다.
+  ============================================================================
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="head rv"><span class="eyebrow">Corporate Information</span><h2>Company details.</h2></div>
+      <div class="cinfo rv" style="grid-template-columns:repeat(2,1fr);display:grid;gap:2rem 4rem">
+        <div class="cinfo__row"><div class="cinfo__k">Legal entity</div><div class="cinfo__v">—</div></div>
+        <div class="cinfo__row"><div class="cinfo__k">Business registration no.</div><div class="cinfo__v">—</div></div>
+        <div class="cinfo__row"><div class="cinfo__k">Established</div><div class="cinfo__v">—</div></div>
+        <div class="cinfo__row"><div class="cinfo__k">Representative</div><div class="cinfo__v">—</div></div>
+        <div class="cinfo__row"><div class="cinfo__k">Head office</div><div class="cinfo__v">—</div></div>
+        <div class="cinfo__row"><div class="cinfo__k">Trade licence no.</div><div class="cinfo__v">—</div></div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <section class="cta">
+    <div class="wrap cta__in">
+      <h2>Let's find out if we are a fit.</h2>
+      <p>The quickest way to judge a trading partner is to give them a real enquiry and see how
+         precise the answer is. Send us one.</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="contact.html">
+          Contact us
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="services.html">See our trade services</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="logo" href="index.html">
+          <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="#00A88E" stroke-width="9" stroke-linejoin="miter" />
+          </svg>
+          <span class="logo__type">WIDEKHAN</span>
+        </a>
+        <p>Global sourcing and distribution of industrial chemicals and agricultural commodities.</p>
+      </div>
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="chemicals.html">Chemicals</a></li>
+          <li><a href="agri.html">Food &amp; Agri</a></li>
+          <li><a href="services.html">Trade Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About WIDEKHAN</a></li>
+          <li><a href="about.html#approach">Our approach</a></li>
+          <li><a href="about.html#compliance">Compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Enquiry form</a></li>
+          <li><a href="mailto:info@widekhan.com">info@widekhan.com</a></li>
+          <li><a href="ko/about.html">한국어 사이트</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__btm">
+      <span>&copy; <span data-year>2026</span> WIDEKHAN. All rights reserved.</span>
+      <span>Seoul, Republic of Korea</span>
+    </div>
+  </div>
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>

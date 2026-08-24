@@ -1,573 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WIDEKHAN - Elite Sports Marketing & Talent Agency</title>
-  <style>
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
-      font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'NeueHaas', sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    /* Loading Screen */
-    .loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
-
-    .loading-screen.fade-out {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .loading-logo {
-      max-width: 300px;
-      width: 80%;
-      opacity: 0;
-      animation: fadeInLogo 2s ease-out forwards;
-    }
-
-    @keyframes fadeInLogo {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 0;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-container {
-      margin-left: 0;
-      padding-left: 0;
-    }
-
-    .logo-hover {
-      height: 40px;
-      transition: filter 0.3s ease, transform 0.3s ease;
-      margin-left: 0;
-    }
-
-    .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
-    }
-
-    nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      margin-right: 0;
-      padding-right: 0;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      transition: all 0.3s;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 4px;
-    }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
-    nav a.active {
-      background-color: white;
-      color: black;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-right: 0;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 20px 20px;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 8px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-    }
-
-    .hero {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .background-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-logo {
-      max-width: 600px;
-      width: 90%;
-      opacity: 0;
-      animation: fadeInZoom 2s ease-out 0.3s forwards;
-      filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.7));
-      transition: filter 0.3s ease, transform 0.3s ease;
-      font-weight: 900;
-    }
-
-    .hero-logo:hover {
-      filter: brightness(1.4) drop-shadow(0 0 16px white);
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeInZoom {
-      0% {
-        opacity: 0;
-        transform: scale(0.8);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    /* Quote Section */
-    .quote-section {
-      padding: 100px 20px;
-      text-align: center;
-      background-color: black;
-      position: relative;
-    }
-
-    .quote-marks {
-      font-size: 60px;
-      color: #666;
-      font-family: Georgia, serif;
-      line-height: 0.5;
-      margin-bottom: 30px;
-    }
-
-    .quote-text {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: white;
-      line-height: 1.2;
-    }
-
-    .quote-author {
-      font-size: 18px;
-      color: #ccc;
-      font-style: italic;
-      margin-bottom: 40px;
-    }
-
-    .quote-tagline {
-      font-size: 24px;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    .quote-emphasis {
-      font-size: 28px;
-      font-weight: 700;
-      color: white;
-    }
-
-    /* Section Divider */
-    .section-divider {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 50px 0;
-      background-color: black;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .divider-container {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      height: 60px;
-    }
-
-    .divider-line {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent 0%, #666 20%, #666 80%, transparent 100%);
-      transform: translateY(-50%);
-    }
-
-    .home-plates {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 100%;
-      transform: translateY(-50%);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .home-plate {
-      width: 24px;
-      height: 24px;
-      background-color: #666;
-      opacity: 0.8;
-      clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 50% 100%, 0% 70%);
-      transform: rotate(90deg);
-    }
-
-    .content-section {
-      padding: 100px 20px;
-      text-align: center;
-      background-color: black;
-    }
-
-    .content-section h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      color: white;
-    }
-
-    .content-section p {
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #ccc;
-    }
-
-    /* CTA Section with different background */
-    .cta-section {
-      padding: 100px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      border-top: 1px solid #333;
-    }
-
-    .cta-text {
-      font-size: 36px;
-      font-weight: 300;
-      margin-bottom: 20px;
-      color: #ccc;
-    }
-
-    .cta-brand {
-      font-size: 72px;
-      font-weight: 900;
-      font-family: 'NeueHaas', sans-serif;
-      margin-bottom: 40px;
-      color: white;
-      letter-spacing: 2px;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 15px 40px;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 700;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
-    }
-
-    .cta-button:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
-    }
-
-    footer {
-      padding: 40px;
-      background: #111;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      font-weight: 300;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      .quote-text {
-        font-size: 28px;
-      }
-
-      .cta-brand {
-        font-size: 48px;
-      }
-
-      .cta-text {
-        font-size: 24px;
-      }
-
-      .home-plate {
-        width: 16px;
-        height: 16px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WIDEKHAN — Global Trade in Chemicals &amp; Agri-Commodities</title>
+<meta name="description" content="WIDEKHAN is a Korea-based trading house sourcing and distributing industrial chemicals, specialty chemicals, food ingredients and agricultural commodities for buyers worldwide." />
+<link rel="canonical" href="https://widekhan.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="WIDEKHAN — Global Trade in Chemicals &amp; Agri-Commodities" />
+<meta property="og:description" content="Sourcing and distributing the raw materials industry runs on — chemicals, food ingredients and agricultural commodities." />
+<meta property="og:url" content="https://widekhan.com/" />
+<link rel="alternate" hreflang="en" href="https://widekhan.com/" />
+<link rel="alternate" hreflang="ko" href="https://widekhan.com/ko/" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-<!-- Loading Screen -->
-<div class="loading-screen" id="loading-screen">
-  <img 
-    src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-    alt="Widekhan Logo Loading"
-    class="loading-logo"
-  />
-</div>
-
-<header>
-  <div class="logo-container">
-    <a href="index.html">
-      <img 
-        src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true"
-        alt="Widekhan Logo"
-        class="logo-hover"
-      />
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="WIDEKHAN — home">
+      <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="url(#lgH)" stroke-width="9" stroke-linejoin="miter" />
+        <defs><linearGradient id="lgH" x1="7" y1="14" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#005B8F" /><stop offset="1" stop-color="#00A88E" />
+        </linearGradient></defs>
+      </svg>
+      <span class="logo__type">WIDEKHAN</span>
     </a>
-  </div>
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav id="nav-menu">
-    <a href="#" class="active">HOME</a>
-    <a href="our-story.html">OUR STORY</a>
-    <a href="our-lineup.html">OUR LINEUP</a>
-  </nav>
-</header>
 
-<section class="hero">
-  <video autoplay muted loop playsinline class="background-video" id="bg-video">
-    <source src="baseball.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-  <div class="hero-content">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo.png?raw=true" 
-      alt="Widekhan Logo"
-      class="hero-logo"
-    />
-  </div>
-</section>
+    <nav class="nav" id="nav">
+      <a href="about.html">Company</a>
+      <a href="chemicals.html">Chemicals</a>
+      <a href="agri.html">Food &amp; Agri</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-<!-- Quote Section -->
-<section class="quote-section">
-  <div class="quote-marks">"</div>
-  <h1 class="quote-text">One Win Is Easy. Staying on Top Is Hard.</h1>
-  <p class="quote-author">– Genghis Khan</p>
-  
-  <p class="quote-tagline">Everyone wins once. Few stay on top.</p>
-  <p class="quote-emphasis"><strong>Win wide, like a Khan.</strong></p>
-</section>
-
-<!-- Section Divider -->
-<div class="section-divider">
-  <div class="divider-container">
-    <div class="divider-line"></div>
-    <div class="home-plates">
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
-      <div class="home-plate"></div>
+    <div class="hdr__side">
+      <div class="lang">
+        <a href="index.html" aria-current="true">EN</a>
+        <span class="lang__sep">/</span>
+        <a href="ko/index.html">KO</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
-</div>
+</header>
 
-<!-- Content Section -->
-<section class="content-section">
-  <p>
-    We're not just another sports marketing and talent agency.<br />
-    We're <strong>WIDEKHAN</strong> - where elite athletes and creators forge their legacy, and companies augment their impact.
-  </p>
+<main>
 
-  <p>
-    As your strategic partner, we turn victories on and off the field, court, or track into enduring influence that transcends the game.
-  </p>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__art" aria-hidden="true">
+      <svg viewBox="0 0 600 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#005B8F" stroke-width="1.1" opacity=".55">
+          <path d="M300 90 L410 155 L410 285 L300 350 L190 285 L190 155 Z" />
+          <path d="M410 155 L520 90 M410 285 L520 350 M190 155 L80 90 M190 285 L80 350 M300 90 L300 20 M300 350 L300 430" />
+          <path d="M80 90 L80 220 L190 285 M520 90 L520 220 L410 285" />
+          <path d="M300 430 L410 480 M300 430 L190 480" />
+        </g>
+        <g fill="#005B8F">
+          <circle cx="300" cy="90" r="7" /><circle cx="410" cy="155" r="7" />
+          <circle cx="410" cy="285" r="7" /><circle cx="190" cy="155" r="7" />
+          <circle cx="190" cy="285" r="7" />
+        </g>
+        <g fill="#00A88E">
+          <circle cx="300" cy="350" r="9" /><circle cx="520" cy="90" r="6" />
+          <circle cx="80" cy="350" r="6" /><circle cx="300" cy="430" r="6" />
+        </g>
+        <g fill="#8FB3CA">
+          <circle cx="520" cy="350" r="5" /><circle cx="80" cy="90" r="5" />
+          <circle cx="300" cy="20" r="5" /><circle cx="80" cy="220" r="4" />
+          <circle cx="520" cy="220" r="4" /><circle cx="410" cy="480" r="4" />
+          <circle cx="190" cy="480" r="4" />
+        </g>
+      </svg>
+    </div>
 
-  <p>
-    Through bold brand collaborations and a voice that commands attention, we don't just grow stories - we amplify them.<br />
-    We help the world play beyond the game.
-  </p>
-</section>
+    <div class="wrap hero__in">
+      <span class="eyebrow">Global Trade · Chemicals &amp; Agri-Commodities</span>
+      <h1 class="hero__title">Sourcing the raw materials <em>industry</em> runs on.</h1>
+      <p>WIDEKHAN is a Korea-based trading house connecting verified producers with industrial
+         buyers worldwide — across industrial and specialty chemicals, food ingredients and
+         agricultural commodities.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="contact.html">
+          Request a quotation
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="chemicals.html">Explore our portfolio</a>
+      </div>
+    </div>
+  </section>
 
-<!-- CTA Section with different background -->
-<section class="cta-section">
-  <p class="cta-text">Play beyond the game with</p>
-  <h2 class="cta-brand">WIDEKHAN</h2>
-  <a href="mailto:info@widekhan.com" class="cta-button">GET IN TOUCH</a>
-</section>
+  <!--
+  ============================================================================
+  OPTIONAL STATS BAND — 실제 수치가 확정되면 아래 주석을 풀고 값을 채우세요.
+  검증되지 않은 수치는 바이어 신뢰도에 역효과이므로 비워둔 채 공개하지 마세요.
+  ============================================================================
+  <section class="stats">
+    <div class="stat"><div class="stat__n">00</div><div class="stat__l">Countries served</div></div>
+    <div class="stat"><div class="stat__n">000+</div><div class="stat__l">Products sourced</div></div>
+    <div class="stat"><div class="stat__n">00</div><div class="stat__l">Producer partners</div></div>
+    <div class="stat"><div class="stat__n">0000</div><div class="stat__l">Founded</div></div>
+  </section>
+  -->
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+  <!-- ================= BUSINESS UNITS ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Business Divisions</span>
+        <h2>Two divisions, one supply-chain discipline.</h2>
+        <p class="lede">Chemicals and agricultural commodities move through different markets, but
+          they demand the same things from a trader: verified origin, documented quality, and
+          shipments that arrive when the contract says they will.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="sector rv">
+          <div class="sector__band"></div>
+          <div class="sector__body">
+            <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M19 6v13L8 37a4 4 0 003.4 6h25.2A4 4 0 0040 37L29 19V6" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M15 6h18M13.5 29h21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <h3>Chemicals</h3>
+            <p>Industrial and specialty chemicals for coatings, plastics, electronics, personal care
+               and water treatment — sourced from qualified producers and delivered against
+               agreed specification.</p>
+            <div class="sector__tags">
+              <span class="tag">Solvents</span>
+              <span class="tag">Polymers &amp; Resins</span>
+              <span class="tag">Surfactants</span>
+              <span class="tag">Additives</span>
+              <span class="tag">Inorganics</span>
+            </div>
+            <div class="sector__foot">
+              <a class="link-arrow" href="chemicals.html">
+                View chemical portfolio
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="sector sector--agri rv">
+          <div class="sector__band"></div>
+          <div class="sector__body">
+            <svg class="sector__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 43V19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M24 25c0-7 5-12 12-13 1 8-4 13-12 13zM24 33c0-6-4-10-10-11-1 7 3 11 10 11z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M10 43h28" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <h3>Food &amp; Agri</h3>
+            <p>Grains, oilseeds, feed ingredients and food raw materials — contracted against
+               recognised quality standards and shipped in bulk, container or bagged formats to
+               suit the receiving facility.</p>
+            <div class="sector__tags">
+              <span class="tag">Grains</span>
+              <span class="tag">Oilseeds &amp; Oils</span>
+              <span class="tag">Feed Ingredients</span>
+              <span class="tag">Sweeteners</span>
+              <span class="tag">Food Additives</span>
+            </div>
+            <div class="sector__foot">
+              <a class="link-arrow" href="agri.html">
+                View agri portfolio
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VALUE / SPLIT ================= -->
+  <section class="section section--surface">
+    <div class="wrap split">
+      <div class="rv">
+        <span class="eyebrow">Why WIDEKHAN</span>
+        <h2>A trader is only as good as the shipment that lands.</h2>
+        <p class="lede" style="margin-top:1.25rem">Price is the easy part. What separates a reliable
+          counterparty is what happens between contract and discharge — and that is where we put
+          our attention.</p>
+
+        <div class="flist" style="margin-top:2.5rem">
+          <div class="fitem">
+            <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 12l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h4>Qualified supply base</h4>
+              <p>We work with producers we have audited or transacted with, not anonymous listings.
+                 Origin, plant and grade are stated up front.</p>
+            </div>
+          </div>
+          <div class="fitem">
+            <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h11v8H4zM15 10h3.5l2.5 3v2h-6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div>
+              <h4>End-to-end logistics</h4>
+              <p>Booking, packing, hazardous-goods documentation, customs and delivery handled as
+                 one workflow under a single point of contact.</p>
+            </div>
+          </div>
+          <div class="fitem">
+            <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 3h9l5 5v13H6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 3v6h6M9.5 13h6M9.5 17h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <div>
+              <h4>Documentation that clears</h4>
+              <p>CoA, MSDS/SDS, phytosanitary and certificates of origin prepared correctly the
+                 first time, so goods are not held at the border.</p>
+            </div>
+          </div>
+          <div class="fitem">
+            <svg class="fitem__i" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z" stroke="currentColor" stroke-width="1.8"/></svg>
+            <div>
+              <h4>Multi-market reach</h4>
+              <p>Positioned in Korea with sourcing and sales channels across Asia, the Middle East,
+                 Europe and the Americas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="split__art rv" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#ffffff" stroke-width="1.6" opacity=".55">
+            <path d="M40 220 C120 120, 280 120, 360 220" stroke-dasharray="6 7"/>
+            <path d="M40 220 C130 200, 270 200, 360 220" stroke-dasharray="6 7"/>
+            <path d="M40 220 C110 60, 290 60, 360 220" stroke-dasharray="6 7"/>
+          </g>
+          <g fill="#ffffff">
+            <circle cx="40" cy="220" r="9"/><circle cx="360" cy="220" r="9"/>
+          </g>
+          <g fill="#ffffff" opacity=".8">
+            <circle cx="200" cy="141" r="6"/><circle cx="200" cy="192" r="6"/><circle cx="200" cy="96" r="6"/>
+          </g>
+          <g stroke="#ffffff" stroke-width="1.6" opacity=".9">
+            <rect x="150" y="238" width="100" height="34" rx="3"/>
+            <path d="M175 238v34M200 238v34M225 238v34"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">How We Work</span>
+        <h2>From enquiry to discharge.</h2>
+        <p class="lede" style="color:#93A5B6">A single, documented process — so you always know
+          which stage your cargo is at.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step rv">
+          <div>
+            <h3>Enquiry &amp; specification</h3>
+            <p>You send the product, grade, target volume and destination. We confirm what is
+               technically and commercially achievable before quoting.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Sourcing &amp; sample approval</h3>
+            <p>We match the requirement to qualified producers, issue an offer with full
+               specification, and arrange samples for your approval where required.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Contract &amp; payment terms</h3>
+            <p>Sales contract issued with Incoterms, packing, inspection basis and payment
+               structure — L/C, T/T or D/P — agreed in writing.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Production &amp; quality control</h3>
+            <p>Production monitored against the contract specification. Third-party inspection
+               (SGS, Intertek and equivalent) arranged on request.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Shipping &amp; documentation</h3>
+            <p>Booking, packing, hazardous classification where applicable, and the full document
+               set released against agreed terms.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Arrival &amp; after-sales</h3>
+            <p>Arrival tracked to discharge, with claims, repeat-order scheduling and forward
+               contracting handled by the same team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COVERAGE ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head--center rv">
+        <span class="eyebrow">Capability</span>
+        <h2>Built for the way trade actually moves.</h2>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card rv">
+          <span class="card__num">01</span>
+          <h3>Flexible order sizes</h3>
+          <p>From single 20&#8242; containers and LCL parcels through to full bulk vessel
+             quantities — scaled to the receiving facility rather than to a minimum order.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">02</span>
+          <h3>Regulatory handling</h3>
+          <p>Support with import licensing, chemical registration requirements, dangerous-goods
+             classification and destination-country labelling.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">03</span>
+          <h3>Trade finance structures</h3>
+          <p>Letters of credit, documentary collection and open-account terms for established
+             counterparties, structured with our banking partners.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">04</span>
+          <h3>Price risk visibility</h3>
+          <p>Market context on the commodities you buy, with fixed-price, indexed and forward
+             contracting options where the underlying market allows.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">05</span>
+          <h3>Private-label &amp; repacking</h3>
+          <p>Repacking into drums, IBCs, big bags or retail formats, including customer-specified
+             labelling and neutral packing for re-export.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">06</span>
+          <h3>Long-term supply agreements</h3>
+          <p>Annual and multi-year offtake arrangements with agreed call-off schedules, for buyers
+             who need continuity of supply above all else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="cta">
+    <div class="wrap cta__in">
+      <h2>Tell us what you need to source.</h2>
+      <p>Send the product, grade, volume and destination port. We will come back with
+         availability, indicative pricing and lead time.</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="contact.html">
+          Start an enquiry
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="mailto:info@widekhan.com">info@widekhan.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="logo" href="index.html">
+          <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="#00A88E" stroke-width="9" stroke-linejoin="miter" />
+          </svg>
+          <span class="logo__type">WIDEKHAN</span>
+        </a>
+        <p>Global sourcing and distribution of industrial chemicals and agricultural commodities.</p>
+      </div>
+
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="chemicals.html">Chemicals</a></li>
+          <li><a href="agri.html">Food &amp; Agri</a></li>
+          <li><a href="services.html">Trade Services</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About WIDEKHAN</a></li>
+          <li><a href="about.html#approach">Our approach</a></li>
+          <li><a href="about.html#compliance">Compliance</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Enquiry form</a></li>
+          <li><a href="mailto:info@widekhan.com">info@widekhan.com</a></li>
+          <li><a href="ko/index.html">한국어 사이트</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ftr__btm">
+      <span>&copy; <span data-year>2026</span> WIDEKHAN. All rights reserved.</span>
+      <!-- TODO: 사업자등록번호 / 정확한 주소 확인 후 교체 -->
+      <span>Seoul, Republic of Korea</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Loading screen
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      document.getElementById('loading-screen').classList.add('fade-out');
-    }, 2500);
-  });
-
-  function toggleMenu() {
-    const nav = document.getElementById('nav-menu');
-    nav.classList.toggle('show');
-  }
-
-  // Video handling
-  const video = document.getElementById('bg-video');
-  if (video) {
-    video.addEventListener('loadeddata', () => {
-      video.play().catch(err => {
-        console.warn('Autoplay blocked:', err);
-      });
-    });
-
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible' && video.paused) {
-        video.play().catch(err => {
-          console.warn('Video resume blocked:', err);
-        });
-      }
-    });
-  }
-</script>
-
+<script src="assets/js/main.js"></script>
 </body>
 </html>

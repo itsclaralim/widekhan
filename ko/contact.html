@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>문의 — 견적 요청 | 와이드칸 WIDEKHAN</title>
+<meta name="description" content="품목, 등급, 물량, 포장, 도착항을 보내주시면 공급 가능 여부와 참고 단가, 리드타임을 회신해 드립니다. 와이드칸 무역 문의." />
+<link rel="canonical" href="https://widekhan.com/ko/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="문의 — 견적 요청 | 와이드칸 WIDEKHAN" />
+<meta property="og:description" content="필요한 품목을 알려주십시오. 공급 가능 여부와 참고 단가, 리드타임을 회신해 드립니다." />
+<link rel="alternate" hreflang="en" href="https://widekhan.com/contact.html" />
+<link rel="alternate" hreflang="ko" href="https://widekhan.com/ko/contact.html" />
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="와이드칸 홈">
+      <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="url(#lgH)" stroke-width="9" stroke-linejoin="miter" />
+        <defs><linearGradient id="lgH" x1="7" y1="14" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#005B8F" /><stop offset="1" stop-color="#00A88E" />
+        </linearGradient></defs>
+      </svg>
+      <span class="logo__type">WIDEKHAN</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="about.html">회사소개</a>
+      <a href="chemicals.html">화학</a>
+      <a href="agri.html">식품·농산물</a>
+      <a href="services.html">무역서비스</a>
+      <a href="contact.html" aria-current="page">문의</a>
+    </nav>
+
+    <div class="hdr__side">
+      <div class="lang">
+        <a href="../contact.html">EN</a>
+        <span class="lang__sep">/</span>
+        <a href="contact.html" aria-current="true">KO</a>
+      </div>
+      <button class="burger" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero hero--sub">
+    <div class="wrap hero__in">
+      <nav class="crumb" aria-label="현재 위치">
+        <a href="index.html">홈</a><span>/</span><span>문의</span>
+      </nav>
+      <span class="eyebrow">문의</span>
+      <h1 class="hero__title">필요하신 사항을 보내주십시오.</h1>
+      <p>문의가 구체적일수록 답변도 유용해집니다. 품목과 등급, 물량, 희망 포장, 도착항 정도면
+         실제로 실행 가능한 내용으로 회신드릴 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split" style="align-items:start; gap:clamp(2.5rem,6vw,5rem)">
+
+      <!-- ---------- 폼 ---------- -->
+      <div class="rv">
+        <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem); margin-bottom:.75rem">문의 양식</h2>
+        <p style="color:var(--muted); font-size:.9375rem; margin-bottom:2.25rem">
+          <span class="req">*</span> 표시는 필수 항목입니다.
+        </p>
+
+        <form class="form" id="inquiry-form" novalidate>
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-name">성함 <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-company">회사명 <span class="req">*</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" required />
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-email">업무용 이메일 <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="f-phone">연락처 / WhatsApp</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-country">국가 / 지역</label>
+              <input id="f-country" name="country" type="text" autocomplete="country-name" />
+            </div>
+            <div class="field">
+              <label for="f-division">사업부</label>
+              <select id="f-division" name="division">
+                <option value="">선택…</option>
+                <option>화학 (Chemicals)</option>
+                <option>식품·농산물 (Food &amp; Agri)</option>
+                <option>무역서비스만 필요</option>
+                <option>기타 / 미정</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-product">품목 / 등급 <span class="req">*</span></label>
+            <input id="f-product" name="product" type="text" required />
+            <div class="field__hint">품목명, CAS 번호 또는 원자재 등급 — 예: “아세톤 99.5% 공업용”, “제분용 소맥 단백 12.5%”.</div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-volume">물량 및 주기</label>
+              <input id="f-volume" name="volume" type="text" placeholder="예: 월 20FT 2컨테이너" />
+            </div>
+            <div class="field">
+              <label for="f-incoterms">인도 조건</label>
+              <select id="f-incoterms" name="incoterms">
+                <option value="">선택…</option>
+                <option>EXW</option><option>FCA</option><option>FOB</option>
+                <option>CFR</option><option>CIF</option><option>DAP</option>
+                <option>DDP</option><option>미정</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-message">상세 내용</label>
+            <textarea id="f-message" name="message" placeholder="도착항, 필요한 인증, 목표 가격 기준, 일정 등 참고할 사항을 적어주십시오."></textarea>
+          </div>
+
+          <div>
+            <button class="btn btn--primary" type="submit">
+              문의 보내기
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note" style="margin-top:1rem">
+              버튼을 누르면 작성하신 내용이 입력된 상태로 메일 프로그램이 열리며, 수신처는
+              <a href="mailto:info@widekhan.com" style="color:var(--brand)">info@widekhan.com</a>
+              입니다. 직접 메일 작성을 선호하시면 같은 주소로 보내주셔도 됩니다.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- ---------- 정보 ---------- -->
+      <aside class="rv">
+        <div class="card" style="padding:2.5rem">
+          <h3 style="margin-bottom:2rem">직접 연락</h3>
+          <div class="cinfo">
+            <div class="cinfo__row">
+              <div class="cinfo__k">일반 · 영업 문의</div>
+              <div class="cinfo__v"><a href="mailto:info@widekhan.com">info@widekhan.com</a></div>
+            </div>
+
+            <!-- TODO: 실제 전화번호 확보 후 주석 해제
+            <div class="cinfo__row">
+              <div class="cinfo__k">전화</div>
+              <div class="cinfo__v"><a href="tel:+82">+82 ...</a></div>
+            </div>
+            -->
+
+            <!-- TODO: 정확한 본사 주소 확인 후 주석 해제
+            <div class="cinfo__row">
+              <div class="cinfo__k">본사</div>
+              <div class="cinfo__v">대한민국 서울</div>
+            </div>
+            -->
+
+            <div class="cinfo__row">
+              <div class="cinfo__k">업무 시간</div>
+              <div class="cinfo__v">월–금 09:00–18:00 (KST, UTC+9)</div>
+            </div>
+            <div class="cinfo__row">
+              <div class="cinfo__k">회신 소요</div>
+              <div class="cinfo__v">영업일 기준 1일 이내 회신</div>
+            </div>
+            <div class="cinfo__row">
+              <div class="cinfo__k">대응 언어</div>
+              <div class="cinfo__v">한국어 · English</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:2.5rem; margin-top:1.5rem; background:var(--surface)">
+          <h3 style="margin-bottom:1rem">공급을 제안하시는 경우</h3>
+          <p>한국 및 아시아 시장에 원료를 공급하고자 하는 생산자시라면, 취급 품목, 생산지,
+             생산능력, 보유 인증을 위 주소로 보내주시되 제목에
+             <strong>“공급사 제안 (Supplier introduction)”</strong>이라고 표기해 주십시오.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__in">
+      <h2>어느 사업부인지 모르시겠습니까?</h2>
+      <p>그냥 보내주십시오. 내부에서 담당 부서로 전달해 한 팀이 회신드립니다. 담당자를 찾아
+         여기저기 넘겨지는 일은 없습니다.</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="mailto:info@widekhan.com">바로 메일 보내기</a>
+        <a class="btn btn--outline-light" href="services.html">취급 업무 보기</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="logo" href="index.html">
+          <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="#00A88E" stroke-width="9" stroke-linejoin="miter" />
+          </svg>
+          <span class="logo__type">WIDEKHAN</span>
+        </a>
+        <p>산업용 화학 원료 및 농산물의 글로벌 소싱과 유통.</p>
+      </div>
+      <div>
+        <h4>사업</h4>
+        <ul>
+          <li><a href="chemicals.html">화학</a></li>
+          <li><a href="agri.html">식품·농산물</a></li>
+          <li><a href="services.html">무역서비스</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>회사</h4>
+        <ul>
+          <li><a href="about.html">회사소개</a></li>
+          <li><a href="about.html#approach">업무 원칙</a></li>
+          <li><a href="about.html#compliance">컴플라이언스</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>문의</h4>
+        <ul>
+          <li><a href="contact.html">문의 양식</a></li>
+          <li><a href="mailto:info@widekhan.com">info@widekhan.com</a></li>
+          <li><a href="../contact.html">English site</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__btm">
+      <span>&copy; <span data-year>2026</span> WIDEKHAN. All rights reserved.</span>
+      <span>대한민국 서울</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
