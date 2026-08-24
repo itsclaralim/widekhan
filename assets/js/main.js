@@ -90,3 +90,14 @@
   var yr = document.querySelectorAll('[data-year]');
   yr.forEach(function (el) { el.textContent = new Date().getFullYear(); });
 })();
+
+/* ---- Header scrolled state ---- */
+(function () {
+  var hdr = document.querySelector('.hdr');
+  if (!hdr) return;
+  var onScroll = function () {
+    hdr.classList.toggle('hdr--scrolled', window.scrollY > 8);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
