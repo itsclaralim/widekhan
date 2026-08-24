@@ -673,3 +673,25 @@ html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
 @media (max-width:860px){
   .split__photo--tall{ aspect-ratio:3/4; }
 }
+
+/* ==========================================================================
+   v4 — Motion: hero background loop + inline value-chain band
+   Reference: LDC ships an inline muted/looping value-chain video; the
+   full-bleed hero loop is the premium-trader convention.
+   ========================================================================== */
+.hero__video{
+  position:absolute; inset:0; z-index:0;
+  width:100%; height:100%; object-fit:cover;
+  opacity:0; transition:opacity 1.4s var(--ease);
+  pointer-events:none;
+}
+.hero__video.is-live{ opacity:1; }
+
+.vband{
+  position:relative; overflow:hidden; aspect-ratio:21/9;
+  background:var(--surface-2);
+  margin-bottom:clamp(2.5rem,5vw,3.5rem);
+}
+.vband__v{ display:block; width:100%; height:100%; object-fit:cover; }
+@media (max-width:860px){ .vband{ aspect-ratio:16/9; } }
+@media (prefers-reduced-motion:reduce){ .hero__video{ display:none; } }

@@ -46,7 +46,11 @@
 <main>
 
   <!-- ================= HERO ================= -->
-  <section class="hero hero--home hero--photo" style="background-image:url('../assets/img/hero-home.jpg')">
+  <section class="hero hero--home hero--photo hero--video" style="background-image:url('../assets/img/poster-hero.jpg')">
+    <video class="hero__video" data-autovideo muted loop playsinline preload="none"
+           poster="../assets/img/poster-hero.jpg" aria-hidden="true" tabindex="-1">
+      <source src="../assets/video/hero-trade.mp4" type="video/mp4" />
+    </video>
     <div class="wrap hero__in">
       <span class="eyebrow">글로벌 무역 · 화학 &amp; 농산물</span>
       <h1 class="hero__title">산업이 필요로 하는 원료를 <em>전 세계</em>에서 조달합니다.</h1>
@@ -241,6 +245,13 @@
         <span class="eyebrow">밸류체인</span>
         <h2>산지에서 인도까지, 책임지는 곳은 한 곳입니다.</h2>
       </div>
+      <div class="vband rv">
+        <video class="vband__v" data-autovideo muted loop playsinline preload="none"
+               poster="../assets/img/poster-chain.jpg" aria-hidden="true" tabindex="-1">
+          <source src="../assets/video/chain-vessel.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       <div class="chain rv">
         <div class="chain__step"><span class="n">01 — 산지</span><h4>소싱</h4><p>검증된 생산자, 실사된 공장, 명시된 원산지와 등급.</p></div>
         <div class="chain__step"><span class="n">02 — 품질</span><h4>검증</h4><p>선적 전 배치별 성적서와 제3자 검사.</p></div>

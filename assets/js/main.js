@@ -101,3 +101,37 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 })();
+
+/* ---- Video: load and play only when it earns its bandwidth ----
+   Skipped entirely on reduced-motion, Save-Data, slow connections and
+   narrow screens — those visitors keep the poster still. */
+(function () {
+  var vids = document.querySelectorAll('video[data-autovideo]');
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var conn = navigator.connection || {};
+  var slow = conn.saveData === true || /2g|3g/.test(conn.effectiveType || '');
+  if (reduce || slow || window.innerWidth < 768) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (entry.isIntersecting) {
+        if (v.getAttribute('preload') === 'none') {
+          v.setAttribute('preload', 'auto');
+          v.load();
+        }
+        var played = v.play();
+        if (played && played.catch) played.catch(function () {});
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.15 });
+
+  vids.forEach(function (v) {
+    v.addEventListener('playing', function () { v.classList.add('is-live'); }, { once: true });
+    io.observe(v);
+  });
+})();

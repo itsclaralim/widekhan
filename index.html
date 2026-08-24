@@ -47,7 +47,11 @@
 <main>
 
   <!-- ================= HERO ================= -->
-  <section class="hero hero--home hero--photo" style="background-image:url('assets/img/hero-home.jpg')">
+  <section class="hero hero--home hero--photo hero--video" style="background-image:url('assets/img/poster-hero.jpg')">
+    <video class="hero__video" data-autovideo muted loop playsinline preload="none"
+           poster="assets/img/poster-hero.jpg" aria-hidden="true" tabindex="-1">
+      <source src="assets/video/hero-trade.mp4" type="video/mp4" />
+    </video>
     <div class="wrap hero__in">
       <span class="eyebrow">Global Trade · Chemicals &amp; Agri-Commodities</span>
       <h1 class="hero__title">Sourcing the raw materials that <em>industry</em> runs on.</h1>
@@ -247,6 +251,13 @@
         <span class="eyebrow">Value Chain</span>
         <h2>One accountable chain, origin to delivery.</h2>
       </div>
+      <div class="vband rv">
+        <video class="vband__v" data-autovideo muted loop playsinline preload="none"
+               poster="assets/img/poster-chain.jpg" aria-hidden="true" tabindex="-1">
+          <source src="assets/video/chain-vessel.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       <div class="chain rv">
         <div class="chain__step"><span class="n">01 — ORIGIN</span><h4>Source</h4><p>Qualified producers, audited plants, stated origin and grade.</p></div>
         <div class="chain__step"><span class="n">02 — QUALITY</span><h4>Verify</h4><p>Batch CoA and third-party inspection before anything loads.</p></div>
