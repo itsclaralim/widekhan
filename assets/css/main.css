@@ -695,3 +695,9 @@ html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
 .vband__v{ display:block; width:100%; height:100%; object-fit:cover; }
 @media (max-width:860px){ .vband{ aspect-ratio:16/9; } }
 @media (prefers-reduced-motion:reduce){ .hero__video{ display:none; } }
+
+/* --- v4.1: value-chain strip was the smallest type on the page ------------- */
+.chain__step .n{ font-size:.75rem; }              /* 11 -> 12px */
+.chain__step h4{ font-size:1.125rem; line-height:1.3; margin-bottom:.5rem; }  /* 15.5 -> 18px */
+.chain__step p{ font-size:.9375rem; line-height:1.6; }                        /* 13 -> 15px */
+html[lang="ko"] .chain__step .n{ font-size:.8125rem; }
