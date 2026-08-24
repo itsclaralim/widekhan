@@ -825,3 +825,11 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 }
 @media (max-width:640px){ .map__label{ display:none; } }
 @media (prefers-reduced-motion:reduce){ .hub .ring{ animation:none; } }
+
+/* --- v5.3: eight hubs — staggered pulse, HQ label emphasis ------------------- */
+.hub:nth-of-type(5) .ring{ animation-delay:.4s; }
+.hub:nth-of-type(6) .ring{ animation-delay:1.2s; }
+.hub:nth-of-type(7) .ring{ animation-delay:2.0s; }
+.hub:nth-of-type(8) .ring{ animation-delay:2.8s; }
+.map__label--hq{ fill:#fff; font-weight:700; }
+@media (max-width:900px){ .map__label{ font-size:11px; letter-spacing:.1em; } }
