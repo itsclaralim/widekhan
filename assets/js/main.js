@@ -135,3 +135,47 @@
     io.observe(v);
   });
 })();
+
+/* ---- Fact band: numerals count up once, on entry ----
+   Leading zeros and the sup suffix are preserved, so "02" stays "02" and
+   "18+" keeps its plus while the digits climb. */
+(function () {
+  var nums = document.querySelectorAll('.fact__n');
+  if (!nums.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var pad = function (v, width) {
+    var s = String(v);
+    while (s.length < width) { s = '0' + s; }
+    return s;
+  };
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      io.unobserve(el);
+
+      var sup = el.querySelector('sup');
+      var suffix = sup ? sup.outerHTML : '';
+      var digits = (el.textContent || '').replace(/[^0-9]/g, '');
+      var target = parseInt(digits, 10);
+      if (isNaN(target)) return;
+
+      var width = digits.length;
+      var start = null;
+      var DUR = 1150;
+
+      var frame = function (ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / DUR, 1);
+        var eased = 1 - Math.pow(1 - p, 4);
+        el.innerHTML = pad(Math.round(target * eased), width) + suffix;
+        if (p < 1) requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+    });
+  }, { threshold: 0.55 });
+
+  nums.forEach(function (n) { io.observe(n); });
+})();
