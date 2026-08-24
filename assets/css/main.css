@@ -470,3 +470,10 @@ strong{ font-weight:500; color:var(--ink); }
   .nav a{ font-size:.875rem; }
   .hdr__in{ gap:1.5rem; }
 }
+
+/* --- Real logo (recovered brand assets) ----------------------------------- */
+.logo__sym{ height:26px; width:auto; display:block; }
+.logo__word{ height:14px; width:auto; display:block; }
+.ftr .logo__sym{ height:24px; }
+.ftr .logo__word{ height:13px; }
+@media (max-width:560px){ .logo__word{ height:12px; } }
