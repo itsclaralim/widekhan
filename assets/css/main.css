@@ -649,3 +649,17 @@ html[lang="ko"] .card__num{ font-size:.8125rem; letter-spacing:.12em; }
 html[lang="ko"] .chain__step .n{ font-size:.8125rem; letter-spacing:.1em; }
 html[lang="ko"] .cinfo__k{ font-size:.8125rem; letter-spacing:.1em; }
 html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
+
+/* --- v3.3: wordmark-only logo, full-height split photos ---------------------- */
+.logo__word{ height:20px; }
+.ftr .logo__word{ height:18px; }
+@media (max-width:560px){ .logo__word{ height:15px; } }
+
+/* 스플릿: 사진이 텍스트 컬럼 높이를 그대로 따라가도록 */
+.split{ align-items:stretch; }
+.split > .rv:not(.split__photo){ display:flex; flex-direction:column; justify-content:center; }
+.split__photo{ aspect-ratio:auto; height:auto; min-height:440px; align-self:stretch; }
+.split__photo img{ height:100%; }
+@media (max-width:860px){
+  .split__photo{ min-height:0; aspect-ratio:16/10; align-self:auto; }
+}
