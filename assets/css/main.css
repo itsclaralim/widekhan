@@ -934,3 +934,8 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 :where(.motion) .head--center .eyebrow::after{ width:0; transition:width .8s var(--ease) .25s; }
 .head--center.in .eyebrow::after{ width:2.25rem; }
 @media (prefers-reduced-motion:reduce){ .head--center .eyebrow::after{ width:2.25rem; transition:none; } }
+
+/* --- Safety net: force entrance states final once the window has passed ------ */
+:where(.motion-settled) .hero--photo .hero__in > *{
+  opacity:1 !important; clip-path:none !important; transform:none !important;
+}

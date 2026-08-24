@@ -179,3 +179,11 @@
 
   nums.forEach(function (n) { io.observe(n); });
 })();
+
+/* ---- Entrance safety net ----
+   Hero animations finish by ~1.65s. At 2.6s we stamp the final state
+   regardless, so a paused/throttled animation can never leave the
+   above-the-fold headline invisible. */
+setTimeout(function () {
+  document.documentElement.classList.add('motion-settled');
+}, 2600);
