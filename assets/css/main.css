@@ -668,3 +668,8 @@ html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
 .logo__word{ height:26px; }
 .ftr .logo__word{ height:22px; }
 @media (max-width:560px){ .logo__word{ height:18px; } }
+
+/* --- v3.5: portrait-source split photos keep a tall frame on mobile ---------- */
+@media (max-width:860px){
+  .split__photo--tall{ aspect-ratio:3/4; }
+}
