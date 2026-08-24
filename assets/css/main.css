@@ -477,3 +477,148 @@ strong{ font-weight:500; color:var(--ink); }
 .ftr .logo__sym{ height:24px; }
 .ftr .logo__word{ height:13px; }
 @media (max-width:560px){ .logo__word{ height:12px; } }
+
+/* ==========================================================================
+   v3 — "Trade-desk editorial" restyle
+   Calibrated against live measurements: Vitol (76px display type,
+   12px/1px-tracked microlabels) and LDC (radius-0 sharpness, light weights).
+   ========================================================================== */
+
+/* --- Sharper geometry, global ------------------------------------------- */
+:root{
+  --radius:0;
+  --radius-lg:0;
+}
+
+/* --- Display typography --------------------------------------------------- */
+h1{ font-size:clamp(3rem,7vw,5.5rem); font-weight:300; letter-spacing:-.045em; line-height:1.02; }
+h2{ font-size:clamp(2.1rem,4.2vw,3.4rem); font-weight:300; letter-spacing:-.035em; line-height:1.06; }
+h3{ font-weight:500; }
+.lede{ font-size:clamp(1.0625rem,1.45vw,1.1875rem); font-weight:300; line-height:1.6; }
+
+.hero--home .hero__title{ font-size:clamp(3.25rem,8vw,6.25rem); max-width:15ch; }
+.hero--home .hero__in{ min-height:min(80vh,720px); }
+
+/* --- Microlabels: tiny, tracked, with leading rule ------------------------ */
+.eyebrow{
+  font-size:.6875rem; letter-spacing:.24em; margin-bottom:1.5rem;
+  display:inline-flex; align-items:center; gap:.875rem;
+}
+.eyebrow::before{
+  content:''; width:2.25rem; height:1px; background:currentColor; opacity:.55; flex-shrink:0;
+}
+.head--center .eyebrow::before,.head--center .eyebrow::after{ content:''; width:2.25rem; height:1px; background:currentColor; opacity:.55; }
+.card__num,.cat__i,.chain__step .n,.stat__l{ letter-spacing:.2em; font-size:.6875rem; }
+
+/* --- Editorial two-column section heads ----------------------------------- */
+@media (min-width:861px){
+  .head:not(.head--center){
+    max-width:none;
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr);
+    grid-template-areas:"eb eb" "ttl lede";
+    column-gap:clamp(3rem,6vw,6rem);
+    align-items:end;
+  }
+  .head:not(.head--center) .eyebrow{ grid-area:eb; }
+  .head:not(.head--center) h2{ grid-area:ttl; }
+  .head:not(.head--center) p{ grid-area:lede; margin-top:0; padding-bottom:.375rem; }
+}
+
+/* --- Nav: tracked caps ----------------------------------------------------- */
+.nav a{ font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; font-weight:500; }
+.hdr{ transition:box-shadow .3s var(--ease), background .3s var(--ease); }
+.hdr--scrolled{ box-shadow:0 1px 0 var(--line), 0 14px 34px rgba(10,26,47,.08); background:rgba(255,255,255,.94); }
+@media (max-width:860px){ .nav a{ font-size:.8125rem; letter-spacing:.1em; } }
+
+/* --- Buttons: squared, tracked caps ---------------------------------------- */
+.btn{
+  border-radius:0; padding:1rem 1.875rem;
+  font-size:.75rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+}
+.link-arrow{ font-size:.8125rem; letter-spacing:.1em; text-transform:uppercase; }
+
+/* --- Cards: hairline editorial columns ------------------------------------- */
+.card{
+  background:transparent; border:0; border-top:1px solid var(--line-strong);
+  border-radius:0; padding:1.875rem 0 0;
+}
+.card:hover{ border-top-color:var(--brand); box-shadow:none; transform:none; }
+.card:hover h3{ color:var(--brand); }
+.card h3{ transition:color .3s var(--ease); }
+.section--ink .card{ border-top:1px solid rgba(255,255,255,.18) !important; padding:1.875rem 0 0 !important; }
+.section--ink .card:hover{ border-top-color:var(--accent) !important; }
+.section--ink .card:hover h3{ color:var(--accent); }
+
+/* contact aside keeps its boxes */
+.card.card--box{ border:1px solid var(--line); padding:2.5rem; }
+.card.card--box:hover{ border-color:var(--line-strong); transform:none; }
+.card.card--box:hover h3{ color:var(--ink); }
+
+/* --- Sector cards ----------------------------------------------------------- */
+.sector{ border-radius:0; }
+.sector__band{ height:3px; }
+.sector:hover{ box-shadow:0 24px 56px rgba(10,26,47,.12); }
+
+/* --- Image cards: duotone rest state ---------------------------------------- */
+.imgcard{ border-radius:0; }
+.imgcard>img{ filter:grayscale(.25) saturate(.85); }
+.imgcard:hover>img{ filter:none; }
+
+/* --- Splits, chain, cats ------------------------------------------------------ */
+.split__photo{ border-radius:0; box-shadow:none; }
+.chain{ border:0; border-radius:0; overflow:visible; gap:2.25rem 2rem; }
+.chain__step{ border:0 !important; border-top:1px solid var(--line-strong) !important; padding:1.5rem 0 0; background:transparent; }
+.chain__step .n{ color:var(--brand); }
+.cat{ padding:2.25rem 0; }
+.cat:hover{ background:transparent; }
+.cat:hover h4{ color:var(--brand); }
+.cat__n h4{ transition:color .25s var(--ease); }
+.cat__i{ font-size:1.5rem; font-weight:200; color:var(--line-strong); letter-spacing:0; }
+.cat:hover .cat__i{ color:var(--brand); }
+
+/* --- Hero: cinematic overlay --------------------------------------------------- */
+.hero--photo::before{
+  background:
+    linear-gradient(103deg, rgba(4,11,22,.93) 0%, rgba(4,11,22,.66) 44%, rgba(4,11,22,.18) 78%, rgba(0,168,142,.10) 100%);
+}
+.hero--photo .hero__in{ padding-block:clamp(6rem,12vw,10rem); }
+.hero--sub.hero--photo .hero__in{ padding-block:clamp(4.5rem,8vw,7rem); }
+.hero p{ font-weight:300; }
+
+/* --- Commodity ticker ------------------------------------------------------------ */
+.ticker{
+  overflow:hidden; border-bottom:1px solid var(--line);
+  background:var(--paper); padding-block:1.0625rem;
+}
+.ticker__track{
+  display:flex; align-items:center; gap:3rem; width:max-content;
+  animation:tickerScroll 46s linear infinite;
+  font-size:.6875rem; font-weight:500; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--muted); white-space:nowrap;
+}
+.ticker:hover .ticker__track{ animation-play-state:paused; }
+.ticker__track i{ font-style:normal; color:var(--accent); font-size:.5rem; }
+@keyframes tickerScroll{ to{ transform:translateX(-50%); } }
+@media (prefers-reduced-motion:reduce){ .ticker__track{ animation:none; } }
+
+/* --- Footer: watermark wordmark ---------------------------------------------------- */
+.ftr{ position:relative; overflow:hidden; }
+.ftr::after{
+  content:''; position:absolute; right:-3%; bottom:-4%;
+  width:min(620px,64%); aspect-ratio:1024/203;
+  background:url('../img/logo-white.png') no-repeat center/contain;
+  opacity:.045; pointer-events:none;
+}
+.ftr .wrap{ position:relative; z-index:2; }
+
+/* --- Reveal: softer, with blur ------------------------------------------------------ */
+.rv{ transform:translateY(26px); filter:blur(7px); transition:opacity .8s var(--ease), transform .8s var(--ease), filter .8s var(--ease); }
+.rv.in{ filter:blur(0); }
+@media (prefers-reduced-motion:reduce){ .rv{ filter:none; } }
+
+/* --- Steps (ink process) -------------------------------------------------------------- */
+.step::before{ font-size:1.375rem; font-weight:200; letter-spacing:0; color:var(--accent); opacity:.9; }
+
+/* --- Selection ---------------------------------------------------------------------------- */
+::selection{ background:var(--brand); color:#fff; }
