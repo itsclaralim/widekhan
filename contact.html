@@ -1,217 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | WIDEKHAN</title>
-
-  <style>
-    /* Neue Haas Font 불러오기 */
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
-      font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'NeueHaas', sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-hover {
-      transition: filter 0.3s ease, transform 0.3s ease;
-      height: 40px;
-    }
-
-    .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 30px;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
-    .contact-section {
-      padding: 160px 40px 100px;
-      text-align: center;
-    }
-
-    .contact-section h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-      color: #f5f5f5;
-      font-weight: 700;
-    }
-
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    input, textarea {
-      padding: 15px;
-      margin-bottom: 20px;
-      background: #1a1a1a;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-size: 16px;
-      font-family: 'NeueHaas', sans-serif;
-      font-weight: 400;
-    }
-
-    button {
-      padding: 14px;
-      background: white;
-      color: black;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: background 0.3s;
-      font-family: 'NeueHaas', sans-serif;
-      font-weight: 700;
-    }
-
-    button:hover {
-      background: #ccc;
-    }
-
-    footer {
-      padding: 40px;
-      background: #111;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-top: 60px;
-      font-weight: 300;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-      }
-
-      .contact-section {
-        padding: 120px 20px 80px;
-      }
-
-      input, textarea {
-        font-size: 15px;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — Request a Quotation | WIDEKHAN</title>
+<meta name="description" content="Send WIDEKHAN your sourcing requirement — product, grade, volume, packing and destination port — and receive availability, indicative pricing and lead time." />
+<link rel="canonical" href="https://widekhan.com/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact — Request a Quotation | WIDEKHAN" />
+<meta property="og:description" content="Tell us what you need to source. We reply with availability, indicative pricing and lead time." />
+<link rel="alternate" hreflang="en" href="https://widekhan.com/contact.html" />
+<link rel="alternate" hreflang="ko" href="https://widekhan.com/ko/contact.html" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
-      alt="Widekhan Logo"
-      class="logo-hover"
-    />
-  </a>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="WIDEKHAN — home">
+      <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="url(#lgH)" stroke-width="9" stroke-linejoin="miter" />
+        <defs><linearGradient id="lgH" x1="7" y1="14" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#005B8F" /><stop offset="1" stop-color="#00A88E" />
+        </linearGradient></defs>
+      </svg>
+      <span class="logo__type">WIDEKHAN</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="about.html">Company</a>
+      <a href="chemicals.html">Chemicals</a>
+      <a href="agri.html">Food &amp; Agri</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+
+    <div class="hdr__side">
+      <div class="lang">
+        <a href="contact.html" aria-current="true">EN</a>
+        <span class="lang__sep">/</span>
+        <a href="ko/contact.html">KO</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
 </header>
 
-<section class="contact-section">
-  <h2>Contact Us</h2>
-  <form action="https://formspree.io/f/mvgqvoaz" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-</section>
+<main>
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+  <section class="hero hero--sub">
+    <div class="wrap hero__in">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Contact</span>
+      </nav>
+      <span class="eyebrow">Contact</span>
+      <h1 class="hero__title">Send us your requirement.</h1>
+      <p>The more specific the enquiry, the more useful the answer. Product and grade, volume,
+         packing preference and destination port are enough for us to come back with something
+         actionable.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split" style="align-items:start; gap:clamp(2.5rem,6vw,5rem)">
+
+      <!-- ---------- FORM ---------- -->
+      <div class="rv">
+        <h2 style="font-size:clamp(1.5rem,2.4vw,1.9rem); margin-bottom:.75rem">Enquiry form</h2>
+        <p style="color:var(--muted); font-size:.9375rem; margin-bottom:2.25rem">
+          Fields marked <span class="req">*</span> are required.
+        </p>
+
+        <form class="form" id="inquiry-form" novalidate>
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-name">Full name <span class="req">*</span></label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="f-company">Company <span class="req">*</span></label>
+              <input id="f-company" name="company" type="text" autocomplete="organization" required />
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-email">Business email <span class="req">*</span></label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone / WhatsApp</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-country">Country</label>
+              <input id="f-country" name="country" type="text" autocomplete="country-name" />
+            </div>
+            <div class="field">
+              <label for="f-division">Division</label>
+              <select id="f-division" name="division">
+                <option value="">Select…</option>
+                <option>Chemicals</option>
+                <option>Food &amp; Agri</option>
+                <option>Trade services only</option>
+                <option>Other / not sure</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-product">Product / grade <span class="req">*</span></label>
+            <input id="f-product" name="product" type="text" required />
+            <div class="field__hint">Product name, CAS number or commodity grade — e.g. “Acetone 99.5% tech grade” or “Milling wheat 12.5% protein”.</div>
+          </div>
+
+          <div class="grid grid-2" style="gap:1.375rem">
+            <div class="field">
+              <label for="f-volume">Volume &amp; frequency</label>
+              <input id="f-volume" name="volume" type="text" placeholder="e.g. 2 x 20FCL monthly" />
+            </div>
+            <div class="field">
+              <label for="f-incoterms">Delivery terms</label>
+              <select id="f-incoterms" name="incoterms">
+                <option value="">Select…</option>
+                <option>EXW</option><option>FCA</option><option>FOB</option>
+                <option>CFR</option><option>CIF</option><option>DAP</option>
+                <option>DDP</option><option>Not decided</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-message">Details</label>
+            <textarea id="f-message" name="message" placeholder="Destination port, required certification, target price basis, timeline, or anything else we should know."></textarea>
+          </div>
+
+          <div>
+            <button class="btn btn--primary" type="submit">
+              Send enquiry
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <p class="form-note" style="margin-top:1rem">
+              This opens your email client with the enquiry pre-filled, addressed to
+              <a href="mailto:info@widekhan.com" style="color:var(--brand)">info@widekhan.com</a>.
+              Prefer to write directly? That address works just as well.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <!-- ---------- INFO ---------- -->
+      <aside class="rv">
+        <div class="card" style="padding:2.5rem">
+          <h3 style="margin-bottom:2rem">Direct contact</h3>
+          <div class="cinfo">
+            <div class="cinfo__row">
+              <div class="cinfo__k">General &amp; sales enquiries</div>
+              <div class="cinfo__v"><a href="mailto:info@widekhan.com">info@widekhan.com</a></div>
+            </div>
+
+            <!-- TODO: 실제 전화번호 확보 후 주석 해제
+            <div class="cinfo__row">
+              <div class="cinfo__k">Telephone</div>
+              <div class="cinfo__v"><a href="tel:+82">+82 ...</a></div>
+            </div>
+            -->
+
+            <!-- TODO: 정확한 본사 주소 확인 후 주석 해제
+            <div class="cinfo__row">
+              <div class="cinfo__k">Head office</div>
+              <div class="cinfo__v">Seoul, Republic of Korea</div>
+            </div>
+            -->
+
+            <div class="cinfo__row">
+              <div class="cinfo__k">Business hours</div>
+              <div class="cinfo__v">Mon–Fri, 09:00–18:00 KST (UTC+9)</div>
+            </div>
+            <div class="cinfo__row">
+              <div class="cinfo__k">Response time</div>
+              <div class="cinfo__v">Enquiries answered within one business day</div>
+            </div>
+            <div class="cinfo__row">
+              <div class="cinfo__k">Working languages</div>
+              <div class="cinfo__v">English · 한국어</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:2.5rem; margin-top:1.5rem; background:var(--surface)">
+          <h3 style="margin-bottom:1rem">Supplying rather than buying?</h3>
+          <p>If you are a producer looking to place material into Korean or wider Asian markets,
+             send your product range, plant location, capacity and available certifications to the
+             same address and mark the subject line <strong>“Supplier introduction”</strong>.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__in">
+      <h2>Not sure which division you need?</h2>
+      <p>Send the enquiry anyway. We will route it internally and one team will reply — you will
+         not be passed between desks.</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="mailto:info@widekhan.com">Email us directly</a>
+        <a class="btn btn--outline-light" href="services.html">See what we handle</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="logo" href="index.html">
+          <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="#00A88E" stroke-width="9" stroke-linejoin="miter" />
+          </svg>
+          <span class="logo__type">WIDEKHAN</span>
+        </a>
+        <p>Global sourcing and distribution of industrial chemicals and agricultural commodities.</p>
+      </div>
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="chemicals.html">Chemicals</a></li>
+          <li><a href="agri.html">Food &amp; Agri</a></li>
+          <li><a href="services.html">Trade Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About WIDEKHAN</a></li>
+          <li><a href="about.html#approach">Our approach</a></li>
+          <li><a href="about.html#compliance">Compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Enquiry form</a></li>
+          <li><a href="mailto:info@widekhan.com">info@widekhan.com</a></li>
+          <li><a href="ko/contact.html">한국어 사이트</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__btm">
+      <span>&copy; <span data-year>2026</span> WIDEKHAN. All rights reserved.</span>
+      <span>Seoul, Republic of Korea</span>
+    </div>
+  </div>
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>

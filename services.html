@@ -1,218 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services | WIDEKHAN</title>
-
-  <style>
-    /* Neue Haas Font 설정 */
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayThin.ttf') format('truetype');
-      font-weight: 100;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayLight.ttf') format('truetype');
-      font-weight: 300;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayRoman.ttf') format('truetype');
-      font-weight: 400;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayMedium.ttf') format('truetype');
-      font-weight: 500;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBold.ttf') format('truetype');
-      font-weight: 700;
-    }
-    @font-face {
-      font-family: 'NeueHaas';
-      src: url('fonts/NeueHaasDisplayBlack.ttf') format('truetype');
-      font-weight: 900;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'NeueHaas', sans-serif;
-      background-color: #000;
-      color: white;
-      scroll-behavior: smooth;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 20px 40px;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-hover {
-      transition: filter 0.3s ease, transform 0.3s ease;
-      height: 40px;
-    }
-
-    .logo-hover:hover {
-      filter: brightness(1.6) drop-shadow(0 0 6px #fff);
-      transform: scale(1.05);
-    }
-
-    nav a {
-      color: white;
-      margin-left: 30px;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #aaa;
-    }
-
-    section {
-      padding: 120px 40px 100px;
-      background-color: #000;
-    }
-
-    section h2 {
-      font-size: 36px;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #f5f5f5;
-      font-weight: 700;
-    }
-
-    section p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      text-align: center;
-      font-size: 18px;
-      color: #ccc;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-
-    .pillars {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .pillars div {
-      flex: 1;
-      min-width: 200px;
-      max-width: 280px;
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-      border: 1px solid #222;
-      border-radius: 8px;
-      font-weight: 300;
-      font-size: 15px;
-      color: #ddd;
-    }
-
-    .pillars strong {
-      display: block;
-      margin: 12px 0 8px;
-      font-weight: 700;
-      color: #fff;
-      font-size: 16px;
-    }
-
-    footer {
-      padding: 40px;
-      background: #111;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-top: 60px;
-      font-weight: 300;
-    }
-
-    footer a {
-      color: #aaa;
-      margin: 0 10px;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: #fff;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trade Services — Sourcing, Logistics &amp; Documentation | WIDEKHAN</title>
+<meta name="description" content="WIDEKHAN provides end-to-end trade services: sourcing and procurement, export and import agency, freight and logistics, trade finance structuring, regulatory documentation and warehousing." />
+<link rel="canonical" href="https://widekhan.com/services.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Trade Services — Sourcing, Logistics &amp; Documentation | WIDEKHAN" />
+<meta property="og:description" content="End-to-end trade execution from enquiry to discharge, handled under a single point of contact." />
+<link rel="alternate" hreflang="en" href="https://widekhan.com/services.html" />
+<link rel="alternate" hreflang="ko" href="https://widekhan.com/ko/services.html" />
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
 
-<header>
-  <a href="index.html">
-    <img 
-      src="https://github.com/itsclaralim/widekhan-website/blob/main/widekhan%20logo%20only.png?raw=true" 
-      alt="Widekhan Logo"
-      class="logo-hover"
-    />
-  </a>
-  <nav>
-    <a href="about.html">About</a>
-    <a href="services.html">What We Do</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="WIDEKHAN — home">
+      <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="url(#lgH)" stroke-width="9" stroke-linejoin="miter" />
+        <defs><linearGradient id="lgH" x1="7" y1="14" x2="52" y2="47" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#005B8F" /><stop offset="1" stop-color="#00A88E" />
+        </linearGradient></defs>
+      </svg>
+      <span class="logo__type">WIDEKHAN</span>
+    </a>
 
-<section id="services">
-  <h2>What We Do</h2>
-  <p>
-    We are creators, visionaries, and global connectors.  
-    WIDEKHAN offers bold services for ambitious athletes, brands, and projects that dare to move differently.
-  </p>
+    <nav class="nav" id="nav">
+      <a href="about.html">Company</a>
+      <a href="chemicals.html">Chemicals</a>
+      <a href="agri.html">Food &amp; Agri</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-  <div class="pillars">
-    <div>
-      🏅<br><strong>Athlete & Talent Management</strong>
-      Guiding elite talent with vision and care.<br />
-      We go beyond contracts to build careers and character.
-    </div>
-    <div>
-      🧢<br><strong>Brand Studio</strong>
-      Building labels, visuals, and media identities.<br />
-      We blend creative instinct with strategic insight.
-    </div>
-    <div>
-      🌐<br><strong>Global Activation</strong>
-      Connecting Korea to the world stage.<br />
-      From Seoul to the world — we activate brand energy globally.
+    <div class="hdr__side">
+      <div class="lang">
+        <a href="services.html" aria-current="true">EN</a>
+        <span class="lang__sep">/</span>
+        <a href="ko/services.html">KO</a>
+      </div>
+      <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
     </div>
   </div>
-</section>
+</header>
 
-<footer>
-  © 2025 WIDEKHAN. All rights reserved. |
-  <a href="#">Instagram</a> |
-  <a href="#">LinkedIn</a> |
-  <a href="mailto:info@widekhan.com">Email</a>
+<main>
+
+  <section class="hero hero--sub">
+    <div class="wrap hero__in">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a><span>/</span><span>Services</span>
+      </nav>
+      <span class="eyebrow">Trade Services</span>
+      <h1 class="hero__title">Everything between the order and the discharge.</h1>
+      <p>Most import problems are not sourcing problems. They are documentation, classification,
+         freight and finance problems. WIDEKHAN handles the whole chain so there is one
+         counterparty accountable for the outcome.</p>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">What We Do</span>
+        <h2>Six services, one contract.</h2>
+        <p class="lede">Take them as a package or use only the parts you need — several of our
+          customers buy the goods elsewhere and use us purely for execution.</p>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card rv">
+          <span class="card__num">01</span>
+          <h3>Sourcing &amp; procurement</h3>
+          <p>Identifying and qualifying producers against your specification, negotiating on your
+             behalf, and consolidating multi-product orders into a single shipment where the
+             economics work.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">02</span>
+          <h3>Export &amp; import agency</h3>
+          <p>Acting as exporter of record from origin or importer of record at destination,
+             including entities and licences that a foreign buyer cannot easily hold directly.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">03</span>
+          <h3>Freight &amp; logistics</h3>
+          <p>Ocean, air and inland movement booked through our forwarding partners — including
+             hazardous cargo, temperature-sensitive lots and bulk vessel chartering.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">04</span>
+          <h3>Trade finance structuring</h3>
+          <p>Letters of credit, documentary collection, standby instruments and open-account terms
+             arranged with our banking partners against the risk profile of the trade.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">05</span>
+          <h3>Regulatory &amp; documentation</h3>
+          <p>SDS, CoA, certificates of origin, phytosanitary and health certificates, HS
+             classification, chemical registration and destination-country labelling.</p>
+        </div>
+        <div class="card rv">
+          <span class="card__num">06</span>
+          <h3>Warehousing &amp; repacking</h3>
+          <p>Bonded and general storage, call-off inventory close to your plant, repacking into
+             your preferred format and private-label configuration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INCOTERMS ================= -->
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Commercial Terms</span>
+        <h2>We trade on the terms you already work with.</h2>
+        <p class="lede">Incoterms&reg; 2020 throughout. If you have a standard purchase contract, we
+          will work from yours rather than insisting on ours.</p>
+      </div>
+
+      <div class="cats rv">
+        <div class="cat">
+          <div class="cat__i">EXW<br />FCA</div>
+          <div class="cat__n"><h4>Buyer-controlled freight</h4><span>You nominate the carrier</span></div>
+          <div class="cat__d">Goods made available at the producer's works or handed to your
+            nominated forwarder. Suitable where you already have competitive freight contracts.</div>
+        </div>
+        <div class="cat">
+          <div class="cat__i">FOB<br />FAS</div>
+          <div class="cat__n"><h4>Origin port delivery</h4><span>Most common for bulk</span></div>
+          <div class="cat__d">We deliver and load at the origin port; ocean freight and insurance
+            sit with you. The default basis for grain and bulk chemical cargoes.</div>
+        </div>
+        <div class="cat">
+          <div class="cat__i">CFR<br />CIF</div>
+          <div class="cat__n"><h4>Destination port delivery</h4><span>Freight included</span></div>
+          <div class="cat__d">We arrange and pay ocean freight — and marine insurance under CIF —
+            to your named discharge port. Preferred where you want a single landed number.</div>
+        </div>
+        <div class="cat">
+          <div class="cat__i">DAP<br />DDP</div>
+          <div class="cat__n"><h4>Door delivery</h4><span>Fully landed</span></div>
+          <div class="cat__d">Delivered to your facility, with import clearance and duties included
+            under DDP. Used where you want no customs exposure at all.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAYMENT ================= -->
+  <section class="section section--ink">
+    <div class="wrap">
+      <div class="head rv">
+        <span class="eyebrow">Payment</span>
+        <h2>Structured to the relationship.</h2>
+        <p class="lede" style="color:#93A5B6">First trades and long-standing accounts should not
+          carry the same terms. Ours move as the relationship does.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step rv">
+          <div>
+            <h3>Letter of Credit — L/C at sight or usance</h3>
+            <p>Irrevocable documentary credit through a first-class bank. The standard basis for
+               first transactions and for higher-value bulk cargoes.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Telegraphic Transfer — T/T</h3>
+            <p>Advance payment in part or in full, or a deposit-plus-balance structure against
+               shipping documents. Fastest to execute for repeat spot business.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Documentary Collection — D/P, D/A</h3>
+            <p>Documents released against payment or acceptance through the banking channel, for
+               counterparties with an established record.</p>
+          </div>
+        </div>
+        <div class="step rv">
+          <div>
+            <h3>Open account &amp; credit terms</h3>
+            <p>Net terms for established customers, supported by credit insurance where the
+               exposure warrants it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__art rv" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#ffffff" stroke-width="2" opacity=".9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60 200h130l30-40h60l30 40h30"/>
+            <rect x="70" y="150" width="86" height="50" rx="3"/>
+            <path d="M96 150v50M122 150v50"/>
+          </g>
+          <g fill="#ffffff" opacity=".85">
+            <circle cx="112" cy="215" r="12"/><circle cx="292" cy="215" r="12"/>
+          </g>
+          <g stroke="#ffffff" stroke-width="1.6" opacity=".45" stroke-dasharray="5 6">
+            <path d="M40 100h320M40 70h320"/>
+          </g>
+        </svg>
+      </div>
+      <div class="rv">
+        <span class="eyebrow">Single Accountability</span>
+        <h2>One counterparty, not five.</h2>
+        <p class="lede" style="margin-top:1.25rem">The usual import chain has a supplier, an agent,
+          a forwarder, a customs broker and a bank — and when something slips, each points at the
+          next one.</p>
+        <p style="margin-top:1.25rem">We take the whole span as one contract. If the cargo is late,
+           the classification is wrong, or the documents will not clear, there is one company to
+           call and one company answerable for the fix. That is the practical reason most of our
+           customers consolidate their sourcing with us rather than tendering each shipment.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="contact.html">
+            Discuss your requirement
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap cta__in">
+      <h2>Have a shipment that keeps going wrong?</h2>
+      <p>Tell us where it breaks — sourcing, freight, clearance or finance — and we will tell you
+         honestly whether we can fix it.</p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="contact.html">
+          Contact our trade desk
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn--outline-light" href="mailto:info@widekhan.com">info@widekhan.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <a class="logo" href="index.html">
+          <svg class="logo__mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M7 14 L20 47 L32 21 L44 47 L57 14" stroke="#00A88E" stroke-width="9" stroke-linejoin="miter" />
+          </svg>
+          <span class="logo__type">WIDEKHAN</span>
+        </a>
+        <p>Global sourcing and distribution of industrial chemicals and agricultural commodities.</p>
+      </div>
+      <div>
+        <h4>Business</h4>
+        <ul>
+          <li><a href="chemicals.html">Chemicals</a></li>
+          <li><a href="agri.html">Food &amp; Agri</a></li>
+          <li><a href="services.html">Trade Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About WIDEKHAN</a></li>
+          <li><a href="about.html#approach">Our approach</a></li>
+          <li><a href="about.html#compliance">Compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html">Enquiry form</a></li>
+          <li><a href="mailto:info@widekhan.com">info@widekhan.com</a></li>
+          <li><a href="ko/services.html">한국어 사이트</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr__btm">
+      <span>&copy; <span data-year>2026</span> WIDEKHAN. All rights reserved.</span>
+      <span>Seoul, Republic of Korea</span>
+    </div>
+  </div>
 </footer>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>
