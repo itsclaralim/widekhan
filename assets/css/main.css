@@ -249,7 +249,7 @@ strong{ font-weight:500; color:var(--ink); }
 .cat:hover{ background:var(--surface); }
 .cat__i{ font-size:.8125rem; font-weight:500; color:var(--brand); padding-top:.3rem; letter-spacing:.06em; }
 .cat--agri .cat__i{ color:var(--accent); }
-.cat__n h4{ font-size:1.0625rem; }
+.cat__n h3{ font-size:1.0625rem; font-weight:500; }
 .cat__n span{ display:block; font-size:.8125rem; color:var(--muted); margin-top:.375rem; }
 .cat__d{ font-size:.9375rem; color:var(--muted); }
 .cat__d ul{ display:flex; flex-wrap:wrap; gap:.5rem .75rem; }
@@ -277,7 +277,7 @@ strong{ font-weight:500; color:var(--ink); }
 .flist{ display:grid; gap:1.75rem; }
 .fitem{ display:grid; grid-template-columns:auto 1fr; gap:1.125rem; }
 .fitem__i{ width:22px; height:22px; color:var(--accent); flex-shrink:0; margin-top:.25rem; }
-.fitem h4{ margin-bottom:.375rem; }
+.fitem h3{ font-size:1.0625rem; font-weight:500; margin-bottom:.375rem; }
 .fitem p{ font-size:.9375rem; color:var(--muted); }
 
 /* --- Split media --------------------------------------------------------- */
@@ -459,7 +459,7 @@ strong{ font-weight:500; color:var(--ink); }
 .chain__step{ padding:1.75rem 1.5rem; background:var(--paper); border-left:1px solid var(--line); position:relative; }
 .chain__step:first-child{ border-left:0; }
 .chain__step .n{ font-size:.6875rem; font-weight:500; letter-spacing:.14em; color:var(--brand); display:block; margin-bottom:.75rem; }
-.chain__step h4{ font-size:.9688rem; margin-bottom:.375rem; }
+.chain__step h3{ font-size:.9688rem; margin-bottom:.375rem; }
 .chain__step p{ font-size:.8125rem; color:var(--muted); }
 @media (max-width:1024px){ .chain{ grid-template-columns:1fr 1fr; } .chain__step{ border-top:1px solid var(--line); } .chain__step:nth-child(-n+2){ border-top:0; } .chain__step:nth-child(odd){ border-left:0; } }
 @media (max-width:560px){ .chain{ grid-template-columns:1fr; } .chain__step{ border-left:0 !important; border-top:1px solid var(--line); } .chain__step:first-child{ border-top:0; } }
@@ -572,8 +572,8 @@ h3{ font-weight:500; }
 .chain__step .n{ color:var(--brand); }
 .cat{ padding:2.25rem 0; }
 .cat:hover{ background:transparent; }
-.cat:hover h4{ color:var(--brand); }
-.cat__n h4{ transition:color .25s var(--ease); }
+.cat:hover h3{ color:var(--brand); }
+.cat__n h3{ transition:color .25s var(--ease); }
 .cat__i{ font-size:1.5rem; font-weight:200; color:var(--line-strong); letter-spacing:0; }
 .cat:hover .cat__i{ color:var(--brand); }
 
@@ -698,7 +698,7 @@ html[lang="ko"] .ftr h4{ font-size:.8125rem; letter-spacing:.12em; }
 
 /* --- v4.1: value-chain strip was the smallest type on the page ------------- */
 .chain__step .n{ font-size:.75rem; }              /* 11 -> 12px */
-.chain__step h4{ font-size:1.125rem; line-height:1.3; margin-bottom:.5rem; }  /* 15.5 -> 18px */
+.chain__step h3{ font-size:1.125rem; line-height:1.3; margin-bottom:.5rem; }  /* 15.5 -> 18px */
 .chain__step p{ font-size:.9375rem; line-height:1.6; }                        /* 13 -> 15px */
 html[lang="ko"] .chain__step .n{ font-size:.8125rem; }
 
