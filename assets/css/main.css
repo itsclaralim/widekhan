@@ -1153,3 +1153,21 @@ html[lang="ko"] .skip{ font-size:.875rem; letter-spacing:.04em; }
   padding:.75rem 1rem; background:var(--brand-soft); border-left:2px solid var(--brand);
 }
 .formstatus:empty{ display:none; }
+
+/* ==========================================================================
+   v11 — Touch target sizing (WCAG 2.5.8)
+   Measured at 375px: language switcher 17x21, breadcrumb 33x21 and footer
+   links 63x16 all fell under the 24x24 minimum. Padding is added rather
+   than font size, so the visual rhythm is unchanged.
+   ========================================================================== */
+@media (max-width:860px){
+  .lang{ gap:.125rem; }
+  .lang a{ display:inline-block; padding:.5rem .4375rem; }
+  .lang__sep{ padding:0; }
+  .crumb a{ display:inline-block; padding-block:.25rem; }
+  .ftr li{ margin-bottom:.125rem; }
+  .ftr li a{ display:inline-block; padding-block:.4375rem; }
+  .ftr__btm a{ display:inline-block; padding-block:.25rem; }
+  .logo{ padding-block:.375rem; }
+  .topbar__r a{ display:inline-block; padding-block:.25rem; }
+}
