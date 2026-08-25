@@ -960,7 +960,7 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 
 /* --- In-page section nav (scrollspy) -------------------------------------------- */
 .secnav{
-  position:sticky; top:74px; z-index:90;
+  position:sticky; top:75px; z-index:90;
   background:rgba(255,255,255,.92); backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line);
 }
@@ -983,7 +983,7 @@ html[lang="ko"] .fact__n{ font-weight:100; }
 .secnav a.is-current{ color:var(--brand); }
 .secnav a.is-current::after{ transform:scaleX(1); }
 html[lang="ko"] .secnav a{ font-size:.8125rem; letter-spacing:.06em; }
-@media (max-width:860px){ .secnav{ top:74px; } .secnav__in{ gap:1.375rem; min-height:46px; } }
+@media (max-width:860px){ .secnav{ top:75px; } .secnav__in{ gap:1.375rem; min-height:46px; } }
 
 /* --- Photography wipes in from its own edge --------------------------------------- */
 :where(.motion) .split__photo{ clip-path:inset(0 0 100% 0); transition:clip-path 1.1s var(--ease); }

@@ -216,14 +216,16 @@ setTimeout(function () {
   if (main && !isHome) {
     var sections = [].slice.call(main.querySelectorAll(':scope > section'));
     sections.forEach(function (sec, i) {
-      var head = sec.querySelector('.head');
-      if (!head || !head.querySelector('h2')) return;
+      // A content section is one carrying both an eyebrow and an h2. That
+      // matches .head blocks and split layouts alike, and naturally excludes
+      // the CTA, which has an h2 but no eyebrow.
+      var brow = sec.querySelector('.eyebrow');
+      var h2 = sec.querySelector('h2');
+      if (!brow || !h2) return;
       if (!sec.id) sec.id = 'sec-' + (i + 1);
       // The eyebrow is already written as a short section label; the h2 is a
-      // full sentence and truncates badly, so it is only the fallback.
-      var brow = head.querySelector('.eyebrow');
-      var label = ((brow ? brow.textContent : head.querySelector('h2').textContent) || '')
-        .trim().replace(/[.。]\s*$/, '');
+      // full sentence and truncates badly.
+      var label = (brow.textContent || '').trim().replace(/[.。]\s*$/, '');
       if (label.length > 22) label = label.slice(0, 20).trim() + '…';
       targets.push({ el: sec, label: label });
     });
