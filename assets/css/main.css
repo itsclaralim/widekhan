@@ -1015,3 +1015,104 @@ html[lang="ko"] .secnav a{ font-size:.8125rem; letter-spacing:.06em; }
   body,body.is-leaving{ animation:none !important; opacity:1 !important; transition:none !important; }
   .progress{ display:none; }
 }
+
+/* ==========================================================================
+   v8 — Mega menu + product finder
+   The structural gap against Covestro (16 flyout nodes, deep hierarchy) and
+   BASF (persistent search). Both panels are built at runtime from the
+   generated index, so page markup is untouched.
+   ========================================================================== */
+
+/* --- Mega menu ---------------------------------------------------------------- */
+.nav a[data-mega]{ position:relative; }
+.nav a[data-mega]::before{
+  content:''; position:absolute; left:50%; bottom:-30px; width:11px; height:11px;
+  background:#fff; border-left:1px solid var(--line); border-top:1px solid var(--line);
+  transform:translateX(-50%) rotate(45deg) scale(0); transform-origin:center;
+  transition:transform .3s var(--ease); z-index:121;
+}
+.nav a[data-mega].is-open::before{ transform:translateX(-50%) rotate(45deg) scale(1); }
+
+.mega{
+  position:fixed; left:0; right:0; z-index:120;
+  background:#fff; border-bottom:1px solid var(--line);
+  box-shadow:0 24px 48px rgba(10,26,47,.10);
+  opacity:0; visibility:hidden; transform:translateY(-10px);
+  transition:opacity .28s var(--ease), transform .28s var(--ease), visibility .28s;
+}
+.mega.is-open{ opacity:1; visibility:visible; transform:none; }
+.mega__in{
+  display:grid; grid-template-columns:1.15fr 1.15fr .9fr;
+  gap:clamp(2rem,4vw,4rem); padding-block:2.75rem 3rem;
+}
+.mega__col h4{
+  font-size:.6875rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--brand); margin-bottom:1.125rem; padding-bottom:.75rem;
+  border-bottom:1px solid var(--line);
+}
+html[lang="ko"] .mega__col h4{ font-size:.8125rem; letter-spacing:.1em; }
+.mega__col ul{ display:grid; gap:.5rem; }
+.mega__col a{
+  display:block; font-size:.9375rem; color:var(--ink-2); padding:.1875rem 0;
+  transition:color .2s var(--ease), transform .2s var(--ease);
+}
+.mega__col a:hover{ color:var(--brand); transform:translateX(4px); }
+.mega__feat{ position:relative; overflow:hidden; min-height:200px; background:var(--ink); }
+.mega__feat img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0;
+  filter:grayscale(.2) saturate(.9); transition:transform .7s var(--ease); }
+.mega__feat:hover img{ transform:scale(1.05); }
+.mega__feat::after{ content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,16,30,.9), rgba(6,16,30,.15)); }
+.mega__feat span{
+  position:absolute; z-index:2; left:1.5rem; right:1.5rem; bottom:1.375rem;
+  color:#fff; font-size:.9375rem; font-weight:500; line-height:1.4;
+}
+.mega__feat span em{ display:block; font-style:normal; font-size:.6875rem;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.5rem; }
+@media (max-width:1023px){ .mega{ display:none; } }
+
+/* --- Search trigger + overlay ------------------------------------------------------ */
+.searchbtn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border:1px solid var(--line); background:transparent;
+  cursor:pointer; color:var(--ink-2); transition:border-color .2s, color .2s, background .2s;
+}
+.searchbtn:hover{ border-color:var(--ink); color:var(--ink); }
+.searchbtn svg{ width:15px; height:15px; }
+
+.finder{
+  position:fixed; inset:0; z-index:300; display:flex; flex-direction:column;
+  background:rgba(6,16,30,.62); backdrop-filter:blur(6px);
+  opacity:0; visibility:hidden; transition:opacity .3s var(--ease), visibility .3s;
+}
+.finder.is-open{ opacity:1; visibility:visible; }
+.finder__panel{
+  background:#fff; border-bottom:1px solid var(--line);
+  transform:translateY(-16px); transition:transform .35s var(--ease);
+  max-height:86vh; display:flex; flex-direction:column;
+}
+.finder.is-open .finder__panel{ transform:none; }
+.finder__bar{ display:flex; align-items:center; gap:1rem; padding-block:1.75rem; }
+.finder__bar input{
+  flex:1; border:0; border-bottom:2px solid var(--line-strong); background:transparent;
+  font-size:clamp(1.25rem,2.6vw,1.875rem); font-weight:300; padding:.5rem 0;
+  color:var(--ink); outline:none; transition:border-color .25s var(--ease);
+}
+.finder__bar input:focus{ border-bottom-color:var(--brand); }
+.finder__bar input::placeholder{ color:var(--line-strong); }
+.finder__close{ background:transparent; border:0; cursor:pointer; color:var(--muted);
+  font-size:.6875rem; letter-spacing:.16em; text-transform:uppercase; padding:.5rem; }
+.finder__close:hover{ color:var(--ink); }
+.finder__results{ overflow-y:auto; padding-bottom:2.5rem; }
+.finder__hint{ font-size:.8125rem; color:var(--muted); padding-bottom:1.5rem; }
+.fres{
+  display:grid; grid-template-columns:auto 1fr auto; gap:1.25rem; align-items:baseline;
+  padding:.9375rem 0; border-top:1px solid var(--line);
+  transition:background .2s var(--ease);
+}
+.fres:hover{ background:var(--surface); }
+.fres__k{ font-size:.6875rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+.fres__n{ font-size:1.0625rem; color:var(--ink); }
+.fres__n mark{ background:transparent; color:var(--brand); font-weight:500; }
+.fres__p{ font-size:.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
+@media (max-width:640px){ .fres{ grid-template-columns:1fr; gap:.25rem; } .fres__p{ display:none; } }

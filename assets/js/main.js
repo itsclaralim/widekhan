@@ -304,3 +304,200 @@ setTimeout(function () {
     });
   }
 })();
+
+/* ==========================================================================
+   v8 — Mega menu + product finder, built from the generated index.
+   ========================================================================== */
+(function () {
+  'use strict';
+  var idx = window.WK_INDEX;
+  if (!idx) return;
+  var ko = document.documentElement.lang === 'ko';
+  var rows = idx[ko ? 'ko' : 'en'] || [];
+  var t = ko
+    ? { chem: '화학', agri: '식품·농산물', ind: '산업분야', all: '전체 보기',
+        search: '품목 검색', ph: '품목명을 입력하세요 — 예: 아세톤, 소맥, 가소제',
+        hint: '취급 품목과 카테고리 전체에서 검색합니다.', none: '검색 결과가 없습니다.',
+        close: '닫기', cat: '카테고리' }
+    : { chem: 'Chemicals', agri: 'Food & Agri', ind: 'Industries', all: 'View all',
+        search: 'Search products', ph: 'Search a product — e.g. acetone, wheat, plasticiser',
+        hint: 'Searching every listed product and category.', none: 'No match.',
+        close: 'Close', cat: 'Category' };
+
+  var esc = function (s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c];
+    });
+  };
+  var byPage = function (p) {
+    return rows.filter(function (r) { return r.p === p; });
+  };
+  var imgBase = /\/ko\//.test(location.pathname) ? '../assets/img/' : 'assets/img/';
+
+  /* ---------- Mega menu ---------- */
+  var hdr = document.querySelector('.hdr');
+  var navEl = document.querySelector('.nav');
+
+  if (hdr && navEl && window.innerWidth > 1023) {
+    var panels = {};
+
+    var build = function (pageFile, featImg, kicker) {
+      var list = byPage(pageFile);
+      if (!list.length) return;
+      var half = Math.ceil(list.length / 2);
+      var col = function (arr) {
+        return '<ul>' + arr.map(function (r) {
+          return '<li><a href="' + pageFile + '#' + r.id + '">' + esc(r.n) + '</a></li>';
+        }).join('') + '</ul>';
+      };
+      var el = document.createElement('div');
+      el.className = 'mega';
+      el.innerHTML =
+        '<div class="wrap mega__in">' +
+          '<div class="mega__col"><h4>' + esc(t.cat) + ' 01</h4>' + col(list.slice(0, half)) + '</div>' +
+          '<div class="mega__col"><h4>' + esc(t.cat) + ' 02</h4>' + col(list.slice(half)) + '</div>' +
+          '<a class="mega__feat" href="' + pageFile + '">' +
+            '<img src="' + featImg + '" alt="" loading="lazy" />' +
+            '<span><em>' + esc(kicker) + '</em>' + esc(t.all) + '</span>' +
+          '</a>' +
+        '</div>';
+      document.body.appendChild(el);
+      panels[pageFile] = el;
+    };
+
+    build('chemicals.html', imgBase + 'div-chemicals.jpg', t.chem);
+    build('agri.html', imgBase + 'div-agri.jpg', t.agri);
+    build('industries.html', imgBase + 'hero-industries.jpg', t.ind);
+
+    var openKey = null;
+    var closeTimer = null;
+
+    var place = function (el) {
+      el.style.top = Math.max(0, hdr.getBoundingClientRect().bottom) + 'px';
+    };
+    var closeAll = function () {
+      Object.keys(panels).forEach(function (k) { panels[k].classList.remove('is-open'); });
+      navEl.querySelectorAll('a[data-mega]').forEach(function (a) { a.classList.remove('is-open'); });
+      openKey = null;
+    };
+    var openPanel = function (key, link) {
+      if (openKey === key) return;
+      closeAll();
+      var el = panels[key];
+      if (!el) return;
+      place(el);
+      el.classList.add('is-open');
+      link.classList.add('is-open');
+      openKey = key;
+    };
+    var armClose = function () {
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(closeAll, 180);
+    };
+
+    navEl.querySelectorAll('a').forEach(function (a) {
+      var file = (a.getAttribute('href') || '').split('#')[0];
+      if (!panels[file]) return;
+      a.setAttribute('data-mega', file);
+      a.addEventListener('mouseenter', function () { clearTimeout(closeTimer); openPanel(file, a); });
+      a.addEventListener('mouseleave', armClose);
+      a.addEventListener('focus', function () { clearTimeout(closeTimer); openPanel(file, a); });
+    });
+    Object.keys(panels).forEach(function (k) {
+      panels[k].addEventListener('mouseenter', function () { clearTimeout(closeTimer); });
+      panels[k].addEventListener('mouseleave', armClose);
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+    window.addEventListener('scroll', function () {
+      if (openKey) place(panels[openKey]);
+    }, { passive: true });
+  }
+
+  /* ---------- Product finder ---------- */
+  var side = document.querySelector('.hdr__side');
+  if (!side) return;
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'searchbtn';
+  btn.setAttribute('aria-label', t.search);
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+    '<circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>' +
+    '<path d="M16.5 16.5 21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  side.insertBefore(btn, side.firstChild);
+
+  var ov = document.createElement('div');
+  ov.className = 'finder';
+  ov.innerHTML =
+    '<div class="finder__panel">' +
+      '<div class="wrap">' +
+        '<div class="finder__bar">' +
+          '<input type="search" autocomplete="off" spellcheck="false" placeholder="' + esc(t.ph) + '" aria-label="' + esc(t.search) + '" />' +
+          '<button type="button" class="finder__close">' + esc(t.close) + '</button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="wrap finder__results"><p class="finder__hint">' + esc(t.hint) + '</p></div>' +
+    '</div>';
+  document.body.appendChild(ov);
+
+  var input = ov.querySelector('input');
+  var results = ov.querySelector('.finder__results');
+
+  var mark = function (s, q) {
+    var i = s.toLowerCase().indexOf(q);
+    if (i < 0) return esc(s);
+    return esc(s.slice(0, i)) + '<mark>' + esc(s.slice(i, i + q.length)) + '</mark>' + esc(s.slice(i + q.length));
+  };
+
+  var render = function (raw) {
+    var q = raw.trim().toLowerCase();
+    if (!q) {
+      results.innerHTML = '<p class="finder__hint">' + esc(t.hint) + '</p>';
+      return;
+    }
+    var hits = [];
+    rows.forEach(function (r) {
+      if (r.n.toLowerCase().indexOf(q) > -1) {
+        hits.push({ k: t.cat, n: r.n, p: r.p, id: r.id });
+      }
+      r.i.forEach(function (item) {
+        if (item.toLowerCase().indexOf(q) > -1) {
+          hits.push({ k: r.n, n: item, p: r.p, id: r.id });
+        }
+      });
+    });
+    if (!hits.length) {
+      results.innerHTML = '<p class="finder__hint">' + esc(t.none) + '</p>';
+      return;
+    }
+    results.innerHTML = hits.slice(0, 40).map(function (h) {
+      return '<a class="fres" href="' + h.p + '#' + h.id + '">' +
+        '<span class="fres__k">' + esc(h.k) + '</span>' +
+        '<span class="fres__n">' + mark(h.n, q) + '</span>' +
+        '<span class="fres__p">' + esc(h.p.replace('.html', '')) + '</span>' +
+      '</a>';
+    }).join('');
+  };
+
+  var openFinder = function () {
+    ov.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { input.focus(); }, 60);
+  };
+  var closeFinder = function () {
+    ov.classList.remove('is-open');
+    document.body.style.overflow = '';
+  };
+
+  btn.addEventListener('click', openFinder);
+  ov.querySelector('.finder__close').addEventListener('click', closeFinder);
+  ov.addEventListener('click', function (e) { if (e.target === ov) closeFinder(); });
+  input.addEventListener('input', function () { render(input.value); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && ov.classList.contains('is-open')) closeFinder();
+    if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+      e.preventDefault();
+      openFinder();
+    }
+  });
+})();
