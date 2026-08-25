@@ -187,3 +187,118 @@
 setTimeout(function () {
   document.documentElement.classList.add('motion-settled');
 }, 2600);
+
+/* ==========================================================================
+   v7 — Elaboration layer. Every element below is constructed at runtime, so
+   no page markup changes and nothing to break when JS is unavailable.
+   ========================================================================== */
+(function () {
+  'use strict';
+  if (!document.documentElement.classList.contains('motion')) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Scroll progress ---- */
+  var bar = null;
+  if (!reduce) {
+    var wrapEl = document.createElement('div');
+    wrapEl.className = 'progress';
+    wrapEl.setAttribute('aria-hidden', 'true');
+    bar = document.createElement('span');
+    bar.className = 'progress__bar';
+    wrapEl.appendChild(bar);
+    document.body.appendChild(wrapEl);
+  }
+
+  /* ---- In-page section nav, built from the section headings ---- */
+  var main = document.querySelector('main');
+  var targets = [];
+  var isHome = !!document.querySelector('.hero--home');
+  if (main && !isHome) {
+    var sections = [].slice.call(main.querySelectorAll(':scope > section'));
+    sections.forEach(function (sec, i) {
+      var head = sec.querySelector('.head');
+      if (!head || !head.querySelector('h2')) return;
+      if (!sec.id) sec.id = 'sec-' + (i + 1);
+      // The eyebrow is already written as a short section label; the h2 is a
+      // full sentence and truncates badly, so it is only the fallback.
+      var brow = head.querySelector('.eyebrow');
+      var label = ((brow ? brow.textContent : head.querySelector('h2').textContent) || '')
+        .trim().replace(/[.。]\s*$/, '');
+      if (label.length > 22) label = label.slice(0, 20).trim() + '…';
+      targets.push({ el: sec, label: label });
+    });
+  }
+
+  var links = [];
+  if (targets.length >= 3) {
+    var nav = document.createElement('nav');
+    nav.className = 'secnav';
+    nav.setAttribute('aria-label', document.documentElement.lang === 'ko' ? '페이지 내 이동' : 'On this page');
+    var inner = document.createElement('div');
+    inner.className = 'wrap secnav__in';
+    targets.forEach(function (t) {
+      var a = document.createElement('a');
+      a.href = '#' + t.el.id;
+      a.textContent = t.label;
+      inner.appendChild(a);
+      links.push(a);
+    });
+    nav.appendChild(inner);
+    var hero = main.querySelector('.hero');
+    if (hero && hero.nextSibling) main.insertBefore(nav, hero.nextSibling);
+    else main.insertBefore(nav, main.firstChild);
+  }
+
+  /* ---- One rAF-throttled scroll pass drives progress, spy and parallax ---- */
+  var heroMedia = document.querySelector('.hero--home .hero__video');
+  var ticking = false;
+
+  var onScroll = function () {
+    var doc = document.documentElement;
+    var max = doc.scrollHeight - window.innerHeight;
+    var y = window.scrollY || doc.scrollTop;
+
+    if (bar) bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+
+    if (links.length) {
+      var line = y + window.innerHeight * 0.28;
+      var active = 0;
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i].el.offsetTop <= line) active = i;
+      }
+      for (var j = 0; j < links.length; j++) {
+        links[j].classList.toggle('is-current', j === active);
+      }
+    }
+
+    if (heroMedia && !reduce && y < window.innerHeight * 1.2) {
+      heroMedia.style.transform = 'translate3d(0,' + (y * 0.18) + 'px,0) scale(1.06)';
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
+  onScroll();
+
+  /* ---- Page transition on same-origin navigation ---- */
+  if (!reduce) {
+    document.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (!href || href.charAt(0) === '#' || a.target === '_blank' || a.hasAttribute('download')) return;
+      if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+      if (a.origin !== window.location.origin) return;
+      if (a.pathname === window.location.pathname && a.search === window.location.search) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function () { window.location.href = a.href; }, 260);
+    });
+    window.addEventListener('pageshow', function (ev) {
+      if (ev.persisted) document.body.classList.remove('is-leaving');
+    });
+  }
+})();
