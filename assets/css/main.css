@@ -1171,3 +1171,12 @@ html[lang="ko"] .skip{ font-size:.875rem; letter-spacing:.04em; }
   .logo{ padding-block:.375rem; }
   .topbar__r a{ display:inline-block; padding-block:.25rem; }
 }
+
+/* --- v12: media can never be trapped by a reveal that did not arrive -------
+   The entrance effects are worth keeping, but no image or video may depend
+   on a class to be visible at all. Once motion-settled is stamped (2.6s),
+   every media reveal resolves whatever the observer did. */
+:where(.motion-settled) .split__photo,
+:where(.motion-settled) .imgcard,
+:where(.motion-settled) .vband{ clip-path:none !important; }
+:where(.motion-settled) .rv{ opacity:1 !important; filter:none !important; transform:none !important; }

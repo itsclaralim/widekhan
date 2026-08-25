@@ -28,25 +28,56 @@
     });
   }
 
-  /* ---- Scroll reveal ---- */
-  var targets = document.querySelectorAll('.rv');
+  /* ---- Scroll reveal ----
+     threshold is 0, not a fraction. A zero-area target - an image card
+     whose lazy image has not resolved yet - reports ratio 0 forever and can
+     never cross a fractional threshold, so it would stay clipped and
+     transparent permanently. A geometric sweep backs the observer up so no
+     element can be trapped whatever the observer reports. */
+  var targets = [].slice.call(document.querySelectorAll('.rv'));
   if (targets.length) {
+    var reveal = function (el) {
+      if (!el.classList.contains('in')) el.classList.add('in');
+    };
+    targets.forEach(function (el, i) {
+      el.style.transitionDelay = Math.min(i % 4, 3) * 80 + 'ms';
+    });
+
     if (!('IntersectionObserver' in window)) {
-      targets.forEach(function (el) { el.classList.add('in'); });
+      targets.forEach(reveal);
     } else {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in');
+            reveal(entry.target);
             io.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
+      targets.forEach(function (el) { io.observe(el); });
 
-      targets.forEach(function (el, i) {
-        el.style.transitionDelay = Math.min(i % 4, 3) * 80 + 'ms';
-        io.observe(el);
-      });
+      var sweep = function () {
+        var h = window.innerHeight || 0;
+        for (var i = 0; i < targets.length; i++) {
+          var el = targets[i];
+          if (el.classList.contains('in')) continue;
+          if (el.getBoundingClientRect().top < h * 0.94) {
+            reveal(el);
+            io.unobserve(el);
+          }
+        }
+      };
+      var queued = false;
+      window.addEventListener('scroll', function () {
+        if (queued) return;
+        queued = true;
+        requestAnimationFrame(function () { queued = false; sweep(); });
+      }, { passive: true });
+      window.addEventListener('resize', sweep, { passive: true });
+      window.addEventListener('load', sweep);
+      setTimeout(sweep, 400);
+      setTimeout(sweep, 1600);
+      sweep();
     }
   }
 
