@@ -1116,3 +1116,25 @@ html[lang="ko"] .mega__col h4{ font-size:.8125rem; letter-spacing:.1em; }
 .fres__n mark{ background:transparent; color:var(--brand); font-weight:500; }
 .fres__p{ font-size:.75rem; color:var(--muted); letter-spacing:.08em; text-transform:uppercase; }
 @media (max-width:640px){ .fres{ grid-template-columns:1fr; gap:.25rem; } .fres__p{ display:none; } }
+
+/* ==========================================================================
+   v9 — Accessibility corrections (measured, not guessed)
+   --accent on white was 3.00:1 and --line-strong numerals 1.54:1, both
+   below the 4.5:1 AA floor for text at these sizes.
+   ========================================================================== */
+
+/* Teal reads as the brand accent but only clears AA on dark grounds.
+   On light grounds the label now uses a darkened variant (5.31:1). */
+:root{ --accent-ink:#00705E; }
+.eyebrow--accent{ color:var(--accent-ink); }
+.section--ink .eyebrow--accent,
+.hero--photo .eyebrow--accent,
+.cta .eyebrow--accent{ color:var(--accent); }
+.cat--agri .cat__i{ color:var(--line-strong); }
+.fitem__i{ color:var(--accent-ink); }
+.section--ink .fitem__i,.cta .fitem__i{ color:var(--accent); }
+
+/* Category numerals were decorative-pale; lifted to a legible tone that
+   still sits behind the category name in the hierarchy (4.63:1). */
+.cat__i{ color:#6C7F91; }
+.cat:hover .cat__i,.cat--agri:hover .cat__i{ color:var(--brand); }
