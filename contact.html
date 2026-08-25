@@ -29,6 +29,7 @@
 </script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <div class="topbar">
   <div class="wrap topbar__in">
@@ -63,7 +64,7 @@
   </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
 
   <section class="hero hero--sub hero--photo" style="background-image:url('assets/img/hero-contact.jpg')">
     <div class="wrap hero__in">
@@ -160,6 +161,7 @@
               Send enquiry
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
+            <p class="formstatus" role="status" aria-live="polite"></p>
             <p class="form-note" style="margin-top:1rem">
               This opens your email client with the enquiry pre-filled, addressed to
               <a href="mailto:info@widekhan.com" style="color:var(--brand)">info@widekhan.com</a>.

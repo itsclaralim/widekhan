@@ -4,12 +4,12 @@
    ========================================================================== */
 
 /* --- Fonts (self-hosted, already in /fonts) ------------------------------ */
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayThin.ttf')   format('truetype'); font-weight:200; font-display:swap; }
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayLight.ttf')  format('truetype'); font-weight:300; font-display:swap; }
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayRoman.ttf')  format('truetype'); font-weight:400; font-display:swap; }
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayMediu.ttf')  format('truetype'); font-weight:500; font-display:swap; }
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayBold.ttf')   format('truetype'); font-weight:700; font-display:swap; }
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayBlack.ttf')  format('truetype'); font-weight:900; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayThin.woff2') format('woff2'); font-weight:200; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayLight.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayRoman.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayMediu.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayBold.woff2') format('woff2'); font-weight:700; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayBlack.woff2') format('woff2'); font-weight:900; font-display:swap; }
 
 /* --- Tokens -------------------------------------------------------------- */
 :root{
@@ -710,7 +710,7 @@ html[lang="ko"] .chain__step .n{ font-size:.8125rem; }
    - Utility topbar, fact band, 1280 container, hover refinements
    ========================================================================== */
 
-@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayXThin.ttf') format('truetype'); font-weight:100; font-display:swap; }
+@font-face { font-family:'NeueHaas'; src:url('../../fonts/NeueHaasDisplayXThin.woff2') format('woff2'); font-weight:100; font-display:swap; }
 
 :root{ --wrap:1280px; }
 
@@ -1138,3 +1138,18 @@ html[lang="ko"] .mega__col h4{ font-size:.8125rem; letter-spacing:.1em; }
    still sits behind the category name in the hierarchy (4.63:1). */
 .cat__i{ color:#6C7F91; }
 .cat:hover .cat__i,.cat--agri:hover .cat__i{ color:var(--brand); }
+
+/* --- v10: keyboard bypass + form status ------------------------------------- */
+.skip{
+  position:absolute; left:1rem; top:-100px; z-index:400;
+  background:var(--ink); color:#fff; padding:.875rem 1.5rem;
+  font-size:.75rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase;
+  transition:top .2s var(--ease);
+}
+.skip:focus{ top:1rem; }
+html[lang="ko"] .skip{ font-size:.875rem; letter-spacing:.04em; }
+.formstatus{
+  margin-top:1rem; font-size:.875rem; color:var(--brand);
+  padding:.75rem 1rem; background:var(--brand-soft); border-left:2px solid var(--brand);
+}
+.formstatus:empty{ display:none; }

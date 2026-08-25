@@ -83,6 +83,15 @@
       window.location.href = 'mailto:info@widekhan.com'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
+
+      // The mailto hand-off is silent, so announce it for screen readers and
+      // for anyone whose mail client opens in a background window.
+      var status = form.querySelector('.formstatus');
+      if (status) {
+        status.textContent = document.documentElement.lang === 'ko'
+          ? '메일 프로그램을 열었습니다. 창이 뜨지 않으면 info@widekhan.com 으로 직접 보내주십시오.'
+          : 'Your email client should now be open. If nothing appeared, write to info@widekhan.com directly.';
+      }
     });
   }
 
